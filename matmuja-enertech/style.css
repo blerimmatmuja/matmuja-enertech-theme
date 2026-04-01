@@ -1,15 +1,16 @@
 /*
-Theme Name: M&M EnerTech
+Theme Name: Matmuja Tiefbau
 Theme URI: https://www.matmuja.de/
 Author: M&M EnerTech UG
-Description: Professional WordPress theme for M&M EnerTech - Germany's leading fiber optic civil engineering company. Bold dark-blue and gold color scheme.
+Description: Professional WordPress theme for Matmuja Tiefbau - Germany's leading fiber optic civil engineering company. Bold dark-blue and gold color scheme.
 Version: 1.0.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 8.0
 License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: matmuja-tiefbau
-Tags: business, construction, custom-colors, custom-menu, responsive-layout
+Tags: business, construction, custom-colors, custom-menu, responsive-layout, block-patterns, custom-logo, editor-styles, featured-images, full-site-editing, threaded-comments, translation-ready
 */
 
 /* === CSS VARIABLES === */
@@ -286,3 +287,11 @@ label { display: block; font-weight: 600; font-size: 0.9rem; color: var(--color-
   .btn { width: 100%; }
   .hero-buttons { flex-direction: column; }
 }
+
+/* === LAZY LOADING === */
+img[data-src] { opacity: 0; transition: opacity 0.3s ease; }
+img[data-src].lazy { opacity: 1; }
+
+/* === MENU OPEN STATE === */
+body.menu-open { overflow: hidden; }
+body.menu-open .nav-menu.active { display: flex; }

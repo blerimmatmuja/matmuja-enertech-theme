@@ -2,10 +2,21 @@
 
 A professional WordPress theme inspired by matmuja.de – Germany's leading fiber optic (Glasfaser) civil engineering company.
 
+## Features
+
+- **Modern Design**: Clean, professional design with dark blue and gold color scheme
+- **Responsive**: Mobile-first approach, optimized for all devices
+- **Performance**: Optimized CSS/JS, lazy loading, and efficient code
+- **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
+- **SEO Ready**: Schema markup, clean HTML, and semantic structure
+- **Customizable**: Extensive WordPress Customizer options
+- **Block Editor Support**: Full theme.json configuration for Gutenberg
+- **Multilingual**: Translation ready with .pot file
+
 ## Design
 - **Primary Color**: Dark Blue (#19197a)
 - **Accent Color**: Gold/Orange (#f5a623)
-- **Font**: Inter (loaded from Google Fonts)
+- **Font**: Inter (Google Fonts)
 - **Layout**: Full-width, responsive, mobile-first
 
 ## Sections (Front Page)
@@ -19,11 +30,32 @@ A professional WordPress theme inspired by matmuja.de – Germany's leading fibe
 8. CTA – Contact call-to-action box
 9. Footer – Dark blue with address, links, social icons
 
-## Files
+## Installation
+
+1. Upload the `matmuja-tiefbau` folder to `/wp-content/themes/`
+   OR upload the ZIP via **Appearance → Themes → Add New → Upload Theme**
+2. Activate the theme in **Appearance → Themes**
+3. Go to **Appearance → Customize** to configure theme options
+
+## Development
+
+### Prerequisites
+- Node.js and npm
+- WordPress 6.0+
+- PHP 8.0+
+
+### Build Commands
+```bash
+npm install          # Install dependencies
+npm run build        # Build minified assets
+npm run dev          # Watch for changes during development
+```
+
+### File Structure
 ```
 matmuja-tiefbau/
-├── style.css              # Theme header + all CSS
-├── functions.php          # Theme setup, CPTs, customizer
+├── style.css              # Main stylesheet
+├── functions.php          # Theme functions and setup
 ├── front-page.php         # Homepage template
 ├── index.php              # Blog/archive listing
 ├── single.php             # Single post
@@ -37,17 +69,53 @@ matmuja-tiefbau/
 ├── comments.php           # Comments template
 ├── assets/
 │   └── js/
-│       └── main.js        # Vanilla JS (nav, FAQ, scroll reveal)
+│       └── main.js        # Main JavaScript
 ├── inc/
 │   └── template-tags.php  # Helper functions
-└── languages/
-    └── matmuja-tiefbau.pot  # Translation template
+├── languages/
+│   └── matmuja-tiefbau.pot # Translation template
+├── theme.json             # Block editor configuration
+└── package.json           # Build dependencies
 ```
 
-## Installation
-1. Upload the `matmuja-tiefbau` folder to `/wp-content/themes/`
-   OR upload the ZIP via **Appearance → Themes → Add New → Upload Theme**
-2. Activate the theme in **Appearance → Themes**
+## Customization
+
+### Customizer Options
+- **Company Information**: Contact details, social media links
+- **Hero Section**: Title, subtitle, button text, background image
+- **Intro Section**: Company description, call-to-action
+
+### Custom Post Types
+- **Services**: Manage service offerings
+- **References**: Showcase project references
+
+### Menus
+- **Primary Menu**: Main navigation
+- **Footer Menu**: Footer links
+- **Services Dropdown**: Services submenu
+
+## Browser Support
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Changelog
+
+### 1.0.0
+- Initial release
+- Modern CSS with custom properties
+- Responsive design
+- Accessibility improvements
+- Performance optimizations
+- Schema markup for SEO
+
+## License
+GPL-2.0-or-later
+
+## Credits
+- Font: [Inter](https://fonts.google.com/specimen/Inter) by Google Fonts
+- Icons: Custom SVG illustrations
 3. Go to **Appearance → Menus** to set up navigation
 4. Go to **Appearance → Customize** to configure:
    - Company phone, email, and address

@@ -1,0 +1,23 @@
+{
+  "name": "matmuja-tiefbau-theme",
+  "version": "1.0.0",
+  "description": "WordPress theme for Matmuja Tiefbau - Professional fiber optic civil engineering company",
+  "main": "style.css",
+  "scripts": {
+    "build": "npm run build-css && npm run build-js",
+    "build-css": "postcss matmuja-enertech/style.css -o matmuja-enertech/style.min.css --use cssnano",
+    "build-js": "terser matmuja-enertech/assets/js/main.js -o matmuja-enertech/assets/js/main.min.js --compress --mangle",
+    "watch-css": "postcss matmuja-enertech/style.css -o matmuja-enertech/style.css --watch",
+    "watch-js": "onchange 'matmuja-enertech/assets/js/main.js' -- npm run build-js",
+    "dev": "npm run watch-css & npm run watch-js"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.0",
+    "onchange": "^7.1.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^10.0.0",
+    "terser": "^5.0.0"
+  },
+  "author": "M&M EnerTech UG",
+  "license": "GPL-2.0-or-later"
+}

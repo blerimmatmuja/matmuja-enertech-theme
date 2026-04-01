@@ -19,11 +19,11 @@
         <nav class="navbar" aria-label="Main Navigation">
 
             <?php // ─── LOGO ─────────────────── ?>
-            <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-logo" rel="home">
+            <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-logo" rel="home" aria-label="<?php esc_attr_e( 'Zur Startseite', 'matmuja-tiefbau' ); ?>">
                 <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
                 <span class="logo-text">
-                    M&M EnerTech
-                    <small class="logo-sub">Tiefbau Gesellschaft mbH</small>
+                    Matmuja Tiefbau
+                    <small class="logo-sub"><?php esc_html_e( 'Tiefbau Gesellschaft mbH', 'matmuja-tiefbau' ); ?></small>
                 </span>
                 <?php endif; ?>
             </a>
