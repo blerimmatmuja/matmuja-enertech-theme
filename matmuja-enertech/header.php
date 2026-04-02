@@ -23,7 +23,6 @@
                 <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
                 <span class="logo-text">
                     M&M EnerTech
-                    <small class="logo-sub"><?php esc_html_e( 'GmbH', 'matmuja-tiefbau' ); ?></small>
                 </span>
                 <?php endif; ?>
             </a>
