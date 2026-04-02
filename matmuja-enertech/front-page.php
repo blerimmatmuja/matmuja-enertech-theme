@@ -84,25 +84,20 @@ get_header();
 <section class="section section-services">
     <div class="container">
 
-        <?php // ─── Service Item 1: Planung ─── ?>
+        <?php // ─── Service Item 1: Projektplanung ─── ?>
         <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;">
             <div class="col">
                 <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Planung & Vorbereitung', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Planung und Design', 'matmuja-tiefbau'); ?></h2>
+                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 1', 'matmuja-tiefbau'); ?></span>
+                    <h2><?php _e('Projektplanung', 'matmuja-tiefbau'); ?></h2>
                     <p><?php _e('Eine erfolgreiche Glasfaserinfrastruktur beginnt mit einer präzisen und umfassenden Planung. Unser Team analysiert die Anforderungen des Projekts und berücksichtigt sowohl technische als auch geografische Besonderheiten.', 'matmuja-tiefbau'); ?></p>
                     <p><?php _e('Von der Trassenauswahl über die Adressvalidierung bis zur Genehmigungsplanung: Wir setzen auf eine detaillierte Vorplanung, die alle Aspekte der späteren Umsetzung berücksichtigt.', 'matmuja-tiefbau'); ?></p>
                     <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Ihre Planung anfragen', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div style="width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),rgba(201, 168, 76, 0.4));display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:180px;opacity:0.8">
-                        <rect x="30" y="140" width="60" height="50" rx="4" fill="#f5a623"/>
-                        <polygon points="60,80 20,140 100,140" fill="#19197a"/>
-                        <rect x="110" y="160" width="12" height="30" fill="#19197a"/>
-                        <circle cx="116" cy="150" r="20" fill="#f5a623" opacity="0.8"/>
-                    </svg>
+                <div class="service-visual">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s1_projektplanung_mm.svg" alt="<?php _e('Projektplanung', 'matmuja-tiefbau'); ?>" class="service-svg">
                 </div>
             </div>
         </div>
@@ -115,21 +110,16 @@ get_header();
         <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;flex-direction:row-reverse;">
             <div class="col">
                 <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Bau & Verlegung', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Tiefbau und Verlegung', 'matmuja-tiefbau'); ?></h2>
+                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 2', 'matmuja-tiefbau'); ?></span>
+                    <h2><?php _e('Tiefbau', 'matmuja-tiefbau'); ?></h2>
                     <p><?php _e('In der Ausbauphase setzen wir auf modernste Technik und bewährte Methoden, um Glasfaserleitungen sicher und effizient zu verlegen. Unsere erfahrenen Fachleute gewährleisten eine saubere, termingerechte Ausführung.', 'matmuja-tiefbau'); ?></p>
-                    <p><strong><?php _e('Vom Bodenaufbruch bis zur Trassenherstellung und dem Leitungseinbau', 'matmuja-tiefbau'); ?></strong> <?php _e('– mit minimalinvasivem Ansatz, der bestehende Infrastrukturen schützt.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zum Glasfasertiefbau', 'matmuja-tiefbau'); ?></a>
+                    <p><strong><?php _e('Vom Bodenaufbruch bis zur Trassenherstellung', 'matmuja-tiefbau'); ?></strong> <?php _e('– mit minimalinvasivem Ansatz, der bestehende Infrastrukturen schützt.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zum Tiefbau', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div style="width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,rgba(201, 168, 76, 0.3),var(--color-primary));display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:180px;opacity:0.85">
-                        <rect x="20" y="120" width="160" height="60" rx="4" fill="#19197a" opacity="0.6"/>
-                        <rect x="40" y="100" width="120" height="25" rx="4" fill="#f5a623" opacity="0.8"/>
-                        <circle cx="55" cy="160" r="18" fill="#19197a"/>
-                        <circle cx="145" cy="160" r="18" fill="#19197a"/>
-                    </svg>
+                <div class="service-visual">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s2_tiefbau_mm.svg" alt="<?php _e('Tiefbau', 'matmuja-tiefbau'); ?>" class="service-svg">
                 </div>
             </div>
         </div>
@@ -138,26 +128,64 @@ get_header();
         <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
         <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
 
-        <?php // ─── Service Item 3: Installation ─── ?>
-        <div class="row" style="gap:4rem;align-items:center;">
+        <?php // ─── Service Item 3: Kabelverlegung ─── ?>
+        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;">
             <div class="col">
                 <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Endinstallation', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Glasfaser Installation: Hauseinführung und Inbetriebnahme', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Nach der erfolgreichen Verlegung der Leitungen übernehmen wir auch die vollständige Glasfaser-Installation, bestehend aus der Hauseinführung, HÜP- und ONT-Montage sowie finaler Inbetriebnahme der gesamten Netzwerktechnik.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zur Glasfaser Installation', 'matmuja-tiefbau'); ?></a>
+                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 3', 'matmuja-tiefbau'); ?></span>
+                    <h2><?php _e('Kabelverlegung', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Die professionelle Verlegung der Glasfaserkabel ist ein entscheidender Schritt für die Qualität und Langlebigkeit Ihres Netzwerks. Wir verwenden hochwertige Materialien und modernste Verlegetechniken.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Unsere zertifizierten Techniker sorgen für eine präzise Installation, die höchsten Standards entspricht und langfristige Zuverlässigkeit gewährleistet.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zur Kabelverlegung', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div style="width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),rgba(201, 168, 76, 0.5));display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:180px;opacity:0.85">
-                        <rect x="50" y="80" width="100" height="80" rx="6" fill="#f5a623" opacity="0.7"/>
-                        <polygon points="100,30 40,80 160,80" fill="#19197a" opacity="0.8"/>
-                        <rect x="80" y="120" width="40" height="40" rx="4" fill="#19197a" opacity="0.9"/>
-                        <circle cx="100" cy="70" r="15" fill="#f5a623"/>
-                        <path d="M85,60 Q100,40 115,60" stroke="#fff" stroke-width="3" fill="none"/>
-                        <path d="M78,53 Q100,28 122,53" stroke="#fff" stroke-width="3" fill="none" opacity="0.6"/>
-                    </svg>
+                <div class="service-visual">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s3_kabelverlegung_mm.svg" alt="<?php _e('Kabelverlegung', 'matmuja-tiefbau'); ?>" class="service-svg">
+                </div>
+            </div>
+        </div>
+
+        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
+        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
+        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
+
+        <?php // ─── Service Item 4: Spleißen ─── ?>
+        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;flex-direction:row-reverse;">
+            <div class="col">
+                <div class="timeline-content">
+                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 4', 'matmuja-tiefbau'); ?></span>
+                    <h2><?php _e('Spleißen & Verbindung', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Das präzise Spleißen der Glasfaserkabel ist eine Kunst, die höchste Präzision und Fachkenntnis erfordert. Unsere zertifizierten Spleißtechniker verwenden modernste Fusionsspleißgeräte.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Jeder Spleiß wird auf optimale Lichtdurchlässigkeit und Signalqualität getestet, um eine unterbrechungsfreie Datenübertragung zu gewährleisten.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zum Spleißen', 'matmuja-tiefbau'); ?></a>
+                </div>
+            </div>
+            <div class="col" style="display:flex;align-items:center;justify-content:center;">
+                <div class="service-visual">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s4_spleissen_mm.svg" alt="<?php _e('Spleißen', 'matmuja-tiefbau'); ?>" class="service-svg">
+                </div>
+            </div>
+        </div>
+
+        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
+        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
+        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
+
+        <?php // ─── Service Item 5: Hausanschluss ─── ?>
+        <div class="row" style="gap:4rem;align-items:center;">
+            <div class="col">
+                <div class="timeline-content">
+                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 5', 'matmuja-tiefbau'); ?></span>
+                    <h2><?php _e('Hausanschluss & Inbetriebnahme', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Der finale Schritt: Die Hauseinführung und vollständige Inbetriebnahme des Glasfasernetzes. Wir installieren alle notwendigen Komponenten wie HÜP (Hauseinführungsspunkt) und ONT (Optical Network Terminal).', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Nach der Installation führen wir umfassende Funktionstests durch und nehmen das Netzwerk offiziell in Betrieb – für eine zuverlässige Breitbandversorgung.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zur Hauseinführung', 'matmuja-tiefbau'); ?></a>
+                </div>
+            </div>
+            <div class="col" style="display:flex;align-items:center;justify-content:center;">
+                <div class="service-visual">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s5_hausanschluss_mm.svg" alt="<?php _e('Hausanschluss', 'matmuja-tiefbau'); ?>" class="service-svg">
                 </div>
             </div>
         </div>
