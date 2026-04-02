@@ -24,8 +24,8 @@ get_header();
     <?php endif; ?>
     <div class="container">
         <div class="hero-content">
-            <span class="hero-eyebrow"><?php echo esc_html( matmuja_get_option('matmuja_hero_eyebrow', 'Die Komplettlösung für Glasfaser') ); ?></span>
-            <h1 class="hero-title"><?php echo nl2br( esc_html( matmuja_get_option('matmuja_hero_title', "Das Tiefbauunternehmen\nfür ihr Glasfaserprojekt") ) ); ?></h1>
+            <span class="hero-eyebrow"><?php echo esc_html( matmuja_get_option('matmuja_hero_eyebrow', 'Die Zukunft der digitalen Infrastruktur') ); ?></span>
+            <h1 class="hero-title"><?php echo nl2br( esc_html( matmuja_get_option('matmuja_hero_title', "Ihr Partner für\nNext-Gen Glasfasernetze") ) ); ?></h1>
             <div class="hero-buttons">
                 <a href="<?php echo esc_url( matmuja_get_option('matmuja_hero_btn_url', home_url('/kontakt')) ); ?>" class="btn btn-outline-white">
                     <?php echo esc_html( matmuja_get_option('matmuja_hero_btn_text', 'Kontaktieren Sie uns') ); ?>
@@ -53,10 +53,10 @@ get_header();
                 </div>
             </div>
             <div class="col col-2 intro-text">
-                <p><strong><?php _e('Als erfahrenes Tiefbauunternehmen mit Spezialisierung auf den Ausbau von Glasfaser unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke in ganz Deutschland', 'matmuja-tiefbau'); ?></strong> <?php _e('dabei, leistungsstarke Breitbandnetze effizient und zuverlässig zu realisieren. Mit einem Team aus erfahrenen Spezialisten und modernster Technik garantieren wir eine reibungslose Projektabwicklung – von der ersten Planung bis zur vollständigen Inbetriebnahme.', 'matmuja-tiefbau'); ?></p>
-                <p><strong><?php _e('Setzen Sie auf uns als Partner, der Qualität, Effizienz und Budgettreue vereint', 'matmuja-tiefbau'); ?></strong> <?php _e('und damit die Grundlage für eine erfolgreiche digitale Infrastruktur schaffen kann.', 'matmuja-tiefbau'); ?></p>
+                <p><strong><?php _e('Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit', 'matmuja-tiefbau'); ?></strong> <?php _e('bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'matmuja-tiefbau'); ?></p>
+                <p><strong><?php _e('Entdecken Sie die Zukunft der Konnektivität mit uns als Partner', 'matmuja-tiefbau'); ?></strong> <?php _e('der Innovation, Präzision und Nachhaltigkeit vereint, um die digitale Transformation Ihrer Region voranzutreiben.', 'matmuja-tiefbau'); ?></p>
                 <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-primary" style="margin-top:1.5rem;">
-                    <?php _e('Kostenlose Beratung', 'matmuja-tiefbau'); ?>
+                    <?php _e('Kostenlose Erstberatung', 'matmuja-tiefbau'); ?>
                 </a>
             </div>
         </div>
@@ -89,10 +89,10 @@ get_header();
             <div class="col">
                 <div class="timeline-content">
                     <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 1', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Projektplanung', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Eine erfolgreiche Glasfaserinfrastruktur beginnt mit einer präzisen und umfassenden Planung. Unser Team analysiert die Anforderungen des Projekts und berücksichtigt sowohl technische als auch geografische Besonderheiten.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Von der Trassenauswahl über die Adressvalidierung bis zur Genehmigungsplanung: Wir setzen auf eine detaillierte Vorplanung, die alle Aspekte der späteren Umsetzung berücksichtigt.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Ihre Planung anfragen', 'matmuja-tiefbau'); ?></a>
+                    <h2><?php _e('Smart Planning & Design', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Die digitale Transformation beginnt mit intelligenten Planungslösungen. Unser Expertenteam analysiert Ihre Anforderungen mit modernsten GIS-Tools und KI-gestützten Algorithmen für optimale Trassenführung.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Von der digitalen Adressvalidierung über präzise Genehmigungsplanung bis zur 3D-Visualisierung: Wir entwickeln maßgeschneiderte Konzepte, die maximale Effizienz und Zukunftssicherheit garantieren.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Projektplanung starten', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
@@ -111,10 +111,10 @@ get_header();
             <div class="col">
                 <div class="timeline-content">
                     <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 2', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Tiefbau', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('In der Ausbauphase setzen wir auf modernste Technik und bewährte Methoden, um Glasfaserleitungen sicher und effizient zu verlegen. Unsere erfahrenen Fachleute gewährleisten eine saubere, termingerechte Ausführung.', 'matmuja-tiefbau'); ?></p>
-                    <p><strong><?php _e('Vom Bodenaufbruch bis zur Trassenherstellung', 'matmuja-tiefbau'); ?></strong> <?php _e('– mit minimalinvasivem Ansatz, der bestehende Infrastrukturen schützt.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zum Tiefbau', 'matmuja-tiefbau'); ?></a>
+                    <h2><?php _e('Precision Engineering', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Moderne Tiefbautechnik trifft auf präzise Ingenieurskunst. Unser Team setzt auf minimalinvasive Verfahren und GPS-gesteuerte Maschinen für maximale Präzision bei minimaler Umweltbelastung.', 'matmuja-tiefbau'); ?></p>
+                    <p><strong><?php _e('Von der intelligenten Trassenpräparation bis zur schützendem Infrastruktursicherung', 'matmuja-tiefbau'); ?></strong> <?php _e('– mit nachhaltigen Methoden, die bestehende Netze schonen und zukunftsfähige Lösungen ermöglichen.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Tiefbau-Details entdecken', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
@@ -133,10 +133,10 @@ get_header();
             <div class="col">
                 <div class="timeline-content">
                     <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 3', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Kabelverlegung', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Die professionelle Verlegung der Glasfaserkabel ist ein entscheidender Schritt für die Qualität und Langlebigkeit Ihres Netzwerks. Wir verwenden hochwertige Materialien und modernste Verlegetechniken.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Unsere zertifizierten Techniker sorgen für eine präzise Installation, die höchsten Standards entspricht und langfristige Zuverlässigkeit gewährleistet.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zur Kabelverlegung', 'matmuja-tiefbau'); ?></a>
+                    <h2><?php _e('Advanced Cable Deployment', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Die Kunst der präzisen Kabelverlegung bestimmt die Performance Ihres Netzwerks. Wir implementieren hochwertige Glasfaserkabel mit modernsten Verlegetechniken und automatisierten Qualitätssicherungssystemen.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Unsere zertifizierten Techniker garantieren eine perfekte Installation nach höchsten Standards, unterstützt durch Echtzeit-Monitoring und KI-basierte Qualitätskontrolle für langfristige Netzwerkzuverlässigkeit.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Kabeltechnologie erfahren', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
@@ -155,10 +155,10 @@ get_header();
             <div class="col">
                 <div class="timeline-content">
                     <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 4', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Spleißen & Verbindung', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Das präzise Spleißen der Glasfaserkabel ist eine Kunst, die höchste Präzision und Fachkenntnis erfordert. Unsere zertifizierten Spleißtechniker verwenden modernste Fusionsspleißgeräte.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Jeder Spleiß wird auf optimale Lichtdurchlässigkeit und Signalqualität getestet, um eine unterbrechungsfreie Datenübertragung zu gewährleisten.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zum Spleißen', 'matmuja-tiefbau'); ?></a>
+                    <h2><?php _e('Fusion Splicing Excellence', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Präzision trifft Innovation: Unsere zertifizierten Spleißspezialisten verwenden KI-gestützte Fusionsspleißgeräte der neuesten Generation für perfekte Glasfaser-Verbindungen mit minimalen Signalverlusten.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Jeder Spleißpunkt wird mit fortschrittlichen OTDR-Messsystemen validiert, um unterbrechungsfreie Datenströme und optimale Netzwerkperformance zu garantieren.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Spleißtechnologie kennenlernen', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
@@ -177,10 +177,10 @@ get_header();
             <div class="col">
                 <div class="timeline-content">
                     <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 5', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Hausanschluss & Inbetriebnahme', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Der finale Schritt: Die Hauseinführung und vollständige Inbetriebnahme des Glasfasernetzes. Wir installieren alle notwendigen Komponenten wie HÜP (Hauseinführungsspunkt) und ONT (Optical Network Terminal).', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Nach der Installation führen wir umfassende Funktionstests durch und nehmen das Netzwerk offiziell in Betrieb – für eine zuverlässige Breitbandversorgung.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Mehr zur Hauseinführung', 'matmuja-tiefbau'); ?></a>
+                    <h2><?php _e('Smart Home Connection & Activation', 'matmuja-tiefbau'); ?></h2>
+                    <p><?php _e('Der finale Meilenstein: Die intelligente Hauseinführung mit modernsten ONT-Systemen und automatisierten Inbetriebnahme-Prozessen. Wir implementieren zukunftsfähige Anschlüsse mit IoT-Integration und Smart-Home-Kompatibilität.', 'matmuja-tiefbau'); ?></p>
+                    <p><?php _e('Nach der Installation führen wir umfassende KI-gestützte Funktionstests durch und aktivieren Ihr Netzwerk mit Echtzeit-Monitoring — für eine garantierte Breitbandzukunft Ihrer Community.', 'matmuja-tiefbau'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Hauseinführung planen', 'matmuja-tiefbau'); ?></a>
                 </div>
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
@@ -208,9 +208,9 @@ get_header();
 // ═══════════════════════════════════════════════════ ?>
 <section class="section section-news">
     <div class="container">
-        <h2 class="section-title text-center"><?php _e('Aktuelle Neuigkeiten', 'matmuja-tiefbau'); ?></h2>
+        <h2 class="section-title text-center"><?php _e('Innovation & Insights', 'matmuja-tiefbau'); ?></h2>
         <p class="section-subtitle text-center">
-            <?php _e('Entdecken Sie in unserem Blog spannende Einblicke in den Glasfaserausbau und bleiben Sie stets über aktuelle Entwicklungen und Neuigkeiten bei M&M EnerTech informiert.', 'matmuja-tiefbau'); ?>
+            <?php _e('Entdecken Sie wegweisende Einblicke in die Zukunft der digitalen Infrastruktur und bleiben Sie über die neuesten Entwicklungen bei M&M EnerTech auf dem Laufenden.', 'matmuja-tiefbau'); ?>
         </p>
 
         <?php
@@ -273,17 +273,17 @@ get_header();
                 </div>
             </div>
             <div>
-                <h2><?php _e('Warum sind wir die richtige Firma für Ihr Glasfaser Projekt?', 'matmuja-tiefbau'); ?></h2>
-                <p style="color:var(--color-text-light);margin-top:1rem;"><?php _e('Unsere langjährige Erfahrung und hohe Spezialisierung im Glasfaser-Tiefbau machen uns zu einem zuverlässigen Partner für anspruchsvolle Projekte im Bereich der digitalen Infrastruktur.', 'matmuja-tiefbau'); ?></p>
-                <p style="color:var(--color-text-light);"><?php _e('Durch den Einsatz moderner Technologien und eines eingespielten Teams sichern wir Ihnen eine nachhaltige, zukunftsfähige Lösung und einen reibungslosen Projektablauf.', 'matmuja-tiefbau'); ?></p>
+                <h2><?php _e('Warum M&M EnerTech Ihr idealer Partner für die digitale Zukunft ist', 'matmuja-tiefbau'); ?></h2>
+                <p style="color:var(--color-text-light);margin-top:1rem;"><?php _e('Unsere Expertise in der Verbindung von traditionellem Tiefbau-Know-how mit modernsten Technologien macht uns zum bevorzugten Partner für zukunftsweisende Infrastrukturprojekte.', 'matmuja-tiefbau'); ?></p>
+                <p style="color:var(--color-text-light);"><?php _e('Durch den Einsatz von KI, IoT und nachhaltigen Methoden sichern wir Ihnen skalierbare, zukunftsfähige Lösungen und einen nahtlosen Projektablauf von der Vision zur Realität.', 'matmuja-tiefbau'); ?></p>
                 <div class="why-features">
                     <?php
                     $features = [
-                        __('Langjährige Erfahrung im Glasfaser-Tiefbau', 'matmuja-tiefbau'),
-                        __('Nachgewiesene Zuverlässigkeit und Termintreue', 'matmuja-tiefbau'),
-                        __('Deutschlandweite Verfügbarkeit für Glasfaser-Projekte', 'matmuja-tiefbau'),
-                        __('Komplettes Leistungsspektrum des Glasfaserausbaus', 'matmuja-tiefbau'),
-                        __('Eingespieltes und qualifiziertes Montage-Team', 'matmuja-tiefbau'),
+                        __('KI-gestützte Planung und Optimierung für maximale Effizienz', 'matmuja-tiefbau'),
+                        __('Nachgewiesene Zuverlässigkeit mit IoT-Monitoring in Echtzeit', 'matmuja-tiefbau'),
+                        __('Deutschlandweite Skalierbarkeit für Mega-Infrastrukturprojekte', 'matmuja-tiefbau'),
+                        __('Komplettes Ökosystem von Smart Planning bis Network Activation', 'matmuja-tiefbau'),
+                        __('Zertifiziertes Expertenteam mit kontinuierlicher Weiterbildung', 'matmuja-tiefbau'),
                     ];
                     foreach ( $features as $i => $feature ) : ?>
                     <div class="why-feature">
@@ -302,33 +302,33 @@ get_header();
 // ═══════════════════════════════════════════════════ ?>
 <section class="section section-faq">
     <div class="container">
-        <h2 class="text-center"><?php _e('Häufig gestellte Fragen', 'matmuja-tiefbau'); ?></h2>
+        <h2 class="text-center"><?php _e('Ihr Wissenscenter für moderne Infrastruktur', 'matmuja-tiefbau'); ?></h2>
         <p class="text-center" style="color:var(--color-text-light);max-width:600px;margin:0.75rem auto 0;">
-            <?php _e('Hier beantworten wir häufige Fragen rund um den Glasfaserausbau und unsere speziellen Leistungen im Tiefbau.', 'matmuja-tiefbau'); ?>
+            <?php _e('Hier beantworten wir Ihre wichtigsten Fragen zu innovativen Glasfaserlösungen und unseren fortschrittlichen Dienstleistungen im digitalen Tiefbau.', 'matmuja-tiefbau'); ?>
         </p>
 
         <div class="faq-list">
             <?php
             $faqs = [
                 [
-                    'q' => __('Welches Unternehmen baut Glasfaser aus?', 'matmuja-tiefbau'),
-                    'a' => __('Den Ausbau von Glasfaserinfrastrukturen übernehmen in der Regel auf Glasfaser spezialisierte Tiefbauunternehmen. Unsere Firma ist darauf spezialisiert, deutschlandweit Glasfasernetze für Netzbetreiber, Energieversorger und Kommunen zu planen und umzusetzen.', 'matmuja-tiefbau'),
+                    'q' => __('Wer ist der ideale Partner für moderne Glasfaser-Infrastruktur?', 'matmuja-tiefbau'),
+                    'a' => __('Als spezialisierter Anbieter für intelligente Energie- und Tiefbaulösungen realisieren wir deutschlandweit zukunftsweisende Glasfasernetze für Netzbetreiber, Energieversorger und Kommunen. Unser Fokus liegt auf der Verbindung traditioneller Expertise mit KI-gestützten Innovationen.', 'matmuja-tiefbau'),
                 ],
                 [
-                    'q' => __('Wie wird Glasfaser verlegt?', 'matmuja-tiefbau'),
-                    'a' => __('Die Verlegung von Glasfaserleitungen erfolgt durch Tiefbau-Methoden wie offene Grabenbauweise oder innovativere Verfahren wie Microtrenching und Spülbohrtechnik, die eine minimalinvasive Installation ermöglichen.', 'matmuja-tiefbau'),
+                    'q' => __('Wie werden moderne Glasfasernetze implementiert?', 'matmuja-tiefbau'),
+                    'a' => __('Wir kombinieren bewährte Tiefbaumethoden mit innovativen Technologien wie Microtrenching, HDD-Bohrungen und KI-gestützter Trassenoptimierung. Unser minimalinvasiver Ansatz schützt bestehende Infrastrukturen und ermöglicht nachhaltige, skalierbare Lösungen.', 'matmuja-tiefbau'),
                 ],
                 [
-                    'q' => __('Gibt es einen direkten Ansprechpartner während des Projekts?', 'matmuja-tiefbau'),
-                    'a' => __('Für regelmäßige Abstimmungen setzen wir auf wöchentliche Jour-Fixe-Termine. Bei allgemeinen Kundenanliegen können Sie sich jederzeit an unseren Kundensupport wenden. Für bautechnische Fragen ist unser Bauleiter Ihr direkter Ansprechpartner.', 'matmuja-tiefbau'),
+                    'q' => __('Wie bleibt die Kommunikation während des Projekts effizient?', 'matmuja-tiefbau'),
+                    'a' => __('Wir setzen auf agile Kommunikationsstrukturen mit wöchentlichen Sprint-Reviews und digitalen Kollaborationsplattformen. Bei technischen Fragen steht Ihnen unser zertifiziertes Expertenteam jederzeit zur Verfügung, unterstützt durch IoT-Monitoring in Echtzeit.', 'matmuja-tiefbau'),
                 ],
                 [
-                    'q' => __('Wie wird das Projektmanagement organisiert?', 'matmuja-tiefbau'),
-                    'a' => __('Unser Projektmanagement basiert auf einer strukturierten Meilensteinplanung. Alle Fortschritte werden in einem detaillierten Bauzeitenplan dokumentiert. Zur Dokumentation setzen wir auf eine cloudbasierte Lösung über SharePoint und DeepUp.', 'matmuja-tiefbau'),
+                    'q' => __('Wie organisieren Sie komplexe Infrastrukturprojekte?', 'matmuja-tiefbau'),
+                    'a' => __('Unser Projektmanagement basiert auf agilen Methoden mit Meilenstein-Tracking und KI-gestützter Ressourcenoptimierung. Alle Fortschritte werden in cloudbasierten Dashboards visualisiert, mit Integration von SharePoint und modernen Projektmanagement-Tools für maximale Transparenz.', 'matmuja-tiefbau'),
                 ],
                 [
-                    'q' => __('Gibt es Garantien auf die durchgeführten Arbeiten?', 'matmuja-tiefbau'),
-                    'a' => __('Ja, auf alle von uns ausgeführten Arbeiten gelten die gesetzlichen Gewährleistungsbestimmungen gemäß den Vorgaben der ZTV sowie die individuellen Regelungen des jeweiligen Vertragswerks.', 'matmuja-tiefbau'),
+                    'q' => __('Welche Qualitätsstandards garantieren Sie?', 'matmuja-tiefbau'),
+                    'a' => __('Wir garantieren höchste Qualitätsstandards gemäß ZTV-Richtlinien und individuellen Vertragsvereinbarungen. Unsere Leistungen sind durch umfassende Zertifizierungen abgesichert, mit kontinuierlicher Qualitätssicherung durch automatisierte Testsysteme und regelmäßige Audits.', 'matmuja-tiefbau'),
                 ],
             ];
             foreach ( $faqs as $faq ) : ?>
@@ -363,9 +363,9 @@ get_header();
                 </div>
             </div>
             <div class="cta-content">
-                <h2><?php _e('Sie haben weitere Fragen?', 'matmuja-tiefbau'); ?> <strong><?php _e('Wir freuen uns auf Ihr Anliegen!', 'matmuja-tiefbau'); ?></strong></h2>
-                <p><?php _e('Sie möchten einen ersten Kontakt aufnehmen und prüfen, ob Ihr Vorhaben von uns realisierbar ist? Dann sprechen Sie uns gerne an.', 'matmuja-tiefbau'); ?></p>
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-gold"><?php _e('Kontaktieren Sie uns', 'matmuja-tiefbau'); ?></a>
+                <h2><?php _e('Bereit für die digitale Zukunft?', 'matmuja-tiefbau'); ?> <strong><?php _e('Wir machen es möglich!', 'matmuja-tiefbau'); ?></strong></h2>
+                <p><?php _e('Sie möchten Ihr Infrastrukturprojekt mit modernsten Technologien realisieren? Kontaktieren Sie unser Expertenteam für eine kostenlose Erstberatung und entdecken Sie, wie wir Ihre Vision in die Realität umsetzen.', 'matmuja-tiefbau'); ?></p>
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-gold"><?php _e('Jetzt anfragen', 'matmuja-tiefbau'); ?></a>
             </div>
         </div>
     </div>
