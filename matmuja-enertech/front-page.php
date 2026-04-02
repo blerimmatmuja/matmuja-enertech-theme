@@ -69,11 +69,11 @@ get_header();
 <section class="section-sm" style="background:#fff;text-align:center;padding:4rem 0;">
     <div class="container">
         <p style="color:var(--color-text-light);font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem;">
-            <?php _e('Full–turnkey', 'matmuja-tiefbau'); ?>
+            <?php _e('Complete Solutions', 'matmuja-tiefbau'); ?>
         </p>
-        <h2><?php _e('FttX-Breitbandausbau', 'matmuja-tiefbau'); ?></h2>
+        <h2><?php _e('Next-Gen Fiber Networks', 'matmuja-tiefbau'); ?></h2>
         <p style="color:var(--color-text-light);max-width:600px;margin:0.75rem auto 0;">
-            <?php _e('Vom Tiefbau bis zur Hauseinführung', 'matmuja-tiefbau'); ?>
+            <?php _e('From infrastructure to connectivity — seamless end-to-end deployment', 'matmuja-tiefbau'); ?>
         </p>
     </div>
 </section>
@@ -198,8 +198,8 @@ get_header();
 // ═══════════════════════════════════════════════════ ?>
 <section class="section-turnkey">
     <div class="container">
-        <p class="turnkey-title">FULL–TURNKEY</p>
-        <p class="turnkey-subtitle"><?php _e('FttX-Breitbandausbau — Vom Tiefbau bis zur Hauseinführung', 'matmuja-tiefbau'); ?></p>
+        <p class="turnkey-title">COMPLETE SOLUTIONS</p>
+        <p class="turnkey-subtitle"><?php _e('Next-Gen Fiber Networks — From Infrastructure to Connectivity', 'matmuja-tiefbau'); ?></p>
     </div>
 </section>
 

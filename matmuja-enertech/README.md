@@ -23,7 +23,7 @@ A professional WordPress theme inspired by matmuja.de – Germany's leading fibe
 1. Hero – Full-screen dark blue hero with headline and CTA
 2. Intro – Gold background with company description
 3. Services Timeline – Three service blocks with decorative timeline
-4. Full-Turnkey Banner – Bold blue section
+4. Complete Solutions Banner – Bold blue section
 5. News/Blog – 3-column grid of latest posts
 6. Why Us – Split layout with feature checklist
 7. FAQ – Collapsible accordion
