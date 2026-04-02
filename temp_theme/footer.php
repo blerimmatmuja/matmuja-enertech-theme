@@ -15,7 +15,7 @@
                     <a href="<?php echo esc_url(home_url('/')); ?>">
                         <span class="logo-text">
                             M&M EnerTech
-                            <small class="logo-sub">GmbH</small>
+                            <small class="logo-sub">Tiefbau Gesellschaft mbH</small>
                         </span>
                     </a>
                 </div>
