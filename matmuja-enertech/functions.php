@@ -164,7 +164,7 @@ function matmuja_customize_register( $wp_customize ) {
     ] );
     $intro_fields = [
         'matmuja_intro_title'    => [ 'label' => 'Intro Title',    'default' => 'Über Matmuja Tiefbau', 'sanitize' => 'sanitize_text_field' ],
-        'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als erfahrenes Tiefbauunternehmen mit Spezialisierung auf den Ausbau von Glasfaser unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke in ganz Deutschland dabei, leistungsstarke Breitbandnetze effizient und zuverlässig zu realisieren.', 'sanitize' => 'wp_kses_post' ],
+        'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'sanitize' => 'wp_kses_post' ],
         'matmuja_intro_btn_text' => [ 'label' => 'Button Text',    'default' => 'Kostenlose Beratung', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_intro_btn_url'  => [ 'label' => 'Button URL',     'default' => '/kontakt', 'sanitize' => 'esc_url_raw' ],
     ];
