@@ -1,6 +1,6 @@
-# Matmuja Tiefbau WordPress Theme
+# M&M EnerTech WordPress Theme
 
-A professional WordPress theme inspired by matmuja.de – Germany's leading fiber optic (Glasfaser) civil engineering company.
+A modern, futuristic WordPress theme for M&M EnerTech – Innovating next-generation digital infrastructure and energy technology solutions.
 
 ## Features
 
@@ -32,7 +32,7 @@ A professional WordPress theme inspired by matmuja.de – Germany's leading fibe
 
 ## Installation
 
-1. Upload the `matmuja-tiefbau` folder to `/wp-content/themes/`
+1. Upload the `matmuja-enertech` folder to `/wp-content/themes/`
    OR upload the ZIP via **Appearance → Themes → Add New → Upload Theme**
 2. Activate the theme in **Appearance → Themes**
 3. Go to **Appearance → Customize** to configure theme options
@@ -53,7 +53,7 @@ npm run dev          # Watch for changes during development
 
 ### File Structure
 ```
-matmuja-tiefbau/
+matmuja-enertech/
 ├── style.css              # Main stylesheet
 ├── functions.php          # Theme functions and setup
 ├── front-page.php         # Homepage template
@@ -73,7 +73,7 @@ matmuja-tiefbau/
 ├── inc/
 │   └── template-tags.php  # Helper functions
 ├── languages/
-│   └── matmuja-tiefbau.pot # Translation template
+│   └── matmuja-enertech.pot # Translation template
 ├── theme.json             # Block editor configuration
 └── package.json           # Build dependencies
 ```

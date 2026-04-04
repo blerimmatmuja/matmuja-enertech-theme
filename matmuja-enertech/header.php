@@ -39,13 +39,13 @@
                         <div class="nav-dropdown">
                             <a href="#"><?php _e('Dienstleistungen', 'matmuja-tiefbau'); ?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><?php _e('Befahrung und Adressvalidierung', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Planung und Design', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Projektmanagement', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Tiefbau und Verlegung', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Installation und Inbetriebnahme', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Kundenaktivierung', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Wartung und Support', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Smart Planning & Validation', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Precision Engineering', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Advanced Cable Deployment', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Fusion Splicing Excellence', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Smart Home Connection', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('Network Activation', 'matmuja-tiefbau'); ?></a></li>
+                                <li><a href="#"><?php _e('24/7 Support & Maintenance', 'matmuja-tiefbau'); ?></a></li>
                             </ul>
                         </div>
                         <a href="<?php echo esc_url(home_url('/ueber-uns')); ?>"><?php _e('Über Uns', 'matmuja-tiefbau'); ?></a>
