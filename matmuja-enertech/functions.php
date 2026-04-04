@@ -145,6 +145,18 @@ function matmuja_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ] ) );
 
+    // Intro Image
+    $wp_customize->add_setting( 'matmuja_intro_image', [
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage'
+    ] );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'matmuja_intro_image', [
+        'label'     => __( 'Intro Image', 'matmuja-tiefbau' ),
+        'section'   => 'matmuja_intro',
+        'mime_type' => 'image',
+    ] ) );
+
     // Intro Section
     $wp_customize->add_section( 'matmuja_intro', [
         'title'    => __( 'Intro Section', 'matmuja-tiefbau' ),

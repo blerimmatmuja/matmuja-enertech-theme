@@ -42,14 +42,18 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col">
-                <?php $intro_img = get_posts(['post_type'=>'attachment','posts_per_page'=>1,'orderby'=>'menu_order','meta_key'=>'_matmuja_intro_image']); ?>
+                <?php $intro_img_id = matmuja_get_option( 'matmuja_intro_image' ); ?>
                 <div style="border-radius:16px;overflow:hidden;background:rgba(25,25,122,0.1);min-height:320px;display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:80%;opacity:0.7">
-                        <rect x="100" y="180" width="200" height="80" rx="8" fill="#19197a" opacity="0.6"/>
-                        <circle cx="200" cy="130" r="80" fill="none" stroke="#19197a" stroke-width="8" opacity="0.5"/>
-                        <circle cx="200" cy="130" r="55" fill="none" stroke="#f5a623" stroke-width="6" opacity="0.7"/>
-                        <circle cx="200" cy="130" r="30" fill="#f5a623" opacity="0.5"/>
-                    </svg>
+                    <?php if ( $intro_img_id && $intro_img_html = wp_get_attachment_image( $intro_img_id, 'large', false, ['alt' => esc_attr__( 'Intro Bild', 'matmuja-tiefbau' )] ) ) : ?>
+                        <?php echo $intro_img_html; ?>
+                    <?php else : ?>
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:80%;opacity:0.7">
+                            <rect x="100" y="180" width="200" height="80" rx="8" fill="#19197a" opacity="0.6"/>
+                            <circle cx="200" cy="130" r="80" fill="none" stroke="#19197a" stroke-width="8" opacity="0.5"/>
+                            <circle cx="200" cy="130" r="55" fill="none" stroke="#f5a623" stroke-width="6" opacity="0.7"/>
+                            <circle cx="200" cy="130" r="30" fill="#f5a623" opacity="0.5"/>
+                        </svg>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col col-2 intro-text">
