@@ -157,6 +157,31 @@ function matmuja_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ] ) );
 
+    // Services Section Images
+    $wp_customize->add_section( 'matmuja_services', [
+        'title'    => __( 'Service Phase Images', 'matmuja-tiefbau' ),
+        'priority' => 33,
+    ] );
+    $service_images = [
+        'matmuja_service_1_image' => __( 'Phase 1: Smart Planning Image', 'matmuja-tiefbau' ),
+        'matmuja_service_2_image' => __( 'Phase 2: Precision Engineering Image', 'matmuja-tiefbau' ),
+        'matmuja_service_3_image' => __( 'Phase 3: Cable Deployment Image', 'matmuja-tiefbau' ),
+        'matmuja_service_4_image' => __( 'Phase 4: Splicing Image', 'matmuja-tiefbau' ),
+        'matmuja_service_5_image' => __( 'Phase 5: Smart Home Connection Image', 'matmuja-tiefbau' ),
+    ];
+    foreach ( $service_images as $setting_id => $label ) {
+        $wp_customize->add_setting( $setting_id, [
+            'default'           => '',
+            'sanitize_callback' => 'absint',
+            'transport'         => 'postMessage'
+        ] );
+        $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $setting_id, [
+            'label'     => $label,
+            'section'   => 'matmuja_services',
+            'mime_type' => 'image',
+        ] ) );
+    }
+
     // Intro Section
     $wp_customize->add_section( 'matmuja_intro', [
         'title'    => __( 'Intro Section', 'matmuja-tiefbau' ),

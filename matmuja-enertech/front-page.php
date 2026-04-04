@@ -101,7 +101,14 @@ get_header();
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
                 <div class="service-visual">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s1_projektplanung_mm.svg" alt="<?php _e('Projektplanung', 'matmuja-tiefbau'); ?>" class="service-svg">
+                    <?php
+                    $s1_img_id = matmuja_get_option( 'matmuja_service_1_image' );
+                    if ( $s1_img_id && $s1_img_html = wp_get_attachment_image( $s1_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Smart Planning', 'matmuja-tiefbau' )] ) ) {
+                        echo $s1_img_html;
+                    } else {
+                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s1_projektplanung_mm.svg" alt="' . esc_attr__( 'Smart Planning', 'matmuja-tiefbau' ) . '" class="service-svg">';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -123,7 +130,14 @@ get_header();
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
                 <div class="service-visual">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s2_tiefbau_mm.svg" alt="<?php _e('Tiefbau', 'matmuja-tiefbau'); ?>" class="service-svg">
+                    <?php
+                    $s2_img_id = matmuja_get_option( 'matmuja_service_2_image' );
+                    if ( $s2_img_id && $s2_img_html = wp_get_attachment_image( $s2_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Precision Engineering', 'matmuja-tiefbau' )] ) ) {
+                        echo $s2_img_html;
+                    } else {
+                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s2_tiefbau_mm.svg" alt="' . esc_attr__( 'Precision Engineering', 'matmuja-tiefbau' ) . '" class="service-svg">';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -145,7 +159,14 @@ get_header();
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
                 <div class="service-visual">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s3_kabelverlegung_mm.svg" alt="<?php _e('Kabelverlegung', 'matmuja-tiefbau'); ?>" class="service-svg">
+                    <?php
+                    $s3_img_id = matmuja_get_option( 'matmuja_service_3_image' );
+                    if ( $s3_img_id && $s3_img_html = wp_get_attachment_image( $s3_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Cable Deployment', 'matmuja-tiefbau' )] ) ) {
+                        echo $s3_img_html;
+                    } else {
+                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s3_kabelverlegung_mm.svg" alt="' . esc_attr__( 'Cable Deployment', 'matmuja-tiefbau' ) . '" class="service-svg">';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -167,7 +188,14 @@ get_header();
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
                 <div class="service-visual">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s4_spleissen_mm.svg" alt="<?php _e('Spleißen', 'matmuja-tiefbau'); ?>" class="service-svg">
+                    <?php
+                    $s4_img_id = matmuja_get_option( 'matmuja_service_4_image' );
+                    if ( $s4_img_id && $s4_img_html = wp_get_attachment_image( $s4_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Fusion Splicing', 'matmuja-tiefbau' )] ) ) {
+                        echo $s4_img_html;
+                    } else {
+                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s4_spleissen_mm.svg" alt="' . esc_attr__( 'Fusion Splicing', 'matmuja-tiefbau' ) . '" class="service-svg">';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -189,7 +217,14 @@ get_header();
             </div>
             <div class="col" style="display:flex;align-items:center;justify-content:center;">
                 <div class="service-visual">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/s5_hausanschluss_mm.svg" alt="<?php _e('Hausanschluss', 'matmuja-tiefbau'); ?>" class="service-svg">
+                    <?php
+                    $s5_img_id = matmuja_get_option( 'matmuja_service_5_image' );
+                    if ( $s5_img_id && $s5_img_html = wp_get_attachment_image( $s5_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Smart Home Connection', 'matmuja-tiefbau' )] ) ) {
+                        echo $s5_img_html;
+                    } else {
+                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s5_hausanschluss_mm.svg" alt="' . esc_attr__( 'Smart Home Connection', 'matmuja-tiefbau' ) . '" class="service-svg">';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
