@@ -86,3 +86,98 @@ $mm = function ( $key, $default = '' ) {
         </div>
     </div>
 </section>
+
+<!-- 4. HOW WE WORK -->
+<section class="section section--dark">
+    <div class="container">
+        <p class="eyebrow eyebrow--on-dark"><?php esc_html_e( 'Unser Vorgehen', 'matmuja-tiefbau' ); ?></p>
+        <h2><?php echo esc_html( $mm( 'mm_process_heading', __( 'So arbeiten wir', 'matmuja-tiefbau' ) ) ); ?></h2>
+        <div class="process-grid">
+            <?php
+            $process_defaults = [
+                1 => [ __( 'Analyse', 'matmuja-tiefbau' ), __( 'Bestandsaufnahme und Bedarfsklärung vor Ort.', 'matmuja-tiefbau' ) ],
+                2 => [ __( 'Konzept', 'matmuja-tiefbau' ), __( 'Maßgeschneidertes Konzept inkl. Wirtschaftlichkeit.', 'matmuja-tiefbau' ) ],
+                3 => [ __( 'Umsetzung', 'matmuja-tiefbau' ), __( 'Realisierung durch zertifizierte Fachpartner.', 'matmuja-tiefbau' ) ],
+                4 => [ __( 'Service', 'matmuja-tiefbau' ), __( 'Monitoring, Wartung und kontinuierliche Optimierung.', 'matmuja-tiefbau' ) ],
+            ];
+            for ( $i = 1; $i <= 4; $i++ ) :
+                $title = $mm( "mm_process_step_{$i}_title", $process_defaults[ $i ][0] );
+                $desc  = $mm( "mm_process_step_{$i}_desc",  $process_defaults[ $i ][1] );
+                ?>
+                <div class="process-step">
+                    <div class="process-step__num"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></div>
+                    <h3 class="process-step__title"><?php echo esc_html( $title ); ?></h3>
+                    <p class="process-step__desc"><?php echo esc_html( $desc ); ?></p>
+                </div>
+            <?php endfor; ?>
+        </div>
+    </div>
+</section>
+
+<!-- 5. PROOF -->
+<section class="section section--warm">
+    <div class="container">
+        <div class="proof-stats">
+            <div class="proof-stat">
+                <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_years', '12' ) ); ?>+</div>
+                <div class="proof-stat__label"><?php esc_html_e( 'Jahre', 'matmuja-tiefbau' ); ?></div>
+            </div>
+            <div class="proof-stat">
+                <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_projects', '150' ) ); ?></div>
+                <div class="proof-stat__label"><?php esc_html_e( 'Projekte', 'matmuja-tiefbau' ); ?></div>
+            </div>
+            <div class="proof-stat">
+                <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_cert', 'DIN' ) ); ?></div>
+                <div class="proof-stat__label"><?php esc_html_e( 'zertifiziert', 'matmuja-tiefbau' ); ?></div>
+            </div>
+        </div>
+        <div class="proof-logos" aria-label="<?php esc_attr_e( 'Kunden', 'matmuja-tiefbau' ); ?>">
+            <?php
+            for ( $i = 1; $i <= 6; $i++ ) {
+                $logo = $mm( "mm_client_logo_{$i}", '' );
+                if ( $logo ) {
+                    printf( '<img src="%s" alt="" loading="lazy">', esc_url( $logo ) );
+                }
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+<!-- 6. FAQ -->
+<section class="section">
+    <div class="container">
+        <p class="eyebrow"><?php esc_html_e( 'Häufige Fragen', 'matmuja-tiefbau' ); ?></p>
+        <h2><?php echo esc_html( $mm( 'mm_faq_heading', __( 'FAQ', 'matmuja-tiefbau' ) ) ); ?></h2>
+        <div class="faq-list">
+            <?php
+            $faq_defaults = [
+                [ __( 'Wie läuft eine Erstberatung ab?', 'matmuja-tiefbau' ), __( 'Wir analysieren Ihre Situation vor Ort und entwickeln ein passendes Konzept.', 'matmuja-tiefbau' ) ],
+                [ __( 'Welche Förderungen sind möglich?', 'matmuja-tiefbau' ), __( 'Wir prüfen Bundes-, Landes- und KfW-Förderungen für jedes Projekt.', 'matmuja-tiefbau' ) ],
+                [ __( 'Wie lange dauert eine typische Umsetzung?', 'matmuja-tiefbau' ), __( 'Je nach Projektgröße zwischen 4 und 16 Wochen ab Auftragserteilung.', 'matmuja-tiefbau' ) ],
+            ];
+            for ( $i = 1; $i <= 5; $i++ ) :
+                $q = $mm( "mm_faq_{$i}_q", $faq_defaults[ $i - 1 ][0] ?? '' );
+                $a = $mm( "mm_faq_{$i}_a", $faq_defaults[ $i - 1 ][1] ?? '' );
+                if ( ! $q ) { continue; }
+                ?>
+                <details class="faq-item">
+                    <summary><?php echo esc_html( $q ); ?></summary>
+                    <div class="faq-item__answer"><?php echo esc_html( $a ); ?></div>
+                </details>
+            <?php endfor; ?>
+        </div>
+    </div>
+</section>
+
+<!-- 7. CTA STRIP -->
+<section id="kontakt" class="section section--dark">
+    <div class="container cta-strip">
+        <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für die Energiezukunft?', 'matmuja-tiefbau' ) ) ); ?></h2>
+        <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_cta_button_url', 'mailto:info@matmuja.de' ) ); ?>">
+            <?php echo esc_html( $mm( 'mm_cta_button_text', __( 'Beratung anfragen', 'matmuja-tiefbau' ) ) ); ?>
+        </a>
+    </div>
+</section>
+
+<?php get_footer(); ?>
