@@ -67,6 +67,7 @@ $mm = function ( $key, $default = '' ) {
             <?php for ( $i = 1; $i <= 3; $i++ ) :
                 $title = $mm( "mm_service_{$i}_title", '' );
                 $desc  = $mm( "mm_service_{$i}_desc", '' );
+                $icon  = $mm( "mm_service_{$i}_icon", '' );
                 if ( ! $title ) {
                     $defaults = [
                         1 => [ __( 'Photovoltaik', 'matmuja-tiefbau' ), __( 'Planung und Installation für Industrie und Gewerbe.', 'matmuja-tiefbau' ) ],
@@ -78,7 +79,11 @@ $mm = function ( $key, $default = '' ) {
                 }
                 ?>
                 <div class="service-card">
-                    <div class="service-card__icon" aria-hidden="true"></div>
+                    <div class="service-card__icon" aria-hidden="true">
+                        <?php if ( $icon ) : ?>
+                            <img src="<?php echo esc_url( $icon ); ?>" alt="" loading="lazy">
+                        <?php endif; ?>
+                    </div>
                     <h3 class="service-card__title"><?php echo esc_html( $title ); ?></h3>
                     <p class="service-card__desc"><?php echo esc_html( $desc ); ?></p>
                 </div>

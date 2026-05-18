@@ -156,18 +156,6 @@ function matmuja_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ] ) );
 
-    // Intro Image
-    $wp_customize->add_setting( 'matmuja_intro_image', [
-        'default'           => '',
-        'sanitize_callback' => 'absint',
-        'transport'         => 'postMessage'
-    ] );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'matmuja_intro_image', [
-        'label'     => __( 'Intro Image', 'matmuja-tiefbau' ),
-        'section'   => 'matmuja_intro',
-        'mime_type' => 'image',
-    ] ) );
-
     // Services Section Images
     $wp_customize->add_section( 'matmuja_services', [
         'title'    => __( 'Service Phase Images', 'matmuja-tiefbau' ),
@@ -198,6 +186,19 @@ function matmuja_customize_register( $wp_customize ) {
         'title'    => __( 'Intro Section', 'matmuja-tiefbau' ),
         'priority' => 32,
     ] );
+
+    // Intro Image (must be after the section it belongs to)
+    $wp_customize->add_setting( 'matmuja_intro_image', [
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage'
+    ] );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'matmuja_intro_image', [
+        'label'     => __( 'Intro Image', 'matmuja-tiefbau' ),
+        'section'   => 'matmuja_intro',
+        'mime_type' => 'image',
+    ] ) );
+
     $intro_fields = [
         'matmuja_intro_title'    => [ 'label' => 'Intro Title',    'default' => 'Über Matmuja Tiefbau', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'sanitize' => 'wp_kses_post' ],

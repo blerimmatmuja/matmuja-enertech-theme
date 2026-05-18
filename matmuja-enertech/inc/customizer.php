@@ -61,6 +61,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
     for ( $i = 1; $i <= 3; $i++ ) {
         $text(     "mm_service_{$i}_title", 'mm_services', sprintf( __( 'Service %d title', 'matmuja-tiefbau' ), $i ) );
         $textarea( "mm_service_{$i}_desc",  'mm_services', sprintf( __( 'Service %d description', 'matmuja-tiefbau' ), $i ) );
+        $image(    "mm_service_{$i}_icon",  'mm_services', sprintf( __( 'Service %d icon (optional, square image)', 'matmuja-tiefbau' ), $i ) );
     }
 
     // Process (4)
