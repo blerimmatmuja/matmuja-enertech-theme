@@ -41,8 +41,19 @@ add_action( 'after_setup_theme', 'matmuja_setup' );
 function matmuja_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_style( 'matmuja-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap', [], null );
-    wp_enqueue_style( 'matmuja-style', get_stylesheet_uri(), [ 'matmuja-google-fonts' ], $theme_version );
+    wp_enqueue_style(
+        'matmuja-fonts',
+        get_template_directory_uri() . '/assets/css/fonts.css',
+        [],
+        $theme_version
+    );
+
+    wp_enqueue_style(
+        'matmuja-style',
+        get_stylesheet_uri(),
+        [ 'matmuja-fonts' ],
+        $theme_version
+    );
 
     $script_path = file_exists( get_template_directory() . '/assets/js/main.min.js' )
         ? '/assets/js/main.min.js'
@@ -298,3 +309,6 @@ function matmuja_schema_markup() {
     }
 }
 add_action( 'wp_head', 'matmuja_schema_markup' );
+
+// v2.0 customizer fields
+require_once get_template_directory() . '/inc/customizer.php';
