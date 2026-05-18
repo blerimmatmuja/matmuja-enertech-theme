@@ -34,3 +34,6 @@ npm-debug.log*
 
 # Brainstorming session files
 .superpowers/
+
+# Drift comparison files
+.drift/
