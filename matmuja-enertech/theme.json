@@ -4,70 +4,27 @@
   "settings": {
     "color": {
       "palette": [
-        {
-          "slug": "primary",
-          "color": "#2d1b69",
-          "name": "Dark Purple-Blue"
-        },
-        {
-          "slug": "accent",
-          "color": "#c9a84c",
-          "name": "Antique Gold"
-        },
-        {
-          "slug": "light-gold",
-          "color": "#e8d5a3",
-          "name": "Light Gold"
-        },
-        {
-          "slug": "deep-night",
-          "color": "#1a1a2e",
-          "name": "Deep Night"
-        },
-        {
-          "slug": "deep-violet",
-          "color": "#12092a",
-          "name": "Deep Violet"
-        },
-        {
-          "slug": "white",
-          "color": "#ffffff",
-          "name": "White"
-        }
+        { "slug": "brand-gold",       "color": "#c9a84c", "name": "Brand Gold" },
+        { "slug": "brand-gold-light", "color": "#e8d5a3", "name": "Brand Gold Light" },
+        { "slug": "brand-navy",       "color": "#0f1a2e", "name": "Brand Navy" },
+        { "slug": "brand-navy-deep",  "color": "#0b1424", "name": "Brand Navy Deep" },
+        { "slug": "surface",          "color": "#ffffff", "name": "Surface" },
+        { "slug": "surface-warm",     "color": "#f6f5f0", "name": "Surface Warm" },
+        { "slug": "text",             "color": "#0f1a2e", "name": "Text" },
+        { "slug": "text-muted",       "color": "#5b6473", "name": "Text Muted" }
       ]
     },
     "typography": {
       "fontFamilies": [
-        {
-          "fontFamily": "'Inter', 'Segoe UI', Arial, sans-serif",
-          "slug": "inter",
-          "name": "Inter"
-        }
+        { "fontFamily": "'Inter', system-ui, sans-serif", "slug": "body", "name": "Inter" },
+        { "fontFamily": "'Space Grotesk', 'Inter', system-ui, sans-serif", "slug": "display", "name": "Space Grotesk" }
       ]
     },
-    "spacing": {
-      "units": [
-        "px",
-        "em",
-        "rem",
-        "%",
-        "vh",
-        "vw"
-      ]
-    },
-    "layout": {
-      "contentSize": "800px",
-      "wideSize": "1200px"
-    }
+    "spacing": { "units": ["px", "em", "rem", "%", "vh", "vw"] },
+    "layout":  { "contentSize": "800px", "wideSize": "1200px" }
   },
   "styles": {
-    "color": {
-      "background": "#1a1a2e",
-      "text": "#e8d5a3"
-    },
-    "typography": {
-      "fontFamily": "var(--wp--preset--font-family--inter)",
-      "lineHeight": "1.6"
-    }
+    "color":      { "background": "#ffffff", "text": "#0f1a2e" },
+    "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "lineHeight": "1.6" }
   }
 }
