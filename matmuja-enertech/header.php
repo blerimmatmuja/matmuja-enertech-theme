@@ -1,68 +1,41 @@
 <?php
 /**
- * Header Template
+ * Theme header
+ *
  * @package matmuja-tiefbau
  */
-?><!DOCTYPE html>
+?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo('charset'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="https://gmpg.org/xfn/11">
-<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<header class="site-header" id="site-header">
-    <div class="container">
-        <nav class="navbar" aria-label="Main Navigation">
-
-            <?php // ─── LOGO ─────────────────── ?>
-            <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-logo" rel="home" aria-label="<?php esc_attr_e( 'Zur Startseite', 'matmuja-tiefbau' ); ?>">
-                <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-                <span class="logo-text">
-                    M&M EnerTech
-                </span>
-                <?php endif; ?>
-            </a>
-
-            <?php // ─── NAVIGATION ───────────── ?>
-            <div class="nav-menu" id="nav-menu">
-                <?php
-                wp_nav_menu([
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'items_wrap'     => '%3$s',
-                    'fallback_cb'    => function() {
-                        ?>
-                        <div class="nav-dropdown">
-                            <a href="#"><?php _e('Dienstleistungen', 'matmuja-tiefbau'); ?></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><?php _e('Smart Planning & Validation', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Precision Engineering', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Advanced Cable Deployment', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Fusion Splicing Excellence', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Smart Home Connection', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Network Activation', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('24/7 Support & Maintenance', 'matmuja-tiefbau'); ?></a></li>
-                            </ul>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/ueber-uns')); ?>"><?php _e('Über Uns', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/karriere')); ?>"><?php _e('Karriere', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/aktuelles')); ?>"><?php _e('Aktuelles', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-gold"><?php _e('Kontakt', 'matmuja-tiefbau'); ?></a>
-                        <?php
-                    },
-                ]);
-                ?>
-            </div>
-
-            <?php // ─── MOBILE TOGGLE ─────────── ?>
-            <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle Menu', 'matmuja-tiefbau'); ?>">
-                <span></span><span></span><span></span>
-            </button>
-
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a class="site-header__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php if ( has_custom_logo() ) {
+                the_custom_logo();
+            } else {
+                bloginfo( 'name' );
+            } ?>
+        </a>
+        <nav class="site-nav" aria-label="<?php esc_attr_e( 'Primary', 'matmuja-tiefbau' ); ?>">
+            <?php
+            wp_nav_menu( [
+                'theme_location' => 'primary',
+                'container'      => false,
+                'menu_class'     => 'site-nav__list',
+                'fallback_cb'    => '__return_empty_string',
+                'depth'          => 1,
+            ] );
+            ?>
         </nav>
     </div>
 </header>
+
+<main class="site-main">
