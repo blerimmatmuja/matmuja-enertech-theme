@@ -4,14 +4,14 @@
   "settings": {
     "color": {
       "palette": [
-        { "slug": "brand-gold",       "color": "#c9a84c", "name": "Brand Gold" },
-        { "slug": "brand-gold-light", "color": "#e8d5a3", "name": "Brand Gold Light" },
-        { "slug": "brand-navy",       "color": "#0f1a2e", "name": "Brand Navy" },
-        { "slug": "brand-navy-deep",  "color": "#0b1424", "name": "Brand Navy Deep" },
-        { "slug": "surface",          "color": "#ffffff", "name": "Surface" },
-        { "slug": "surface-warm",     "color": "#f6f5f0", "name": "Surface Warm" },
-        { "slug": "text",             "color": "#0f1a2e", "name": "Text" },
-        { "slug": "text-muted",       "color": "#5b6473", "name": "Text Muted" }
+        { "slug": "brand-lime",        "color": "#C6FF3D", "name": "Brand Lime" },
+        { "slug": "brand-lime-dark",   "color": "#85B800", "name": "Brand Lime Dark" },
+        { "slug": "brand-indigo",      "color": "#1B1B3A", "name": "Brand Indigo" },
+        { "slug": "brand-indigo-deep", "color": "#0F0F2A", "name": "Brand Indigo Deep" },
+        { "slug": "surface",           "color": "#FFFFFF", "name": "Surface" },
+        { "slug": "surface-warm",      "color": "#F5F4EC", "name": "Surface Warm" },
+        { "slug": "text",              "color": "#1B1B3A", "name": "Text" },
+        { "slug": "text-muted",        "color": "#4A4A6A", "name": "Text Muted" }
       ]
     },
     "typography": {
@@ -24,7 +24,7 @@
     "layout":  { "contentSize": "800px", "wideSize": "1200px" }
   },
   "styles": {
-    "color":      { "background": "#ffffff", "text": "#0f1a2e" },
+    "color":      { "background": "#F5F4EC", "text": "#1B1B3A" },
     "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "lineHeight": "1.6" }
   }
 }
