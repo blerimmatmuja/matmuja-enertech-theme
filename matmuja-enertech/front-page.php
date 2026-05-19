@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page template — v2.0
+ * Front page template — v3.0 FTTH
  *
  * @package matmuja-tiefbau
  */
@@ -17,19 +17,19 @@ $mm = function ( $key, $default = '' ) {
     <div class="container">
         <div class="hero__grid">
             <div class="hero__content">
-                <p class="eyebrow eyebrow--on-dark"><?php bloginfo( 'name' ); ?></p>
+                <p class="eyebrow eyebrow--on-dark"><?php esc_html_e( 'M&M EnerTech · Glasfaser', 'matmuja-tiefbau' ); ?></p>
                 <h1 class="hero__headline">
-                    <?php echo esc_html( $mm( 'mm_hero_headline', __( 'Energietechnik, neu gedacht.', 'matmuja-tiefbau' ) ) ); ?>
+                    <?php echo esc_html( $mm( 'mm_hero_headline', __( 'Vom Spaten bis zur Buchse.', 'matmuja-tiefbau' ) ) ); ?>
                 </h1>
                 <p class="hero__sub">
-                    <?php echo esc_html( $mm( 'mm_hero_sub', __( 'Smarte Lösungen für Industrie, Gewerbe und nachhaltige Quartiere.', 'matmuja-tiefbau' ) ) ); ?>
+                    <?php echo esc_html( $mm( 'mm_hero_sub', __( 'Glasfaserinfrastruktur von A bis Z — Tiefbau, Verlegung, Spleißen, Hausanschluss.', 'matmuja-tiefbau' ) ) ); ?>
                 </p>
                 <div class="hero__ctas">
                     <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_hero_cta_primary_url', '#kontakt' ) ); ?>">
-                        <?php echo esc_html( $mm( 'mm_hero_cta_primary', __( 'Beratung anfragen', 'matmuja-tiefbau' ) ) ); ?>
+                        <?php echo esc_html( $mm( 'mm_hero_cta_primary', __( 'FTTH anfragen', 'matmuja-tiefbau' ) ) ); ?>
                     </a>
-                    <a class="btn btn--ghost" href="<?php echo esc_url( $mm( 'mm_hero_cta_secondary_url', '#leistungen' ) ); ?>">
-                        <?php echo esc_html( $mm( 'mm_hero_cta_secondary', __( 'Leistungen', 'matmuja-tiefbau' ) ) ); ?>
+                    <a class="btn btn--ghost" href="<?php echo esc_url( $mm( 'mm_hero_cta_secondary_url', '#prozess' ) ); ?>">
+                        <?php echo esc_html( $mm( 'mm_hero_cta_secondary', __( '5 Phasen ansehen', 'matmuja-tiefbau' ) ) ); ?>
                     </a>
                 </div>
             </div>
@@ -67,7 +67,7 @@ $mm = function ( $key, $default = '' ) {
 <section class="section--band">
     <div class="container">
         <p class="mission-strip">
-            <?php echo esc_html( $mm( 'mm_mission_text', __( 'Wir bringen smarte Energietechnik dorthin, wo sie wirklich Wirkung entfaltet.', 'matmuja-tiefbau' ) ) ); ?>
+            <?php echo esc_html( $mm( 'mm_mission_text', __( 'Glasfaser komplett aus einer Hand — wir übernehmen jede Phase vom ersten Spatenstich bis zur aktiven Buchse.', 'matmuja-tiefbau' ) ) ); ?>
         </p>
     </div>
 </section>
@@ -192,9 +192,9 @@ $mm = function ( $key, $default = '' ) {
 <!-- 7. CTA STRIP -->
 <section id="kontakt" class="section section--dark">
     <div class="container cta-strip">
-        <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für die Energiezukunft?', 'matmuja-tiefbau' ) ) ); ?></h2>
+        <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für Ihr Glasfaserprojekt?', 'matmuja-tiefbau' ) ) ); ?></h2>
         <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_cta_button_url', 'mailto:info@matmuja.de' ) ); ?>">
-            <?php echo esc_html( $mm( 'mm_cta_button_text', __( 'Beratung anfragen', 'matmuja-tiefbau' ) ) ); ?>
+            <?php echo esc_html( $mm( 'mm_cta_button_text', __( 'Kostenlose Erstberatung', 'matmuja-tiefbau' ) ) ); ?>
         </a>
     </div>
 </section>
