@@ -33,16 +33,30 @@ $mm = function ( $key, $default = '' ) {
                     </a>
                 </div>
             </div>
-            <div class="hero__visual" aria-hidden="true">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.5">
+            <div class="hero__visual" aria-hidden="true" style="color: var(--color-brand-lime);">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%">
                     <defs>
-                        <pattern id="hero-grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#c9a84c" stroke-width="0.2"/>
+                        <radialGradient id="hero-glow" cx="50%" cy="50%" r="60%">
+                            <stop offset="0%"   stop-color="currentColor" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+                        </radialGradient>
+                        <pattern id="hero-grid" width="14" height="14" patternUnits="userSpaceOnUse">
+                            <path d="M 14 0 L 0 0 0 14" fill="none" stroke="currentColor" stroke-width="0.25" opacity="0.35"/>
                         </pattern>
                     </defs>
-                    <rect width="100" height="100" fill="url(#hero-grid)"/>
-                    <circle cx="50" cy="50" r="20" fill="none" stroke="#c9a84c" stroke-width="0.4"/>
-                    <circle cx="50" cy="50" r="32" fill="none" stroke="#c9a84c" stroke-width="0.2"/>
+                    <rect width="200" height="200" fill="url(#hero-grid)"/>
+                    <rect width="200" height="200" fill="url(#hero-glow)"/>
+                    <line x1="40"  y1="50"  x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
+                    <line x1="160" y1="60"  x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
+                    <line x1="60"  y1="150" x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
+                    <line x1="160" y1="150" x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
+                    <circle cx="40"  cy="50"  r="4" fill="currentColor"/>
+                    <circle cx="100" cy="100" r="6" fill="currentColor"/>
+                    <circle cx="160" cy="60"  r="4" fill="currentColor"/>
+                    <circle cx="60"  cy="150" r="4" fill="currentColor"/>
+                    <circle cx="160" cy="150" r="4" fill="currentColor"/>
+                    <circle cx="100" cy="100" r="14" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+                    <circle cx="100" cy="100" r="22" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.25"/>
                 </svg>
             </div>
         </div>
