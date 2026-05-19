@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings for v2.0.
+ * Customizer settings for v3.0.
  *
  * @package matmuja-tiefbau
  */
@@ -10,18 +10,17 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 
     $wp->add_panel( 'mm_v2', [
-        'title'    => __( 'M&M EnerTech (v2.0)', 'matmuja-tiefbau' ),
+        'title'    => __( 'M&M EnerTech (v3.0)', 'matmuja-tiefbau' ),
         'priority' => 30,
     ] );
 
     $sections = [
-        'mm_hero'     => __( 'Hero', 'matmuja-tiefbau' ),
-        'mm_mission'  => __( 'Mission strip', 'matmuja-tiefbau' ),
-        'mm_services' => __( 'Leistungen', 'matmuja-tiefbau' ),
-        'mm_process'  => __( 'Prozess', 'matmuja-tiefbau' ),
-        'mm_proof'    => __( 'Proof', 'matmuja-tiefbau' ),
-        'mm_faq'      => __( 'FAQ', 'matmuja-tiefbau' ),
-        'mm_cta'      => __( 'CTA', 'matmuja-tiefbau' ),
+        'mm_hero'    => __( 'Hero', 'matmuja-tiefbau' ),
+        'mm_mission' => __( 'Mission strip', 'matmuja-tiefbau' ),
+        'mm_ftth'    => __( 'FTTH-Prozess', 'matmuja-tiefbau' ),
+        'mm_proof'   => __( 'Proof', 'matmuja-tiefbau' ),
+        'mm_faq'     => __( 'FAQ', 'matmuja-tiefbau' ),
+        'mm_cta'     => __( 'CTA', 'matmuja-tiefbau' ),
     ];
     foreach ( $sections as $id => $label ) {
         $wp->add_section( $id, [ 'title' => $label, 'panel' => 'mm_v2' ] );
@@ -45,34 +44,37 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
     };
 
     // Hero
-    $text( 'mm_hero_headline', 'mm_hero', __( 'Headline', 'matmuja-tiefbau' ), 'Energietechnik, neu gedacht.' );
-    $textarea( 'mm_hero_sub', 'mm_hero', __( 'Sub-headline', 'matmuja-tiefbau' ), 'Smarte Lösungen für Industrie, Gewerbe und nachhaltige Quartiere.' );
-    $text( 'mm_hero_cta_primary',     'mm_hero', __( 'Primary CTA label', 'matmuja-tiefbau' ), 'Beratung anfragen' );
+    $text( 'mm_hero_headline', 'mm_hero', __( 'Headline', 'matmuja-tiefbau' ), 'Vom Spaten bis zur Buchse.' );
+    $textarea( 'mm_hero_sub', 'mm_hero', __( 'Sub-headline', 'matmuja-tiefbau' ), 'Glasfaserinfrastruktur von A bis Z — Tiefbau, Verlegung, Spleißen, Hausanschluss.' );
+    $text( 'mm_hero_cta_primary',     'mm_hero', __( 'Primary CTA label', 'matmuja-tiefbau' ), 'FTTH anfragen' );
     $url(  'mm_hero_cta_primary_url', 'mm_hero', __( 'Primary CTA URL', 'matmuja-tiefbau' ), '#kontakt' );
-    $text( 'mm_hero_cta_secondary',     'mm_hero', __( 'Secondary CTA label', 'matmuja-tiefbau' ), 'Leistungen' );
-    $url(  'mm_hero_cta_secondary_url', 'mm_hero', __( 'Secondary CTA URL', 'matmuja-tiefbau' ), '#leistungen' );
+    $text( 'mm_hero_cta_secondary',     'mm_hero', __( 'Secondary CTA label', 'matmuja-tiefbau' ), '5 Phasen ansehen' );
+    $url(  'mm_hero_cta_secondary_url', 'mm_hero', __( 'Secondary CTA URL', 'matmuja-tiefbau' ), '#prozess' );
 
     // Mission
     $textarea( 'mm_mission_text', 'mm_mission', __( 'Mission sentence', 'matmuja-tiefbau' ),
-        'Wir bringen smarte Energietechnik dorthin, wo sie wirklich Wirkung entfaltet.' );
+        'Glasfaser komplett aus einer Hand — wir übernehmen jede Phase vom ersten Spatenstich bis zur aktiven Buchse.' );
 
-    // Services (3)
-    $text( 'mm_services_heading', 'mm_services', __( 'Section heading', 'matmuja-tiefbau' ), 'Unsere Leistungen' );
-    for ( $i = 1; $i <= 3; $i++ ) {
-        $text(     "mm_service_{$i}_title", 'mm_services', sprintf( __( 'Service %d title', 'matmuja-tiefbau' ), $i ) );
-        $textarea( "mm_service_{$i}_desc",  'mm_services', sprintf( __( 'Service %d description', 'matmuja-tiefbau' ), $i ) );
-        $image(    "mm_service_{$i}_icon",  'mm_services', sprintf( __( 'Service %d icon (optional, square image)', 'matmuja-tiefbau' ), $i ) );
-    }
-
-    // Process (4)
-    $text( 'mm_process_heading', 'mm_process', __( 'Section heading', 'matmuja-tiefbau' ), 'So arbeiten wir' );
-    for ( $i = 1; $i <= 4; $i++ ) {
-        $text(     "mm_process_step_{$i}_title", 'mm_process', sprintf( __( 'Step %d title', 'matmuja-tiefbau' ), $i ) );
-        $textarea( "mm_process_step_{$i}_desc",  'mm_process', sprintf( __( 'Step %d description', 'matmuja-tiefbau' ), $i ) );
+    // FTTH phases (5)
+    $text( 'mm_ftth_heading', 'mm_ftth', __( 'Section heading', 'matmuja-tiefbau' ), 'In 5 Phasen zum Hausanschluss' );
+    $phase_defaults = [
+        1 => [ 'Smart Planning & Design',  'GIS-gestützte Trassenplanung mit KI-Optimierung — von der Adressvalidierung bis zur 3D-Visualisierung.',  'Projektplanung starten',  '/stufe-1-projektplanung' ],
+        2 => [ 'Precision Tiefbau',         'GPS-gesteuerte minimalinvasive Verfahren, die Bestandsnetze schonen und Trassen präzise vorbereiten.',     'Tiefbau-Details',         '/stufe-2-tiefbauarbeiten' ],
+        3 => [ 'Kabelverlegung',            'Mikrorohr-Systeme und Glasfaser-Einblasen mit Schutz für bestehende Infrastruktur.',                       'Verlegung verstehen',     '/stufe-3-kabelverlegung' ],
+        4 => [ 'Spleißen & Messung',        'Präzise Faser-zu-Faser-Verbindung, OTDR-Abnahmemessung, dokumentierte Qualitätssicherung.',                'Spleiß-Standards',        '/stufe-4-spleissen' ],
+        5 => [ 'Hausanschluss / FTTH',      'Die aktive Buchse beim Endkunden — bereit für Gigabit. Das Ziel der ganzen Reise.',                       'Hausanschluss anfragen',  '/stufe-5-hausanschluss' ],
+    ];
+    for ( $i = 1; $i <= 5; $i++ ) {
+        list( $pt, $pd, $pc, $pu ) = $phase_defaults[ $i ];
+        $text(     "mm_phase_{$i}_title",    'mm_ftth', sprintf( __( 'Phase %d title', 'matmuja-tiefbau' ),       $i ), $pt );
+        $textarea( "mm_phase_{$i}_desc",     'mm_ftth', sprintf( __( 'Phase %d description', 'matmuja-tiefbau' ), $i ), $pd );
+        $text(     "mm_phase_{$i}_cta_text", 'mm_ftth', sprintf( __( 'Phase %d CTA label', 'matmuja-tiefbau' ),   $i ), $pc );
+        $url(      "mm_phase_{$i}_cta_url",  'mm_ftth', sprintf( __( 'Phase %d CTA URL', 'matmuja-tiefbau' ),     $i ), $pu );
     }
 
     // Proof
     $text( 'mm_proof_years',    'mm_proof', __( 'Stat: years',    'matmuja-tiefbau' ), '12' );
+    $text( 'mm_proof_km',       'mm_proof', __( 'Stat: km fiber', 'matmuja-tiefbau' ), '1200' );
     $text( 'mm_proof_projects', 'mm_proof', __( 'Stat: projects', 'matmuja-tiefbau' ), '150' );
     $text( 'mm_proof_cert',     'mm_proof', __( 'Stat: cert label', 'matmuja-tiefbau' ), 'DIN' );
     for ( $i = 1; $i <= 6; $i++ ) {
@@ -87,7 +89,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
     }
 
     // CTA
-    $text( 'mm_cta_headline',    'mm_cta', __( 'Headline', 'matmuja-tiefbau' ), 'Bereit für die Energiezukunft?' );
-    $text( 'mm_cta_button_text', 'mm_cta', __( 'Button text', 'matmuja-tiefbau' ), 'Beratung anfragen' );
+    $text( 'mm_cta_headline',    'mm_cta', __( 'Headline', 'matmuja-tiefbau' ), 'Bereit für Ihr Glasfaserprojekt?' );
+    $text( 'mm_cta_button_text', 'mm_cta', __( 'Button text', 'matmuja-tiefbau' ), 'Kostenlose Erstberatung' );
     $url(  'mm_cta_button_url',  'mm_cta', __( 'Button URL', 'matmuja-tiefbau' ), 'mailto:info@matmuja.de' );
 } );
