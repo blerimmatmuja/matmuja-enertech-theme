@@ -148,54 +148,103 @@ p:last-child { margin-bottom: 0; }
 }
 .btn--ghost:hover { background: rgba(255, 255, 255, 0.06); color: var(--color-text-on-dark); }
 
-/* --- Service card --- */
-.service-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
-}
-.service-card:hover {
-  border-color: var(--color-brand-lime);
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-2px);
-}
-.service-card__icon {
-  width: 2.5rem; height: 2.5rem;
-  background: var(--color-brand-lime);
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--color-brand-indigo);
-}
-.service-card__title { font-size: var(--text-lg); margin-bottom: 0.5rem; }
-.service-card__desc  { color: var(--color-text-muted); font-size: var(--text-sm); }
+/* --- FTTH Timeline --- */
+.ftth-header { text-align: center; margin-bottom: 1rem; }
+.ftth-header h2 { margin-top: 0.25rem; }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+.ftth-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* --- Process steps --- */
-.process-grid {
+.ftth-phase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0 2rem 1.5rem;
+  border-left: 2px solid var(--color-brand-lime);
+  position: relative;
 }
-.process-step__num {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
+.ftth-phase__content { display: flex; flex-direction: column; gap: 0.5rem; }
+.ftth-phase__number {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--color-brand-lime);
-  line-height: 1;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
 }
-.process-step__title { font-size: var(--text-lg); margin-bottom: 0.25rem; }
-.process-step__desc  { color: var(--color-text-on-dark-muted); font-size: var(--text-sm); }
+.ftth-phase__title { margin: 0; }
+.ftth-phase__desc  { color: var(--color-text-muted); margin: 0; }
+.ftth-phase__cta {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-brand-lime-dark);
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+.ftth-phase__cta:hover { color: var(--color-brand-indigo); }
+
+.ftth-phase__visual {
+  background: var(--color-brand-indigo);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-lime);
+}
+.ftth-phase__visual img,
+.ftth-phase__visual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ftth-phase__visual img {
+  /* Tint monochrome SVG to lime — fallback to inlined SVG if this fails visually */
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(40deg) saturate(8);
+}
+
+/* Alternating sides — desktop only */
+.ftth-phase--left  .ftth-phase__visual  { order: 1; }
+.ftth-phase--left  .ftth-phase__content { order: 2; text-align: right; align-items: flex-end; }
+.ftth-phase--right .ftth-phase__visual  { order: 2; }
+.ftth-phase--right .ftth-phase__content { order: 1; }
+
+/* Phase 5 — featured "finish line" */
+.ftth-phase--final .ftth-phase__number  { color: var(--color-brand-lime-dark); }
+.ftth-phase--final .ftth-phase__visual  {
+  background: linear-gradient(135deg, var(--color-brand-indigo) 0%, var(--color-brand-indigo-tint) 100%);
+  box-shadow: var(--glow-lime-strong);
+}
+
+@media (max-width: 767px) {
+  .ftth-phase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ftth-phase--left  .ftth-phase__content,
+  .ftth-phase--right .ftth-phase__content {
+    text-align: left;
+    align-items: flex-start;
+    order: 2;
+  }
+  .ftth-phase--left  .ftth-phase__visual,
+  .ftth-phase--right .ftth-phase__visual {
+    order: 1;
+    max-width: 200px;
+  }
+}
 
 /* --- Proof stats + logos --- */
 .proof-stats {
@@ -331,5 +380,3 @@ body.front-page .site-header {
 .site-footer__right { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
 .site-footer__social { display: flex; gap: 0.75rem; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; }
 
-/* Service card icon — supports optional image override */
-.service-card__icon img { width: 100%; height: 100%; object-fit: contain; }
