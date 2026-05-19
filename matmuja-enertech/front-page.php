@@ -72,74 +72,92 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 3. SERVICES -->
-<section id="leistungen" class="section">
+<!-- 3. FTTH TIMELINE -->
+<section id="prozess" class="section section--warm">
     <div class="container">
-        <p class="eyebrow"><?php esc_html_e( 'Was wir tun', 'matmuja-tiefbau' ); ?></p>
-        <h2><?php echo esc_html( $mm( 'mm_services_heading', __( 'Unsere Leistungen', 'matmuja-tiefbau' ) ) ); ?></h2>
-        <div class="services-grid">
-            <?php for ( $i = 1; $i <= 3; $i++ ) :
-                $title = $mm( "mm_service_{$i}_title", '' );
-                $desc  = $mm( "mm_service_{$i}_desc", '' );
-                $icon  = $mm( "mm_service_{$i}_icon", '' );
-                if ( ! $title ) {
-                    $defaults = [
-                        1 => [ __( 'Photovoltaik', 'matmuja-tiefbau' ), __( 'Planung und Installation für Industrie und Gewerbe.', 'matmuja-tiefbau' ) ],
-                        2 => [ __( 'Wärmepumpen', 'matmuja-tiefbau' ), __( 'Effiziente Heizungssysteme der nächsten Generation.', 'matmuja-tiefbau' ) ],
-                        3 => [ __( 'Speicher & Smart Grid', 'matmuja-tiefbau' ), __( 'Intelligente Energiespeicher und Netzintegration.', 'matmuja-tiefbau' ) ],
-                    ];
-                    $title = $defaults[ $i ][0];
-                    $desc  = $defaults[ $i ][1];
-                }
+        <div class="ftth-header">
+            <p class="eyebrow"><?php esc_html_e( 'Unser Glasfaser-Prozess', 'matmuja-tiefbau' ); ?></p>
+            <h2><?php echo esc_html( $mm( 'mm_ftth_heading', __( 'In 5 Phasen zum Hausanschluss', 'matmuja-tiefbau' ) ) ); ?></h2>
+        </div>
+
+        <ol class="ftth-timeline">
+            <?php
+            $phase_defaults = [
+                1 => [
+                    'title' => __( 'Smart Planning & Design', 'matmuja-tiefbau' ),
+                    'desc'  => __( 'GIS-gestützte Trassenplanung mit KI-Optimierung — von der Adressvalidierung bis zur 3D-Visualisierung.', 'matmuja-tiefbau' ),
+                    'cta'   => __( 'Projektplanung starten', 'matmuja-tiefbau' ),
+                    'url'   => '/stufe-1-projektplanung',
+                    'svg'   => 's1_projektplanung_mm.svg',
+                ],
+                2 => [
+                    'title' => __( 'Precision Tiefbau', 'matmuja-tiefbau' ),
+                    'desc'  => __( 'GPS-gesteuerte minimalinvasive Verfahren, die Bestandsnetze schonen und Trassen präzise vorbereiten.', 'matmuja-tiefbau' ),
+                    'cta'   => __( 'Tiefbau-Details', 'matmuja-tiefbau' ),
+                    'url'   => '/stufe-2-tiefbauarbeiten',
+                    'svg'   => 's2_tiefbau_mm.svg',
+                ],
+                3 => [
+                    'title' => __( 'Kabelverlegung', 'matmuja-tiefbau' ),
+                    'desc'  => __( 'Mikrorohr-Systeme und Glasfaser-Einblasen mit Schutz für bestehende Infrastruktur.', 'matmuja-tiefbau' ),
+                    'cta'   => __( 'Verlegung verstehen', 'matmuja-tiefbau' ),
+                    'url'   => '/stufe-3-kabelverlegung',
+                    'svg'   => 's3_kabelverlegung_mm.svg',
+                ],
+                4 => [
+                    'title' => __( 'Spleißen & Messung', 'matmuja-tiefbau' ),
+                    'desc'  => __( 'Präzise Faser-zu-Faser-Verbindung, OTDR-Abnahmemessung, dokumentierte Qualitätssicherung.', 'matmuja-tiefbau' ),
+                    'cta'   => __( 'Spleiß-Standards', 'matmuja-tiefbau' ),
+                    'url'   => '/stufe-4-spleissen',
+                    'svg'   => 's4_spleissen_mm.svg',
+                ],
+                5 => [
+                    'title' => __( 'Hausanschluss / FTTH', 'matmuja-tiefbau' ),
+                    'desc'  => __( 'Die aktive Buchse beim Endkunden — bereit für Gigabit. Das Ziel der ganzen Reise.', 'matmuja-tiefbau' ),
+                    'cta'   => __( 'Hausanschluss anfragen', 'matmuja-tiefbau' ),
+                    'url'   => '/stufe-5-hausanschluss',
+                    'svg'   => 's5_hausanschluss_mm.svg',
+                ],
+            ];
+
+            for ( $i = 1; $i <= 5; $i++ ) :
+                $title = $mm( "mm_phase_{$i}_title",    $phase_defaults[ $i ]['title'] );
+                $desc  = $mm( "mm_phase_{$i}_desc",     $phase_defaults[ $i ]['desc'] );
+                $cta   = $mm( "mm_phase_{$i}_cta_text", $phase_defaults[ $i ]['cta'] );
+                $url   = $mm( "mm_phase_{$i}_cta_url",  $phase_defaults[ $i ]['url'] );
+                $side  = ( $i % 2 === 1 ) ? 'right' : 'left';
+                $final = ( 5 === $i ) ? ' ftth-phase--final' : '';
+                $svg   = $phase_defaults[ $i ]['svg'];
                 ?>
-                <div class="service-card">
-                    <div class="service-card__icon" aria-hidden="true">
-                        <?php if ( $icon ) : ?>
-                            <img src="<?php echo esc_url( $icon ); ?>" alt="" loading="lazy">
+                <li class="ftth-phase ftth-phase--<?php echo esc_attr( $side ); ?><?php echo $final; ?>">
+                    <div class="ftth-phase__content">
+                        <p class="ftth-phase__number"><?php printf( esc_html__( 'Phase %02d', 'matmuja-tiefbau' ), $i ); ?><?php if ( 5 === $i ) : ?> · <?php esc_html_e( 'Ziellinie', 'matmuja-tiefbau' ); ?><?php endif; ?></p>
+                        <h3 class="ftth-phase__title"><?php echo esc_html( $title ); ?></h3>
+                        <p class="ftth-phase__desc"><?php echo esc_html( $desc ); ?></p>
+                        <?php if ( $cta && $url ) : ?>
+                            <a class="ftth-phase__cta" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $cta ); ?> &rarr;</a>
                         <?php endif; ?>
                     </div>
-                    <h3 class="service-card__title"><?php echo esc_html( $title ); ?></h3>
-                    <p class="service-card__desc"><?php echo esc_html( $desc ); ?></p>
-                </div>
+                    <div class="ftth-phase__visual" aria-hidden="true">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $svg ); ?>" alt="" loading="lazy">
+                    </div>
+                </li>
             <?php endfor; ?>
-        </div>
+        </ol>
     </div>
 </section>
 
-<!-- 4. HOW WE WORK -->
+<!-- 4. PROOF -->
 <section class="section section--dark">
-    <div class="container">
-        <p class="eyebrow eyebrow--on-dark"><?php esc_html_e( 'Unser Vorgehen', 'matmuja-tiefbau' ); ?></p>
-        <h2><?php echo esc_html( $mm( 'mm_process_heading', __( 'So arbeiten wir', 'matmuja-tiefbau' ) ) ); ?></h2>
-        <div class="process-grid">
-            <?php
-            $process_defaults = [
-                1 => [ __( 'Analyse', 'matmuja-tiefbau' ), __( 'Bestandsaufnahme und Bedarfsklärung vor Ort.', 'matmuja-tiefbau' ) ],
-                2 => [ __( 'Konzept', 'matmuja-tiefbau' ), __( 'Maßgeschneidertes Konzept inkl. Wirtschaftlichkeit.', 'matmuja-tiefbau' ) ],
-                3 => [ __( 'Umsetzung', 'matmuja-tiefbau' ), __( 'Realisierung durch zertifizierte Fachpartner.', 'matmuja-tiefbau' ) ],
-                4 => [ __( 'Service', 'matmuja-tiefbau' ), __( 'Monitoring, Wartung und kontinuierliche Optimierung.', 'matmuja-tiefbau' ) ],
-            ];
-            for ( $i = 1; $i <= 4; $i++ ) :
-                $title = $mm( "mm_process_step_{$i}_title", $process_defaults[ $i ][0] );
-                $desc  = $mm( "mm_process_step_{$i}_desc",  $process_defaults[ $i ][1] );
-                ?>
-                <div class="process-step">
-                    <div class="process-step__num"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></div>
-                    <h3 class="process-step__title"><?php echo esc_html( $title ); ?></h3>
-                    <p class="process-step__desc"><?php echo esc_html( $desc ); ?></p>
-                </div>
-            <?php endfor; ?>
-        </div>
-    </div>
-</section>
-
-<!-- 5. PROOF -->
-<section class="section section--warm">
     <div class="container">
         <div class="proof-stats">
             <div class="proof-stat">
                 <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_years', '12' ) ); ?>+</div>
-                <div class="proof-stat__label"><?php esc_html_e( 'Jahre', 'matmuja-tiefbau' ); ?></div>
+                <div class="proof-stat__label"><?php esc_html_e( 'Jahre Tiefbau', 'matmuja-tiefbau' ); ?></div>
+            </div>
+            <div class="proof-stat">
+                <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_km', '1200' ) ); ?> km</div>
+                <div class="proof-stat__label"><?php esc_html_e( 'Faser verlegt', 'matmuja-tiefbau' ); ?></div>
             </div>
             <div class="proof-stat">
                 <div class="proof-stat__value"><?php echo esc_html( $mm( 'mm_proof_projects', '150' ) ); ?></div>
@@ -163,7 +181,7 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 6. FAQ -->
+<!-- 5. FAQ -->
 <section class="section">
     <div class="container">
         <p class="eyebrow"><?php esc_html_e( 'Häufige Fragen', 'matmuja-tiefbau' ); ?></p>
@@ -189,7 +207,7 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 7. CTA STRIP -->
+<!-- 6. CTA STRIP -->
 <section id="kontakt" class="section section--dark">
     <div class="container cta-strip">
         <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für Ihr Glasfaserprojekt?', 'matmuja-tiefbau' ) ) ); ?></h2>
