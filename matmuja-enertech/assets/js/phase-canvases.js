@@ -53,11 +53,7 @@ setTimeout(function(){
   function draw(){
     t+=.007;
     ctx.clearRect(0,0,W,H);
-
-    // bg gradient
-    let bg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,W*.7);
-    bg.addColorStop(0,'#081525'); bg.addColorStop(1,'#030810');
-    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+    // bg fill removed — canvas stays transparent so page background shows through
 
     // grid
     ctx.strokeStyle='rgba(0,100,200,.13)'; ctx.lineWidth=.5;
@@ -169,8 +165,7 @@ setTimeout(function(){
 
     const gY=120; // ground surface y
 
-    // sky / above ground
-    drawLayer(0,gY,'#050d1a','#08152a');
+    // sky removed — canvas stays transparent so page background shows through
 
     // road surface
     drawLayer(gY-18,gY,'#1a1e28','#22262f');
@@ -280,8 +275,7 @@ setTimeout(function(){
   function draw(){
     t+=.012;
     ctx.clearRect(0,0,W,H);
-
-    ctx.fillStyle='#050810'; ctx.fillRect(0,0,W,H);
+    // full-canvas bg fill removed — page background shows through
 
     // soil above
     let sg=ctx.createLinearGradient(0,0,0,H*.38);
@@ -384,7 +378,7 @@ setTimeout(function(){
   function draw(){
     t+=.009;
     ctx.clearRect(0,0,W,H);
-    ctx.fillStyle='#020408'; ctx.fillRect(0,0,W,H);
+    // full-canvas bg fill removed — page background shows through
 
     // subtle grid bg
     ctx.strokeStyle='rgba(100,0,200,.07)'; ctx.lineWidth=.5;
@@ -576,10 +570,7 @@ setTimeout(function(){
     t+=.01;
     ctx.clearRect(0,0,W,H);
 
-    // night sky
-    let sky=ctx.createLinearGradient(0,0,0,H*.7);
-    sky.addColorStop(0,'#020408'); sky.addColorStop(1,'#040912');
-    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H*.7);
+    // sky fill removed — page background shows through (transparent canvas)
 
     // stars
     for(let i=0;i<60;i++){
@@ -589,10 +580,7 @@ setTimeout(function(){
       ctx.fillStyle=`rgba(200,220,255,${sb*.55})`; ctx.fill();
     }
 
-    // ground
-    let gnd=ctx.createLinearGradient(0,H*.7,0,H);
-    gnd.addColorStop(0,'#09132a'); gnd.addColorStop(1,'#060a18');
-    ctx.fillStyle=gnd; ctx.fillRect(0,H*.7,W,H*.3);
+    // ground fill removed — page background shows through
 
     // underground cable (orange PE duct)
     const cableY=H*.84;
