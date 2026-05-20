@@ -11,8 +11,8 @@
         { "slug": "phase-mint",   "color": "#00ffcc", "name": "Phase 3 (Verlegung)" },
         { "slug": "phase-purple", "color": "#bf00ff", "name": "Phase 4 (Spleißen)" },
         { "slug": "phase-green",  "color": "#00ff88", "name": "Phase 5 (Hausanschluss)" },
-        { "slug": "bg",           "color": "#060610", "name": "Background" },
-        { "slug": "bg-card",      "color": "#020408", "name": "Background Card" },
+        { "slug": "bg",           "color": "#0e1730", "name": "Background" },
+        { "slug": "bg-card",      "color": "#080d1c", "name": "Background Card" },
         { "slug": "text",         "color": "#e0e8ff", "name": "Text" },
         { "slug": "text-muted",   "color": "#506080", "name": "Text Muted" }
       ]
@@ -27,7 +27,7 @@
     "layout":  { "contentSize": "800px", "wideSize": "1380px" }
   },
   "styles": {
-    "color":      { "background": "#060610", "text": "#e0e8ff" },
+    "color":      { "background": "#0e1730", "text": "#e0e8ff" },
     "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "lineHeight": "1.7" }
   }
 }
