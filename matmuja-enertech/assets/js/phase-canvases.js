@@ -567,7 +567,7 @@ setTimeout(function(){
       ctx.fillStyle=(i<2&&op>.5)||i===2?c:'rgba(0,80,30,.6)'; ctx.fill();
     });
     ctx.fillStyle='rgba(0,255,136,.5)'; ctx.font='7px monospace';
-    ctx.fillText('ONT',w,−12); ctx.restore();
+    ctx.fillText('ONT',w,-12); ctx.restore();
 
     ctx.restore();
   }
