@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings for v3.0.
+ * Customizer settings for v4.0 (dark cinematic).
  *
  * @package matmuja-tiefbau
  */
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 
     $wp->add_panel( 'mm_v2', [
-        'title'    => __( 'M&M EnerTech (v3.0)', 'matmuja-tiefbau' ),
+        'title'    => __( 'M&M EnerTech (v4.0)', 'matmuja-tiefbau' ),
         'priority' => 30,
     ] );
 

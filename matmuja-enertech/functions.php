@@ -69,6 +69,17 @@ function matmuja_scripts() {
     if ( is_singular() && comments_open() ) {
         wp_enqueue_script( 'comment-reply' );
     }
+
+    // v4: animated phase canvases — front page only
+    if ( is_front_page() ) {
+        wp_enqueue_script(
+            'matmuja-phase-canvases',
+            get_template_directory_uri() . '/assets/js/phase-canvases.js',
+            [],
+            $theme_version,
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'matmuja_scripts' );
 

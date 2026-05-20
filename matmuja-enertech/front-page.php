@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page template — v3.0 FTTH
+ * Front page template — v4.0 (dark cinematic, animated canvases)
  *
  * @package matmuja-tiefbau
  */
@@ -13,58 +13,30 @@ $mm = function ( $key, $default = '' ) {
 ?>
 
 <!-- 1. HERO -->
-<section class="hero section--dark">
+<section class="hero">
     <div class="container">
-        <div class="hero__grid">
-            <div class="hero__content">
-                <p class="eyebrow eyebrow--on-dark"><?php esc_html_e( 'M&M EnerTech · Glasfaser', 'matmuja-tiefbau' ); ?></p>
-                <h1 class="hero__headline">
-                    <?php echo esc_html( $mm( 'mm_hero_headline', __( 'Vom Spaten bis zur Buchse.', 'matmuja-tiefbau' ) ) ); ?>
-                </h1>
-                <p class="hero__sub">
-                    <?php echo esc_html( $mm( 'mm_hero_sub', __( 'Glasfaserinfrastruktur von A bis Z — Tiefbau, Verlegung, Spleißen, Hausanschluss.', 'matmuja-tiefbau' ) ) ); ?>
-                </p>
-                <div class="hero__ctas">
-                    <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_hero_cta_primary_url', '#kontakt' ) ); ?>">
-                        <?php echo esc_html( $mm( 'mm_hero_cta_primary', __( 'FTTH anfragen', 'matmuja-tiefbau' ) ) ); ?>
-                    </a>
-                    <a class="btn btn--ghost" href="<?php echo esc_url( $mm( 'mm_hero_cta_secondary_url', '#prozess' ) ); ?>">
-                        <?php echo esc_html( $mm( 'mm_hero_cta_secondary', __( '5 Phasen ansehen', 'matmuja-tiefbau' ) ) ); ?>
-                    </a>
-                </div>
-            </div>
-            <div class="hero__visual" aria-hidden="true" style="color: var(--color-brand-lime);">
-                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%">
-                    <defs>
-                        <radialGradient id="hero-glow" cx="50%" cy="50%" r="60%">
-                            <stop offset="0%"   stop-color="currentColor" stop-opacity="0.25"/>
-                            <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
-                        </radialGradient>
-                        <pattern id="hero-grid" width="14" height="14" patternUnits="userSpaceOnUse">
-                            <path d="M 14 0 L 0 0 0 14" fill="none" stroke="currentColor" stroke-width="0.25" opacity="0.35"/>
-                        </pattern>
-                    </defs>
-                    <rect width="200" height="200" fill="url(#hero-grid)"/>
-                    <rect width="200" height="200" fill="url(#hero-glow)"/>
-                    <line x1="40"  y1="50"  x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
-                    <line x1="160" y1="60"  x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
-                    <line x1="60"  y1="150" x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
-                    <line x1="160" y1="150" x2="100" y2="100" stroke="currentColor" stroke-width="0.7" opacity="0.7"/>
-                    <circle cx="40"  cy="50"  r="4" fill="currentColor"/>
-                    <circle cx="100" cy="100" r="6" fill="currentColor"/>
-                    <circle cx="160" cy="60"  r="4" fill="currentColor"/>
-                    <circle cx="60"  cy="150" r="4" fill="currentColor"/>
-                    <circle cx="160" cy="150" r="4" fill="currentColor"/>
-                    <circle cx="100" cy="100" r="14" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
-                    <circle cx="100" cy="100" r="22" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.25"/>
-                </svg>
+        <div class="hero__inner">
+            <div class="eyebrow"><span class="dot"></span><?php esc_html_e( 'Glasfaser Infrastruktur', 'matmuja-tiefbau' ); ?></div>
+            <h1 class="hero__headline">
+                <?php echo esc_html( $mm( 'mm_hero_headline', __( 'Vom Spaten bis zur Buchse.', 'matmuja-tiefbau' ) ) ); ?>
+            </h1>
+            <p class="hero__sub">
+                <?php echo esc_html( $mm( 'mm_hero_sub', __( 'Glasfaserinfrastruktur von A bis Z — Tiefbau, Verlegung, Spleißen, Hausanschluss. Komplett aus einer Hand.', 'matmuja-tiefbau' ) ) ); ?>
+            </p>
+            <div class="hero__ctas">
+                <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_hero_cta_primary_url', '#kontakt' ) ); ?>">
+                    <?php echo esc_html( $mm( 'mm_hero_cta_primary', __( 'FTTH anfragen', 'matmuja-tiefbau' ) ) ); ?>
+                </a>
+                <a class="btn btn--ghost" href="<?php echo esc_url( $mm( 'mm_hero_cta_secondary_url', '#prozess' ) ); ?>">
+                    <?php echo esc_html( $mm( 'mm_hero_cta_secondary', __( '5 Phasen ansehen', 'matmuja-tiefbau' ) ) ); ?>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- 2. MISSION STRIP -->
-<section class="section--band">
+<section class="section--mission">
     <div class="container">
         <p class="mission-strip">
             <?php echo esc_html( $mm( 'mm_mission_text', __( 'Glasfaser komplett aus einer Hand — wir übernehmen jede Phase vom ersten Spatenstich bis zur aktiven Buchse.', 'matmuja-tiefbau' ) ) ); ?>
@@ -72,11 +44,11 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 3. FTTH TIMELINE -->
-<section id="prozess" class="section section--warm">
+<!-- 3. FTTH TIMELINE (animated canvases) -->
+<section id="prozess" class="section section--dark">
     <div class="container">
         <div class="ftth-header">
-            <p class="eyebrow"><?php esc_html_e( 'Unser Glasfaser-Prozess', 'matmuja-tiefbau' ); ?></p>
+            <div class="eyebrow"><span class="dot"></span><?php esc_html_e( 'Unser Glasfaser-Prozess', 'matmuja-tiefbau' ); ?></div>
             <h2><?php echo esc_html( $mm( 'mm_ftth_heading', __( 'In 5 Phasen zum Hausanschluss', 'matmuja-tiefbau' ) ) ); ?></h2>
         </div>
 
@@ -84,62 +56,95 @@ $mm = function ( $key, $default = '' ) {
             <?php
             $phase_defaults = [
                 1 => [
+                    'tag'   => __( 'Phase 01', 'matmuja-tiefbau' ),
                     'title' => __( 'Smart Planning & Design', 'matmuja-tiefbau' ),
                     'desc'  => __( 'GIS-gestützte Trassenplanung mit KI-Optimierung — von der Adressvalidierung bis zur 3D-Visualisierung.', 'matmuja-tiefbau' ),
                     'cta'   => __( 'Projektplanung starten', 'matmuja-tiefbau' ),
                     'url'   => '/stufe-1-projektplanung',
-                    'svg'   => 's1_projektplanung_mm.svg',
+                    'bullets' => [
+                        __( 'GIS-Kartenanalyse & Geländemodell', 'matmuja-tiefbau' ),
+                        __( 'KI-optimierte Trassenfindung', 'matmuja-tiefbau' ),
+                        __( 'Kollisionsprüfung Bestandsnetze', 'matmuja-tiefbau' ),
+                        __( '3D-BIM Projektmodell', 'matmuja-tiefbau' ),
+                    ],
                 ],
                 2 => [
+                    'tag'   => __( 'Phase 02', 'matmuja-tiefbau' ),
                     'title' => __( 'Precision Tiefbau', 'matmuja-tiefbau' ),
                     'desc'  => __( 'GPS-gesteuerte minimalinvasive Verfahren, die Bestandsnetze schonen und Trassen präzise vorbereiten.', 'matmuja-tiefbau' ),
                     'cta'   => __( 'Tiefbau-Details', 'matmuja-tiefbau' ),
                     'url'   => '/stufe-2-tiefbauarbeiten',
-                    'svg'   => 's2_tiefbau_mm.svg',
+                    'bullets' => [
+                        __( 'HDD — Horizontales Directional Drilling', 'matmuja-tiefbau' ),
+                        __( 'GPS-gestützte Maschinensteuerung', 'matmuja-tiefbau' ),
+                        __( 'Bestandsnetze vollständig geschützt', 'matmuja-tiefbau' ),
+                        __( 'Minimale Oberflächeneingriffe', 'matmuja-tiefbau' ),
+                    ],
                 ],
                 3 => [
+                    'tag'   => __( 'Phase 03', 'matmuja-tiefbau' ),
                     'title' => __( 'Kabelverlegung', 'matmuja-tiefbau' ),
                     'desc'  => __( 'Mikrorohr-Systeme und Glasfaser-Einblasen mit Schutz für bestehende Infrastruktur.', 'matmuja-tiefbau' ),
                     'cta'   => __( 'Verlegung verstehen', 'matmuja-tiefbau' ),
                     'url'   => '/stufe-3-kabelverlegung',
-                    'svg'   => 's3_kabelverlegung_mm.svg',
+                    'bullets' => [
+                        __( 'Mikrorohrsysteme Ø 12–50 mm', 'matmuja-tiefbau' ),
+                        __( 'Pneumatisches Einblasen bis 45 m/min', 'matmuja-tiefbau' ),
+                        __( 'Bündelkabel bis 864 Fasern', 'matmuja-tiefbau' ),
+                        __( 'Zugmessprotokoll & Drucktest', 'matmuja-tiefbau' ),
+                    ],
                 ],
                 4 => [
+                    'tag'   => __( 'Phase 04', 'matmuja-tiefbau' ),
                     'title' => __( 'Spleißen & Messung', 'matmuja-tiefbau' ),
                     'desc'  => __( 'Präzise Faser-zu-Faser-Verbindung, OTDR-Abnahmemessung, dokumentierte Qualitätssicherung.', 'matmuja-tiefbau' ),
                     'cta'   => __( 'Spleiß-Standards', 'matmuja-tiefbau' ),
                     'url'   => '/stufe-4-spleissen',
-                    'svg'   => 's4_spleissen_mm.svg',
+                    'bullets' => [
+                        __( 'Fusionsspleißen < 0.02 dB Verlust', 'matmuja-tiefbau' ),
+                        __( 'OTDR Reflektometrie full-trace', 'matmuja-tiefbau' ),
+                        __( 'Mess- & Abnahmedokumentation', 'matmuja-tiefbau' ),
+                        __( 'End-zu-End-Lichtprüfung', 'matmuja-tiefbau' ),
+                    ],
                 ],
                 5 => [
+                    'tag'   => __( 'Phase 05 · Ziellinie', 'matmuja-tiefbau' ),
                     'title' => __( 'Hausanschluss / FTTH', 'matmuja-tiefbau' ),
                     'desc'  => __( 'Die aktive Buchse beim Endkunden — bereit für Gigabit. Das Ziel der ganzen Reise.', 'matmuja-tiefbau' ),
                     'cta'   => __( 'Hausanschluss anfragen', 'matmuja-tiefbau' ),
                     'url'   => '/stufe-5-hausanschluss',
-                    'svg'   => 's5_hausanschluss_mm.svg',
+                    'bullets' => [
+                        __( 'ONT / ONU Aktivierung & Konfiguration', 'matmuja-tiefbau' ),
+                        __( 'Symmetrisches 1 Gbit/s Go-Live', 'matmuja-tiefbau' ),
+                        __( 'Einweisung Endkunde vor Ort', 'matmuja-tiefbau' ),
+                        __( 'Netzabnahme & Dokumentation', 'matmuja-tiefbau' ),
+                    ],
                 ],
             ];
 
             for ( $i = 1; $i <= 5; $i++ ) :
-                $title = $mm( "mm_phase_{$i}_title",    $phase_defaults[ $i ]['title'] );
-                $desc  = $mm( "mm_phase_{$i}_desc",     $phase_defaults[ $i ]['desc'] );
-                $cta   = $mm( "mm_phase_{$i}_cta_text", $phase_defaults[ $i ]['cta'] );
-                $url   = $mm( "mm_phase_{$i}_cta_url",  $phase_defaults[ $i ]['url'] );
-                $side  = ( $i % 2 === 1 ) ? 'right' : 'left';
-                $final = ( 5 === $i ) ? ' ftth-phase--final' : '';
-                $svg   = $phase_defaults[ $i ]['svg'];
+                $p     = $phase_defaults[ $i ];
+                $title = $mm( "mm_phase_{$i}_title",    $p['title'] );
+                $desc  = $mm( "mm_phase_{$i}_desc",     $p['desc'] );
+                $cta   = $mm( "mm_phase_{$i}_cta_text", $p['cta'] );
+                $url   = $mm( "mm_phase_{$i}_cta_url",  $p['url'] );
                 ?>
-                <li class="ftth-phase ftth-phase--<?php echo esc_attr( $side ); ?><?php echo $final; ?>">
+                <li class="ftth-phase" id="s<?php echo $i; ?>" data-phase="<?php echo $i; ?>">
+                    <div class="canvas-wrap">
+                        <canvas id="c<?php echo $i; ?>" width="600" height="400" aria-hidden="true"></canvas>
+                    </div>
                     <div class="ftth-phase__content">
-                        <p class="ftth-phase__number"><?php printf( esc_html__( 'Phase %02d', 'matmuja-tiefbau' ), $i ); ?><?php if ( 5 === $i ) : ?> · <?php esc_html_e( 'Ziellinie', 'matmuja-tiefbau' ); ?><?php endif; ?></p>
+                        <div class="ftth-phase__tag"><span class="dot"></span><?php echo esc_html( $p['tag'] ); ?></div>
                         <h3 class="ftth-phase__title"><?php echo esc_html( $title ); ?></h3>
                         <p class="ftth-phase__desc"><?php echo esc_html( $desc ); ?></p>
+                        <ul class="ftth-phase__bullets">
+                            <?php foreach ( $p['bullets'] as $bullet ) : ?>
+                                <li><?php echo esc_html( $bullet ); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                         <?php if ( $cta && $url ) : ?>
                             <a class="ftth-phase__cta" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $cta ); ?> &rarr;</a>
                         <?php endif; ?>
-                    </div>
-                    <div class="ftth-phase__visual" aria-hidden="true">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $svg ); ?>" alt="" loading="lazy">
                     </div>
                 </li>
             <?php endfor; ?>
@@ -148,7 +153,7 @@ $mm = function ( $key, $default = '' ) {
 </section>
 
 <!-- 4. PROOF -->
-<section class="section section--dark">
+<section class="section section--dark-deep">
     <div class="container">
         <div class="proof-stats">
             <div class="proof-stat">
@@ -182,10 +187,12 @@ $mm = function ( $key, $default = '' ) {
 </section>
 
 <!-- 5. FAQ -->
-<section class="section">
+<section class="section section--dark">
     <div class="container">
-        <p class="eyebrow"><?php esc_html_e( 'Häufige Fragen', 'matmuja-tiefbau' ); ?></p>
-        <h2><?php echo esc_html( $mm( 'mm_faq_heading', __( 'FAQ', 'matmuja-tiefbau' ) ) ); ?></h2>
+        <div class="ftth-header">
+            <div class="eyebrow"><span class="dot"></span><?php esc_html_e( 'Häufige Fragen', 'matmuja-tiefbau' ); ?></div>
+            <h2><?php echo esc_html( $mm( 'mm_faq_heading', __( 'FAQ', 'matmuja-tiefbau' ) ) ); ?></h2>
+        </div>
         <div class="faq-list">
             <?php
             $faq_defaults = [
@@ -208,8 +215,8 @@ $mm = function ( $key, $default = '' ) {
 </section>
 
 <!-- 6. CTA STRIP -->
-<section id="kontakt" class="section section--dark">
-    <div class="container cta-strip">
+<section id="kontakt" class="section cta-strip">
+    <div class="container">
         <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für Ihr Glasfaserprojekt?', 'matmuja-tiefbau' ) ) ); ?></h2>
         <a class="btn btn--primary" href="<?php echo esc_url( $mm( 'mm_cta_button_url', 'mailto:info@matmuja.de' ) ); ?>">
             <?php echo esc_html( $mm( 'mm_cta_button_text', __( 'Kostenlose Erstberatung', 'matmuja-tiefbau' ) ) ); ?>
