@@ -26,13 +26,29 @@
         </a>
         <nav class="site-nav" aria-label="<?php esc_attr_e( 'Primary', 'matmuja-tiefbau' ); ?>">
             <?php
-            wp_nav_menu( [
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'site-nav__list',
-                'fallback_cb'    => '__return_empty_string',
-                'depth'          => 1,
-            ] );
+            // If a custom menu is assigned to the primary location, use it.
+            // Otherwise render a sensible fallback so the header is never empty.
+            if ( has_nav_menu( 'primary' ) ) {
+                wp_nav_menu( [
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'site-nav__list',
+                    'depth'          => 1,
+                ] );
+            } else {
+                $home   = esc_url( home_url( '/' ) );
+                $links  = [
+                    [ $home . '#prozess',  __( 'Prozess', 'matmuja-tiefbau' ) ],
+                    [ esc_url( home_url( '/ueber-uns' ) ), __( 'Über uns', 'matmuja-tiefbau' ) ],
+                    [ $home . '#faq',      __( 'FAQ', 'matmuja-tiefbau' ) ],
+                    [ $home . '#kontakt',  __( 'Kontakt', 'matmuja-tiefbau' ) ],
+                ];
+                echo '<ul class="site-nav__list">';
+                foreach ( $links as $link ) {
+                    printf( '<li><a href="%s">%s</a></li>', esc_url( $link[0] ), esc_html( $link[1] ) );
+                }
+                echo '</ul>';
+            }
             ?>
         </nav>
     </div>

@@ -313,11 +313,19 @@ p:last-child { margin-bottom: 0; }
 .canvas-wrap {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-bg-card);
-  border: 1px solid color-mix(in srgb, var(--phase-accent) 25%, transparent);
-  box-shadow: 0 0 70px color-mix(in srgb, var(--phase-accent) 18%, transparent);
+  background: transparent;
+  position: relative;
 }
-.canvas-wrap canvas { display: block; width: 100%; height: auto; }
+.canvas-wrap::before {
+  /* soft ambient glow that bleeds into the body — no hard edge */
+  content: '';
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--phase-accent) 12%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.canvas-wrap canvas { display: block; width: 100%; height: auto; position: relative; z-index: 1; }
 
 /* Alternating sides (even phases flip with rtl trick) */
 .ftth-phase:nth-child(even)              { direction: rtl; }
@@ -330,6 +338,87 @@ p:last-child { margin-bottom: 0; }
   .ftth-phase:nth-child(even) { direction: ltr; }
   .ftth-phase:nth-child(even) .ftth-phase__content { text-align: left; align-items: flex-start; }
   .ftth-phase:nth-child(even) .ftth-phase__bullets li::before { order: 0; }
+}
+
+/* --- About / Team --- */
+.about-intro {
+  max-width: 720px;
+  margin: 2rem auto 3.5rem;
+  text-align: center;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.about-intro p { margin-bottom: 1.25rem; }
+.about-intro p:last-child { margin-bottom: 0; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+
+.team-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.team-card:hover { border-color: var(--color-brand-cyan); transform: translateY(-3px); }
+.team-card__header {
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-muted);
+  background: linear-gradient(135deg, var(--color-bg-elevated) 0%, var(--color-bg-card) 100%);
+}
+.team-card__avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: rgba(0, 180, 255, 0.1);
+  border: 2px solid;
+  border-image: var(--gradient-brand) 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 1rem;
+}
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+  margin-bottom: 0.25rem;
+}
+.team-card__role {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.team-card__body { padding: 1.5rem; }
+.team-card__bio {
+  font-size: 0.92rem;
+  color: var(--color-text-dim);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.team-card__bio:last-of-type { margin-bottom: 1.5rem; }
+.team-card__skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.team-card__skill {
+  background: rgba(0, 180, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  color: var(--color-brand-cyan);
 }
 
 /* --- Proof stats + logos --- */
@@ -434,9 +523,11 @@ p:last-child { margin-bottom: 0; }
   -webkit-text-fill-color: transparent;
           color: transparent;
 }
-.site-nav { display: flex; gap: 1.5rem; font-size: var(--text-sm); }
-.site-nav a { color: var(--color-text-muted); }
+.site-nav { font-size: var(--text-sm); }
+.site-nav__list { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; padding: 0; margin: 0; }
+.site-nav a { color: var(--color-text-muted); font-weight: 500; }
 .site-nav a:hover { color: var(--color-brand-cyan); }
+@media (max-width: 640px) { .site-nav__list { gap: 1rem; font-size: 0.8rem; } }
 
 /* --- Site footer --- */
 .site-footer {

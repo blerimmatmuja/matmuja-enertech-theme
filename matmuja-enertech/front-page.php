@@ -152,7 +152,62 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 4. PROOF -->
+<!-- 4. ABOUT US / TEAM -->
+<section id="ueber-uns" class="section section--dark">
+    <div class="container">
+        <div class="ftth-header">
+            <div class="eyebrow"><span class="dot"></span><?php esc_html_e( 'Über uns', 'matmuja-tiefbau' ); ?></div>
+            <h2><?php esc_html_e( 'Das Team hinter M&M EnerTech', 'matmuja-tiefbau' ); ?></h2>
+        </div>
+
+        <div class="about-intro">
+            <p><strong><?php esc_html_e( 'Bei M&M EnerTech arbeiten Informatik- und Maschinenbauingenieure Hand in Hand.', 'matmuja-tiefbau' ); ?></strong> <?php esc_html_e( 'Diese Kombination ermöglicht uns, Projekte ganzheitlich zu denken — von der digitalen Planung über den physischen Tiefbau bis zur vollständigen Netzwerkaktivierung.', 'matmuja-tiefbau' ); ?></p>
+            <p><?php esc_html_e( 'Wir sind kein Großkonzern. Das bedeutet für Sie: persönliche Betreuung, direkte Kommunikation und ein Team, das wirklich für Ihr Projekt brennt.', 'matmuja-tiefbau' ); ?></p>
+        </div>
+
+        <div class="team-grid">
+            <article class="team-card">
+                <header class="team-card__header">
+                    <div class="team-card__avatar" aria-hidden="true">&#x1F468;&#x200D;&#x1F4BB;</div>
+                    <div class="team-card__name">Ing. Blerim Matmuja</div>
+                    <div class="team-card__role"><?php esc_html_e( 'Informationstechnologie & Digitale Infrastruktur', 'matmuja-tiefbau' ); ?></div>
+                </header>
+                <div class="team-card__body">
+                    <p class="team-card__bio"><?php esc_html_e( 'Mit einem Abschluss in Informationstechnologie und langjähriger Erfahrung in der Netzwerkplanung bringt Blerim die digitale Intelligenz in jedes Projekt. Er verantwortet die GIS-gestützte Trassenplanung, das IoT-Monitoring und die vollständige Netzwerkaktivierung nach Projektabschluss.', 'matmuja-tiefbau' ); ?></p>
+                    <p class="team-card__bio"><?php esc_html_e( 'Sein Fokus liegt auf der Entwicklung smarter, skalierbarer Systeme — von der KI-gestützten Routenoptimierung bis zur Echtzeit-Überwachung der verlegten Glasfasernetze.', 'matmuja-tiefbau' ); ?></p>
+                    <div class="team-card__skills">
+                        <span class="team-card__skill"><?php esc_html_e( 'GIS-Planung', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'Netzwerkarchitektur', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'IoT-Monitoring', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'FTTH-Aktivierung', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'KI-Optimierung', 'matmuja-tiefbau' ); ?></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <header class="team-card__header">
+                    <div class="team-card__avatar" aria-hidden="true">&#x1F477;</div>
+                    <div class="team-card__name">Ing. Indrit Matmuja</div>
+                    <div class="team-card__role"><?php esc_html_e( 'Maschinenbau & Elektrotechnik', 'matmuja-tiefbau' ); ?></div>
+                </header>
+                <div class="team-card__body">
+                    <p class="team-card__bio"><?php esc_html_e( 'Als Maschinenbauingenieur mit Schwerpunkt Elektrotechnik leitet Indrit alle Tiefbau- und Installationsarbeiten im Feld. Er sorgt dafür, dass jeder Graben, jedes Leerrohr und jede Hauseinführung exakt nach DIN-Norm und DVGW-Vorschrift ausgeführt wird.', 'matmuja-tiefbau' ); ?></p>
+                    <p class="team-card__bio"><?php esc_html_e( 'Seine praktische Erfahrung mit modernen Baumaschinen, Spleißgeräten und Elektroinstallationen macht ihn zum Rückgrat der operativen Projektdurchführung — von der Baustellenleitung bis zur finalen Abnahme.', 'matmuja-tiefbau' ); ?></p>
+                    <div class="team-card__skills">
+                        <span class="team-card__skill"><?php esc_html_e( 'Tiefbau', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'Elektrotechnik', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'Glasfaserspleißen', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'DIN-Normen', 'matmuja-tiefbau' ); ?></span>
+                        <span class="team-card__skill"><?php esc_html_e( 'Baustellenleitung', 'matmuja-tiefbau' ); ?></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- 5. PROOF -->
 <section class="section section--dark-deep">
     <div class="container">
         <div class="proof-stats">
@@ -186,7 +241,7 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 5. FAQ -->
+<!-- 6. FAQ -->
 <section class="section section--dark">
     <div class="container">
         <div class="ftth-header">
@@ -214,7 +269,7 @@ $mm = function ( $key, $default = '' ) {
     </div>
 </section>
 
-<!-- 6. CTA STRIP -->
+<!-- 7. CTA STRIP -->
 <section id="kontakt" class="section cta-strip">
     <div class="container">
         <h2><?php echo esc_html( $mm( 'mm_cta_headline', __( 'Bereit für Ihr Glasfaserprojekt?', 'matmuja-tiefbau' ) ) ); ?></h2>
