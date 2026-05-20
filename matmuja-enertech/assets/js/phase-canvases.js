@@ -6,16 +6,20 @@ function glow(ctx,color,blur){ctx.shadowBlur=blur;ctx.shadowColor=color}
 // ── intersection observer ────────────────────────────────────────────────────
 new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
-},{threshold:.12}).observe && document.querySelectorAll('.phase').forEach(el=>{
+},{threshold:.12}).observe && document.querySelectorAll('.ftth-phase').forEach(el=>{
   new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
   },{threshold:.12}).observe(el)
 });
 // trigger immediately for elements already in view
-document.querySelectorAll('.phase').forEach(el=>{
+document.querySelectorAll('.ftth-phase').forEach(el=>{
   const r=el.getBoundingClientRect();
   if(r.top<window.innerHeight) el.classList.add('show');
 });
+// safety net: any phase still hidden after 1.5s gets forced visible
+setTimeout(function(){
+  document.querySelectorAll('.ftth-phase:not(.show)').forEach(el=>el.classList.add('show'));
+}, 1500);
 
 // ════════════════════════════════════════════════════════════════════════════
 // PHASE 1 — GIS CITY PLANNING
