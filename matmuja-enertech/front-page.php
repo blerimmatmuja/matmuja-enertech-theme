@@ -1,411 +1,228 @@
 <?php
 /**
- * Front Page Template
+ * Front page template — v5 "Lichtleiter"
+ *
  * @package matmuja-tiefbau
  */
+
 get_header();
+
+$mm = [
+    'hero_eyebrow' => get_theme_mod( 'mm_hero_eyebrow', 'FTTH · TIEFBAU BIS BUCHSE' ),
+    'hero_h1'      => get_theme_mod( 'mm_hero_h1',      'Glasfaser bauen wir bis zur letzten Hauswand.' ),
+    'hero_lede'    => get_theme_mod( 'mm_hero_lede',    'M&M EnerTech ist ein deutscher FTTH-Tiefbaubetrieb mit zwei Ingenieuren an der Spitze. Vom Spaten bis zur Buchse — alle fünf Phasen aus einer Hand.' ),
+    'hero_cta1'    => get_theme_mod( 'mm_hero_cta1_text', 'Projekt anfragen' ),
+    'hero_cta1_url'=> get_theme_mod( 'mm_hero_cta1_url',  '#cta' ),
+    'hero_cta2'    => get_theme_mod( 'mm_hero_cta2_text', 'Unser Prozess' ),
+    'mission'      => get_theme_mod( 'mm_mission',      'Wir bauen Glasfaser so, dass sie hält — vom ersten Spatenstich bis zum aktiven Anschluss in der Wohnung.' ),
+    'phases_eyebrow' => get_theme_mod( 'mm_phases_eyebrow', 'DER PROZESS' ),
+    'phases_h2'    => get_theme_mod( 'mm_phases_h2',    'Vom Spaten bis zur Buchse.' ),
+    'phases_lede'  => get_theme_mod( 'mm_phases_lede',  'Fünf Phasen, eine Verantwortung. Wir übernehmen die gesamte Wertschöpfungskette — und am Ende leuchtet bei Ihnen das Licht.' ),
+    'team_eyebrow' => get_theme_mod( 'mm_team_eyebrow', 'ÜBER UNS' ),
+    'team_h2'      => get_theme_mod( 'mm_team_h2',      'Zwei Ingenieure. Eine durchgehende Kette.' ),
+    'team_lede'    => get_theme_mod( 'mm_team_lede',    'Ein Bauleiter für den Untergrund, ein Aktivierer für das Signal. Beide Ing. — beide vor Ort.' ),
+    'proof_h2'     => get_theme_mod( 'mm_proof_h2',     'Was wir gebaut haben.' ),
+    'faq_h2'       => get_theme_mod( 'mm_faq_h2',       'Häufige Fragen.' ),
+    'cta_h2'       => get_theme_mod( 'mm_cta_h2',       'Bereit für den nächsten FTTH-Abschnitt?' ),
+    'cta_btn'      => get_theme_mod( 'mm_cta_btn',      'Projekt anfragen' ),
+];
+
+$phases = [
+    1 => [ 'title' => get_theme_mod( 'mm_phase_1_title', 'Planung' ),            'desc' => get_theme_mod( 'mm_phase_1_desc', 'GIS-gestützte Trassenplanung mit Netzbetreibern und Stadtwerken — vom Übergabepunkt bis zur Hauswand.' ) ],
+    2 => [ 'title' => get_theme_mod( 'mm_phase_2_title', 'Tiefbau' ),            'desc' => get_theme_mod( 'mm_phase_2_desc', 'Präziser Tiefbau mit minimaler Eingriffstiefe. Microtrenching, klassischer Tiefbau und Pflugverlegung — je nach Untergrund.' ) ],
+    3 => [ 'title' => get_theme_mod( 'mm_phase_3_title', 'Kabelverlegung' ),     'desc' => get_theme_mod( 'mm_phase_3_desc', 'Verlegung der Leerrohre und Einblasen der Faser. Saubere Übergabepunkte, dokumentierte Trassen.' ) ],
+    4 => [ 'title' => get_theme_mod( 'mm_phase_4_title', 'Spleißen & Messung' ), 'desc' => get_theme_mod( 'mm_phase_4_desc', 'Spleißarbeiten an Muffe und Hausverteiler. OTDR-Messung dokumentiert jede einzelne Faser.' ) ],
+    5 => [ 'title' => get_theme_mod( 'mm_phase_5_title', 'Hausanschluss' ),      'desc' => get_theme_mod( 'mm_phase_5_desc', 'FTTH-Anschluss bis zur aktiven Buchse. Übergabe an den Endkunden, Abnahmeprotokoll, fertig.' ) ],
+];
+
+$stats = [
+    [ 'num' => get_theme_mod( 'mm_stat_1_num',   '12+' ),  'unit' => get_theme_mod( 'mm_stat_1_unit', 'JAHRE' ),       'label' => get_theme_mod( 'mm_stat_1_label', 'Tiefbau-Erfahrung' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_2_num',   '1200' ), 'unit' => get_theme_mod( 'mm_stat_2_unit', 'KM' ),          'label' => get_theme_mod( 'mm_stat_2_label', 'Faser verlegt' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_3_num',   '150' ),  'unit' => get_theme_mod( 'mm_stat_3_unit', 'PROJEKTE' ),    'label' => get_theme_mod( 'mm_stat_3_label', 'Abgeschlossen' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_4_num',   'DIN' ),  'unit' => get_theme_mod( 'mm_stat_4_unit', 'ZERTIFIZIERT' ),'label' => get_theme_mod( 'mm_stat_4_label', 'Qualitätsstandard' ) ],
+];
+
+$faqs = [
+    [ 'q' => get_theme_mod( 'mm_faq_1_q', 'Übernehmen Sie auch nur einzelne Phasen?' ),
+      'a' => get_theme_mod( 'mm_faq_1_a', 'Ja. Häufig kommen wir für Tiefbau oder Spleißarbeiten dazu — können aber jederzeit den gesamten Anschluss übernehmen, wenn gewünscht.' ) ],
+    [ 'q' => get_theme_mod( 'mm_faq_2_q', 'In welcher Region arbeiten Sie?' ),
+      'a' => get_theme_mod( 'mm_faq_2_a', 'Schwerpunkt Süddeutschland, Projekte auch bundesweit nach Abstimmung.' ) ],
+    [ 'q' => get_theme_mod( 'mm_faq_3_q', 'Wer sind Ihre üblichen Auftraggeber?' ),
+      'a' => get_theme_mod( 'mm_faq_3_a', 'Netzbetreiber, Stadtwerke und kommunale Versorger. Hausanschlüsse direkt für Endkunden ebenfalls möglich.' ) ],
+    [ 'q' => get_theme_mod( 'mm_faq_4_q', 'Wie schnell können Sie starten?' ),
+      'a' => get_theme_mod( 'mm_faq_4_a', 'Kurzfristige Termine nach Verfügbarkeit. Vor jeder Beauftragung gibt es eine kostenlose Vor-Ort-Begehung.' ) ],
+];
 ?>
 
-<?php // ═══════════════════════════════════════════════════
-//  HERO SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="hero">
-    <?php if ( $img_id = matmuja_get_option('matmuja_hero_image') ) : ?>
-        <div class="hero-visual">
-            <?php echo wp_get_attachment_image( $img_id, 'full', false, ['alt' => ''] ); ?>
+<!-- §1 Hero -->
+<section class="hero" id="hero">
+    <div class="shell">
+        <div class="hero-text">
+            <div class="eyebrow"><?php echo esc_html( $mm['hero_eyebrow'] ); ?></div>
+            <h1 class="h1"><?php echo esc_html( $mm['hero_h1'] ); ?></h1>
+            <p class="lede"><?php echo esc_html( $mm['hero_lede'] ); ?></p>
+            <div class="hero-ctas">
+                <a class="btn btn-primary" href="<?php echo esc_url( $mm['hero_cta1_url'] ); ?>"><?php echo esc_html( $mm['hero_cta1'] ); ?></a>
+                <a class="btn btn-ghost" href="#phases"><?php echo esc_html( $mm['hero_cta2'] ); ?> <span aria-hidden="true">→</span></a>
+            </div>
         </div>
-    <?php else : ?>
-        <div class="hero-visual" aria-hidden="true">
-            <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" style="opacity:0.4;width:100%">
-                <ellipse cx="400" cy="250" rx="280" ry="280" fill="rgba(245,166,35,0.3)"/>
-                <circle cx="420" cy="220" r="180" fill="rgba(245,166,35,0.15)" stroke="rgba(245,166,35,0.3)" stroke-width="2"/>
+        <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="120" cy="120" r="100" fill="none" stroke="#0a0e1a" stroke-width="2"/>
+                <circle cx="120" cy="120" r="56"  fill="none" stroke="#0040ff" stroke-width="2"/>
+                <circle cx="120" cy="120" r="6"   fill="#ff6b1a"/>
+                <line x1="120" y1="20" x2="120" y2="64"  stroke="#0a0e1a" stroke-width="1"/>
+                <line x1="120" y1="176" x2="120" y2="220" stroke="#0a0e1a" stroke-width="1"/>
+                <line x1="20" y1="120" x2="64" y2="120"  stroke="#0a0e1a" stroke-width="1"/>
+                <line x1="176" y1="120" x2="220" y2="120" stroke="#0a0e1a" stroke-width="1"/>
+                <text x="120" y="14" text-anchor="middle" font-family="Geist Mono, monospace" font-size="9" fill="#9aa1b0" letter-spacing="1">JACKET</text>
+                <text x="120" y="236" text-anchor="middle" font-family="Geist Mono, monospace" font-size="9" fill="#9aa1b0" letter-spacing="1">STRAND</text>
             </svg>
         </div>
-    <?php endif; ?>
-    <div class="container">
-        <div class="hero-content">
-            <span class="hero-eyebrow"><?php echo esc_html( matmuja_get_option('matmuja_hero_eyebrow', 'Die Zukunft der digitalen Infrastruktur') ); ?></span>
-            <h1 class="hero-title"><?php echo nl2br( esc_html( matmuja_get_option('matmuja_hero_title', "Ihr Partner für\nNext-Gen Glasfasernetze") ) ); ?></h1>
-            <div class="hero-buttons">
-                <a href="<?php echo esc_url( matmuja_get_option('matmuja_hero_btn_url', home_url('/kontakt')) ); ?>" class="btn btn-outline-white">
-                    <?php echo esc_html( matmuja_get_option('matmuja_hero_btn_text', 'Kontaktieren Sie uns') ); ?>
-                </a>
+    </div>
+</section>
+
+<!-- §2 Mission strip -->
+<section class="mission" id="mission">
+    <div class="shell">
+        <blockquote>„<?php echo esc_html( $mm['mission'] ); ?>"</blockquote>
+        <div class="attrib">ING. BLERIM MATMUJA · ING. INDRIT MATMUJA</div>
+    </div>
+</section>
+
+<!-- §3 Phase diagram -->
+<section class="phases" id="phases">
+    <div class="shell">
+        <header class="reveal">
+            <div class="eyebrow"><?php echo esc_html( $mm['phases_eyebrow'] ); ?></div>
+            <h2 class="h2"><?php echo esc_html( $mm['phases_h2'] ); ?></h2>
+            <p><?php echo esc_html( $mm['phases_lede'] ); ?></p>
+        </header>
+
+        <div class="fiber-stage" data-fiber-stage>
+            <div class="fiber-svg-wrap">
+                <svg class="fiber-svg" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="fiber-path" d="M 60 240 C 220 240, 280 60, 440 60 S 660 240, 820 240 S 1040 60, 1140 60" />
+                    <path class="fiber-path draw" data-fiber-draw d="M 60 240 C 220 240, 280 60, 440 60 S 660 240, 820 240 S 1040 60, 1140 60" />
+
+                    <?php
+                    $station_t = [ 0.05, 0.27, 0.5, 0.73, 0.95 ];
+                    foreach ( $station_t as $i => $t ) :
+                        $idx = $i + 1;
+                    ?>
+                        <g class="fiber-station" data-station="<?php echo (int) $idx; ?>" data-station-t="<?php echo esc_attr( $t ); ?>">
+                            <circle class="bg" r="18"/>
+                            <text dy="42" text-anchor="middle">0<?php echo (int) $idx; ?> / 05</text>
+                        </g>
+                    <?php endforeach; ?>
+
+                    <circle class="fiber-pulse" data-fiber-pulse r="6"/>
+                </svg>
+            </div>
+
+            <div class="fiber-captions" aria-live="polite">
+                <?php foreach ( $phases as $i => $p ) : ?>
+                    <div class="fiber-caption<?php echo $i === 1 ? ' active' : ''; ?>" data-caption="<?php echo (int) $i; ?>">
+                        <div class="num">PHASE 0<?php echo (int) $i; ?> / 05</div>
+                        <h3 class="h3"><?php echo esc_html( $p['title'] ); ?></h3>
+                        <p><?php echo esc_html( $p['desc'] ); ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </section>
 
-<?php // ═══════════════════════════════════════════════════
-//  INTRO / ABOUT SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-intro">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <?php $intro_img_id = matmuja_get_option( 'matmuja_intro_image' ); ?>
-                <div style="border-radius:16px;overflow:hidden;background:rgba(25,25,122,0.1);min-height:320px;display:flex;align-items:center;justify-content:center;">
-                    <?php if ( $intro_img_id && $intro_img_html = wp_get_attachment_image( $intro_img_id, 'large', false, ['alt' => esc_attr__( 'Intro Bild', 'matmuja-tiefbau' )] ) ) : ?>
-                        <?php echo $intro_img_html; ?>
-                    <?php else : ?>
-                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:80%;opacity:0.7">
-                            <rect x="100" y="180" width="200" height="80" rx="8" fill="#19197a" opacity="0.6"/>
-                            <circle cx="200" cy="130" r="80" fill="none" stroke="#19197a" stroke-width="8" opacity="0.5"/>
-                            <circle cx="200" cy="130" r="55" fill="none" stroke="#f5a623" stroke-width="6" opacity="0.7"/>
-                            <circle cx="200" cy="130" r="30" fill="#f5a623" opacity="0.5"/>
-                        </svg>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="col col-2 intro-text">
-                <p><strong><?php _e('Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit', 'matmuja-tiefbau'); ?></strong> <?php _e('bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'matmuja-tiefbau'); ?></p>
-                <p><strong><?php _e('Entdecken Sie die Zukunft der Konnektivität mit uns als Partner', 'matmuja-tiefbau'); ?></strong> <?php _e('der Innovation, Präzision und Nachhaltigkeit vereint, um die digitale Transformation Ihrer Region voranzutreiben.', 'matmuja-tiefbau'); ?></p>
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-primary" style="margin-top:1.5rem;">
-                    <?php _e('Kostenlose Erstberatung', 'matmuja-tiefbau'); ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- §4 Team -->
+<section class="team" id="team">
+    <div class="shell">
+        <header class="reveal">
+            <div class="eyebrow"><?php echo esc_html( $mm['team_eyebrow'] ); ?></div>
+            <h2 class="h2"><?php echo esc_html( $mm['team_h2'] ); ?></h2>
+            <p><?php echo esc_html( $mm['team_lede'] ); ?></p>
+        </header>
 
-<?php // ═══════════════════════════════════════════════════
-//  FULL-TURNKEY BANNER
-// ═══════════════════════════════════════════════════ ?>
-<section class="section-sm" style="background:#fff;text-align:center;padding:4rem 0;">
-    <div class="container">
-        <p style="color:var(--color-text-light);font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem;">
-            <?php _e('Komplette Lösungen', 'matmuja-tiefbau'); ?>
-        </p>
-        <h2><?php _e('Next-Gen Glasfasernetze', 'matmuja-tiefbau'); ?></h2>
-        <p style="color:var(--color-text-light);max-width:600px;margin:0.75rem auto 0;">
-            <?php _e('Von der Infrastruktur bis zur Konnektivität — nahtlose End-to-End-Implementierung', 'matmuja-tiefbau'); ?>
-        </p>
-    </div>
-</section>
-
-<?php // ═══════════════════════════════════════════════════
-//  SERVICES TIMELINE
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-services">
-    <div class="container">
-
-        <?php // ─── Service Item 1: Projektplanung ─── ?>
-        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;">
-            <div class="col">
-                <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 1', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Smart Planning & Design', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Die digitale Transformation beginnt mit intelligenten Planungslösungen. Unser Expertenteam analysiert Ihre Anforderungen mit modernsten GIS-Tools und KI-gestützten Algorithmen für optimale Trassenführung.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Von der digitalen Adressvalidierung über präzise Genehmigungsplanung bis zur 3D-Visualisierung: Wir entwickeln maßgeschneiderte Konzepte, die maximale Effizienz und Zukunftssicherheit garantieren.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Projektplanung starten', 'matmuja-tiefbau'); ?></a>
-                </div>
-            </div>
-            <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div class="service-visual">
-                    <?php
-                    $s1_img_id = matmuja_get_option( 'matmuja_service_1_image' );
-                    if ( $s1_img_id && $s1_img_html = wp_get_attachment_image( $s1_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Smart Planning', 'matmuja-tiefbau' )] ) ) {
-                        echo $s1_img_html;
-                    } else {
-                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s1_projektplanung_mm.svg" alt="' . esc_attr__( 'Smart Planning', 'matmuja-tiefbau' ) . '" class="service-svg">';
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-
-        <?php // ─── Service Item 2: Tiefbau ─── ?>
-        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;flex-direction:row-reverse;">
-            <div class="col">
-                <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 2', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Precision Engineering', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Moderne Tiefbautechnik trifft auf präzise Ingenieurskunst. Unser Team setzt auf minimalinvasive Verfahren und GPS-gesteuerte Maschinen für maximale Präzision bei minimaler Umweltbelastung.', 'matmuja-tiefbau'); ?></p>
-                    <p><strong><?php _e('Von der intelligenten Trassenpräparation bis zur schützendem Infrastruktursicherung', 'matmuja-tiefbau'); ?></strong> <?php _e('– mit nachhaltigen Methoden, die bestehende Netze schonen und zukunftsfähige Lösungen ermöglichen.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Tiefbau-Details entdecken', 'matmuja-tiefbau'); ?></a>
-                </div>
-            </div>
-            <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div class="service-visual">
-                    <?php
-                    $s2_img_id = matmuja_get_option( 'matmuja_service_2_image' );
-                    if ( $s2_img_id && $s2_img_html = wp_get_attachment_image( $s2_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Precision Engineering', 'matmuja-tiefbau' )] ) ) {
-                        echo $s2_img_html;
-                    } else {
-                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s2_tiefbau_mm.svg" alt="' . esc_attr__( 'Precision Engineering', 'matmuja-tiefbau' ) . '" class="service-svg">';
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-
-        <?php // ─── Service Item 3: Kabelverlegung ─── ?>
-        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;">
-            <div class="col">
-                <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 3', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Advanced Cable Deployment', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Die Kunst der präzisen Kabelverlegung bestimmt die Performance Ihres Netzwerks. Wir implementieren hochwertige Glasfaserkabel mit modernsten Verlegetechniken und automatisierten Qualitätssicherungssystemen.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Unsere zertifizierten Techniker garantieren eine perfekte Installation nach höchsten Standards, unterstützt durch Echtzeit-Monitoring und KI-basierte Qualitätskontrolle für langfristige Netzwerkzuverlässigkeit.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Kabeltechnologie erfahren', 'matmuja-tiefbau'); ?></a>
-                </div>
-            </div>
-            <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div class="service-visual">
-                    <?php
-                    $s3_img_id = matmuja_get_option( 'matmuja_service_3_image' );
-                    if ( $s3_img_id && $s3_img_html = wp_get_attachment_image( $s3_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Cable Deployment', 'matmuja-tiefbau' )] ) ) {
-                        echo $s3_img_html;
-                    } else {
-                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s3_kabelverlegung_mm.svg" alt="' . esc_attr__( 'Cable Deployment', 'matmuja-tiefbau' ) . '" class="service-svg">';
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-
-        <?php // ─── Service Item 4: Spleißen ─── ?>
-        <div class="row" style="gap:4rem;margin-bottom:5rem;align-items:center;flex-direction:row-reverse;">
-            <div class="col">
-                <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 4', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Fusion Splicing Excellence', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Präzision trifft Innovation: Unsere zertifizierten Spleißspezialisten verwenden KI-gestützte Fusionsspleißgeräte der neuesten Generation für perfekte Glasfaser-Verbindungen mit minimalen Signalverlusten.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Jeder Spleißpunkt wird mit fortschrittlichen OTDR-Messsystemen validiert, um unterbrechungsfreie Datenströme und optimale Netzwerkperformance zu garantieren.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Spleißtechnologie kennenlernen', 'matmuja-tiefbau'); ?></a>
-                </div>
-            </div>
-            <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div class="service-visual">
-                    <?php
-                    $s4_img_id = matmuja_get_option( 'matmuja_service_4_image' );
-                    if ( $s4_img_id && $s4_img_html = wp_get_attachment_image( $s4_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Fusion Splicing', 'matmuja-tiefbau' )] ) ) {
-                        echo $s4_img_html;
-                    } else {
-                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s4_spleissen_mm.svg" alt="' . esc_attr__( 'Fusion Splicing', 'matmuja-tiefbau' ) . '" class="service-svg">';
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-        <div style="width:16px;height:16px;background:var(--color-accent);border-radius:50%;margin:0 auto;border:3px solid var(--color-primary);"></div>
-        <div style="width:2px;height:80px;background:var(--color-primary);margin:0 auto;opacity:0.3;"></div>
-
-        <?php // ─── Service Item 5: Hausanschluss ─── ?>
-        <div class="row" style="gap:4rem;align-items:center;">
-            <div class="col">
-                <div class="timeline-content">
-                    <span class="hero-eyebrow" style="color:var(--color-accent);"><?php _e('Phase 5', 'matmuja-tiefbau'); ?></span>
-                    <h2><?php _e('Smart Home Connection & Activation', 'matmuja-tiefbau'); ?></h2>
-                    <p><?php _e('Der finale Meilenstein: Die intelligente Hauseinführung mit modernsten ONT-Systemen und automatisierten Inbetriebnahme-Prozessen. Wir implementieren zukunftsfähige Anschlüsse mit IoT-Integration und Smart-Home-Kompatibilität.', 'matmuja-tiefbau'); ?></p>
-                    <p><?php _e('Nach der Installation führen wir umfassende KI-gestützte Funktionstests durch und aktivieren Ihr Netzwerk mit Echtzeit-Monitoring — für eine garantierte Breitbandzukunft Ihrer Community.', 'matmuja-tiefbau'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/dienstleistungen')); ?>" class="btn btn-outline" style="margin-top:1.5rem;"><?php _e('Hauseinführung planen', 'matmuja-tiefbau'); ?></a>
-                </div>
-            </div>
-            <div class="col" style="display:flex;align-items:center;justify-content:center;">
-                <div class="service-visual">
-                    <?php
-                    $s5_img_id = matmuja_get_option( 'matmuja_service_5_image' );
-                    if ( $s5_img_id && $s5_img_html = wp_get_attachment_image( $s5_img_id, 'large', false, ['class' => 'service-svg', 'alt' => esc_attr__( 'Smart Home Connection', 'matmuja-tiefbau' )] ) ) {
-                        echo $s5_img_html;
-                    } else {
-                        echo '<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/s5_hausanschluss_mm.svg" alt="' . esc_attr__( 'Smart Home Connection', 'matmuja-tiefbau' ) . '" class="service-svg">';
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<?php // ═══════════════════════════════════════════════════
-//  FULL-TURNKEY BLUE BANNER
-// ═══════════════════════════════════════════════════ ?>
-<section class="section-turnkey">
-    <div class="container">
-        <p class="turnkey-title">KOMPLETTE LÖSUNGEN</p>
-        <p class="turnkey-subtitle"><?php _e('Next-Gen Glasfasernetze — Von Infrastruktur bis Konnektivität', 'matmuja-tiefbau'); ?></p>
-    </div>
-</section>
-
-<?php // ═══════════════════════════════════════════════════
-//  NEWS / BLOG SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-news">
-    <div class="container">
-        <h2 class="section-title text-center"><?php _e('Innovation & Insights', 'matmuja-tiefbau'); ?></h2>
-        <p class="section-subtitle text-center">
-            <?php _e('Entdecken Sie wegweisende Einblicke in die Zukunft der digitalen Infrastruktur und bleiben Sie über die neuesten Entwicklungen bei M&M EnerTech auf dem Laufenden.', 'matmuja-tiefbau'); ?>
-        </p>
-
-        <?php
-        $recent_posts = new WP_Query([
-            'posts_per_page' => 3,
-            'post_status'    => 'publish',
-            'orderby'        => 'date',
-            'order'          => 'DESC',
-        ]);
-        if ( $recent_posts->have_posts() ) : ?>
-        <div class="news-grid">
-            <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-            <article class="news-card">
-                <?php if ( has_post_thumbnail() ) : ?>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('matmuja-card', ['class' => 'news-card-img', 'alt' => get_the_title()]); ?>
-                    </a>
-                <?php else : ?>
-                    <div class="news-card-img-placeholder"></div>
-                <?php endif; ?>
-                <div class="news-card-body">
-                    <?php
-                    $cats = get_the_category();
-                    if ( $cats ) : ?>
-                    <span class="news-card-tag"><?php echo esc_html($cats[0]->name); ?></span>
-                    <?php else : ?>
-                    <span class="news-card-tag"><?php _e('Informationen', 'matmuja-tiefbau'); ?></span>
-                    <?php endif; ?>
-                    <h3 class="news-card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <p class="news-card-excerpt"><?php echo esc_html( matmuja_excerpt(18) ); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="news-card-link"><?php _e('Erfahren Sie mehr', 'matmuja-tiefbau'); ?></a>
+        <div class="team-grid">
+            <article class="team-card reveal">
+                <div class="team-portrait">BM</div>
+                <h3>Ing. Blerim Matmuja</h3>
+                <div class="role">ING. · IT / FTTH-AKTIVIERUNG</div>
+                <p class="bio">Digitale Infrastruktur, GIS-Planung, IoT und FTTH-Aktivierung. Übergabe an den Endkunden ist sein Tisch.</p>
+                <div class="team-skills">
+                    <span>GIS</span><span>FTTH-Aktivierung</span><span>OTDR</span><span>IoT</span><span>Netzwerktechnik</span>
                 </div>
             </article>
-            <?php endwhile; wp_reset_postdata(); ?>
-        </div>
-        <?php else : ?>
-        <p class="text-center" style="color:var(--color-text-light);margin-top:2rem;"><?php _e('Bald verfügbar – schauen Sie bald wieder vorbei!', 'matmuja-tiefbau'); ?></p>
-        <?php endif; ?>
-
-        <div class="btn-center">
-            <a href="<?php echo esc_url(home_url('/aktuelles')); ?>" class="btn btn-outline"><?php _e('Weitere Neuigkeiten', 'matmuja-tiefbau'); ?></a>
-        </div>
-    </div>
-</section>
-
-<?php // ═══════════════════════════════════════════════════
-//  WHY US SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-why">
-    <div class="container">
-        <div class="why-grid">
-            <div class="why-visual">
-                <div class="why-badge">
-                    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="40" cy="40" r="38" fill="none" stroke="#f5a623" stroke-width="3"/>
-                        <polygon points="40,10 47,28 68,28 51,40 58,58 40,46 22,58 29,40 12,28 33,28" fill="#f5a623"/>
-                    </svg>
-                    <p class="why-badge-title" style="margin-top:1rem;"><?php _e('Nr. 1', 'matmuja-tiefbau'); ?><br><?php _e('Glasfaser Tiefbau', 'matmuja-tiefbau'); ?></p>
-                    <p class="why-badge-subtitle"><?php _e('Unternehmen in Deutschland', 'matmuja-tiefbau'); ?></p>
+            <article class="team-card reveal">
+                <div class="team-portrait">IM</div>
+                <h3>Ing. Indrit Matmuja</h3>
+                <div class="role">ING. · TIEFBAU / SPLEISSEN</div>
+                <p class="bio">Maschinenbau und Elektrotechnik. Bauleitung, Tiefbau, Spleißarbeiten — der erste Spatenstich ist sein Tisch.</p>
+                <div class="team-skills">
+                    <span>Tiefbau</span><span>Spleißen</span><span>Maschinenbau</span><span>Elektrotechnik</span><span>Bauleitung</span>
                 </div>
-            </div>
-            <div>
-                <h2><?php _e('Warum M&M EnerTech Ihr idealer Partner für die digitale Zukunft ist', 'matmuja-tiefbau'); ?></h2>
-                <p style="color:var(--color-text-light);margin-top:1rem;"><?php _e('Unsere Expertise in der Verbindung von traditionellem Tiefbau-Know-how mit modernsten Technologien macht uns zum bevorzugten Partner für zukunftsweisende Infrastrukturprojekte.', 'matmuja-tiefbau'); ?></p>
-                <p style="color:var(--color-text-light);"><?php _e('Durch den Einsatz von KI, IoT und nachhaltigen Methoden sichern wir Ihnen skalierbare, zukunftsfähige Lösungen und einen nahtlosen Projektablauf von der Vision zur Realität.', 'matmuja-tiefbau'); ?></p>
-                <div class="why-features">
-                    <?php
-                    $features = [
-                        __('KI-gestützte Planung und Optimierung für maximale Effizienz', 'matmuja-tiefbau'),
-                        __('Nachgewiesene Zuverlässigkeit mit IoT-Monitoring in Echtzeit', 'matmuja-tiefbau'),
-                        __('Deutschlandweite Skalierbarkeit für Mega-Infrastrukturprojekte', 'matmuja-tiefbau'),
-                        __('Komplettes Ökosystem von Smart Planning bis Network Activation', 'matmuja-tiefbau'),
-                        __('Zertifiziertes Expertenteam mit kontinuierlicher Weiterbildung', 'matmuja-tiefbau'),
-                    ];
-                    foreach ( $features as $i => $feature ) : ?>
-                    <div class="why-feature">
-                        <div class="why-feature-icon"><?php echo ($i+1); ?></div>
-                        <span class="why-feature-text"><?php echo esc_html($feature); ?></span>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
-<?php // ═══════════════════════════════════════════════════
-//  FAQ SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-faq">
-    <div class="container">
-        <h2 class="text-center"><?php _e('Ihr Wissenscenter für moderne Infrastruktur', 'matmuja-tiefbau'); ?></h2>
-        <p class="text-center" style="color:var(--color-text-light);max-width:600px;margin:0.75rem auto 0;">
-            <?php _e('Hier beantworten wir Ihre wichtigsten Fragen zu innovativen Glasfaserlösungen und unseren fortschrittlichen Dienstleistungen im digitalen Tiefbau.', 'matmuja-tiefbau'); ?>
-        </p>
-
-        <div class="faq-list">
-            <?php
-            $faqs = [
-                [
-                    'q' => __('Wer ist der ideale Partner für moderne Glasfaser-Infrastruktur?', 'matmuja-tiefbau'),
-                    'a' => __('Als spezialisierter Anbieter für intelligente Energie- und Tiefbaulösungen realisieren wir deutschlandweit zukunftsweisende Glasfasernetze für Netzbetreiber, Energieversorger und Kommunen. Unser Fokus liegt auf der Verbindung traditioneller Expertise mit KI-gestützten Innovationen.', 'matmuja-tiefbau'),
-                ],
-                [
-                    'q' => __('Wie werden moderne Glasfasernetze implementiert?', 'matmuja-tiefbau'),
-                    'a' => __('Wir kombinieren bewährte Tiefbaumethoden mit innovativen Technologien wie Microtrenching, HDD-Bohrungen und KI-gestützter Trassenoptimierung. Unser minimalinvasiver Ansatz schützt bestehende Infrastrukturen und ermöglicht nachhaltige, skalierbare Lösungen.', 'matmuja-tiefbau'),
-                ],
-                [
-                    'q' => __('Wie bleibt die Kommunikation während des Projekts effizient?', 'matmuja-tiefbau'),
-                    'a' => __('Wir setzen auf agile Kommunikationsstrukturen mit wöchentlichen Sprint-Reviews und digitalen Kollaborationsplattformen. Bei technischen Fragen steht Ihnen unser zertifiziertes Expertenteam jederzeit zur Verfügung, unterstützt durch IoT-Monitoring in Echtzeit.', 'matmuja-tiefbau'),
-                ],
-                [
-                    'q' => __('Wie organisieren Sie komplexe Infrastrukturprojekte?', 'matmuja-tiefbau'),
-                    'a' => __('Unser Projektmanagement basiert auf agilen Methoden mit Meilenstein-Tracking und KI-gestützter Ressourcenoptimierung. Alle Fortschritte werden in cloudbasierten Dashboards visualisiert, mit Integration von SharePoint und modernen Projektmanagement-Tools für maximale Transparenz.', 'matmuja-tiefbau'),
-                ],
-                [
-                    'q' => __('Welche Qualitätsstandards garantieren Sie?', 'matmuja-tiefbau'),
-                    'a' => __('Wir garantieren höchste Qualitätsstandards gemäß ZTV-Richtlinien und individuellen Vertragsvereinbarungen. Unsere Leistungen sind durch umfassende Zertifizierungen abgesichert, mit kontinuierlicher Qualitätssicherung durch automatisierte Testsysteme und regelmäßige Audits.', 'matmuja-tiefbau'),
-                ],
-            ];
-            foreach ( $faqs as $faq ) : ?>
-            <div class="faq-item">
-                <button class="faq-question">
-                    <?php echo esc_html($faq['q']); ?>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p><?php echo esc_html($faq['a']); ?></p>
+<!-- §5 Proof -->
+<section class="proof" id="proof">
+    <div class="shell">
+        <header class="reveal">
+            <div class="eyebrow">ZAHLEN</div>
+            <h2 class="h2"><?php echo esc_html( $mm['proof_h2'] ); ?></h2>
+        </header>
+        <div class="stats">
+            <?php foreach ( $stats as $s ) : ?>
+                <div class="stat reveal">
+                    <div class="num"><?php echo esc_html( $s['num'] ); ?></div>
+                    <div class="underline" aria-hidden="true"></div>
+                    <div class="unit"><?php echo esc_html( $s['unit'] ); ?></div>
+                    <div class="label"><?php echo esc_html( $s['label'] ); ?></div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
+        <?php
+        $logos = [];
+        for ( $i = 1; $i <= 6; $i++ ) {
+            $url = get_theme_mod( 'mm_client_logo_' . $i );
+            if ( $url ) { $logos[] = $url; }
+        }
+        if ( ! empty( $logos ) ) : ?>
+            <div class="client-strip">
+                <?php foreach ( $logos as $url ) : ?>
+                    <img src="<?php echo esc_url( $url ); ?>" alt="" loading="lazy">
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
-<?php // ═══════════════════════════════════════════════════
-//  CTA SECTION
-// ═══════════════════════════════════════════════════ ?>
-<section class="section section-cta">
-    <div class="container">
-        <div class="cta-box">
-            <div class="cta-visual">
-                <div class="cta-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="8" y="10" width="44" height="34" rx="4" fill="white" opacity="0.9"/>
-                        <path d="M8,44 L30,26 L52,44" fill="none" stroke="#f5a623" stroke-width="2"/>
-                        <circle cx="48" cy="14" r="10" fill="#f5a623"/>
-                        <text x="48" y="19" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
-                    </svg>
-                </div>
-            </div>
-            <div class="cta-content">
-                <h2><?php _e('Bereit für die digitale Zukunft?', 'matmuja-tiefbau'); ?> <strong><?php _e('Wir machen es möglich!', 'matmuja-tiefbau'); ?></strong></h2>
-                <p><?php _e('Sie möchten Ihr Infrastrukturprojekt mit modernsten Technologien realisieren? Kontaktieren Sie unser Expertenteam für eine kostenlose Erstberatung und entdecken Sie, wie wir Ihre Vision in die Realität umsetzen.', 'matmuja-tiefbau'); ?></p>
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-gold"><?php _e('Jetzt anfragen', 'matmuja-tiefbau'); ?></a>
-            </div>
+<!-- §6 FAQ -->
+<section class="faq" id="faq">
+    <div class="shell">
+        <header class="reveal">
+            <div class="eyebrow">FAQ</div>
+            <h2 class="h2"><?php echo esc_html( $mm['faq_h2'] ); ?></h2>
+        </header>
+        <?php foreach ( $faqs as $f ) : ?>
+            <details>
+                <summary><?php echo esc_html( $f['q'] ); ?></summary>
+                <div><?php echo esc_html( $f['a'] ); ?></div>
+            </details>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- §7 CTA strip -->
+<section class="cta-strip" id="cta">
+    <div class="shell">
+        <h2 class="h2"><?php echo esc_html( $mm['cta_h2'] ); ?></h2>
+        <a class="btn btn-primary" href="mailto:<?php echo esc_attr( get_theme_mod( 'matmuja_email', 'info@matmuja.de' ) ); ?>"><?php echo esc_html( $mm['cta_btn'] ); ?></a>
+        <div class="contact">
+            <a href="tel:<?php echo esc_attr( get_theme_mod( 'matmuja_phone', '' ) ); ?>"><?php echo esc_html( get_theme_mod( 'matmuja_phone', '+49 — — —' ) ); ?></a>
+            &nbsp;·&nbsp;
+            <a href="mailto:<?php echo esc_attr( get_theme_mod( 'matmuja_email', 'info@matmuja.de' ) ); ?>"><?php echo esc_html( get_theme_mod( 'matmuja_email', 'info@matmuja.de' ) ); ?></a>
         </div>
     </div>
 </section>

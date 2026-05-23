@@ -1,68 +1,54 @@
 <?php
 /**
- * Header Template
+ * Theme header — v5
+ *
  * @package matmuja-tiefbau
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo('charset'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="https://gmpg.org/xfn/11">
-<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f7f8fa">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<header class="site-header" id="site-header">
-    <div class="container">
-        <nav class="navbar" aria-label="Main Navigation">
+<header class="site-header" role="banner">
+    <div class="shell">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="wordmark" rel="home">
+            M&amp;M EnerTech
+        </a>
 
-            <?php // ─── LOGO ─────────────────── ?>
-            <a href="<?php echo esc_url( home_url('/') ); ?>" class="site-logo" rel="home" aria-label="<?php esc_attr_e( 'Zur Startseite', 'matmuja-tiefbau' ); ?>">
-                <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-                <span class="logo-text">
-                    M&M EnerTech
-                </span>
-                <?php endif; ?>
-            </a>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+        </button>
 
-            <?php // ─── NAVIGATION ───────────── ?>
-            <div class="nav-menu" id="nav-menu">
-                <?php
-                wp_nav_menu([
+        <nav class="primary-nav" aria-label="Hauptnavigation">
+            <?php
+            if ( has_nav_menu( 'primary' ) ) {
+                wp_nav_menu( [
                     'theme_location' => 'primary',
                     'container'      => false,
                     'items_wrap'     => '%3$s',
-                    'fallback_cb'    => function() {
-                        ?>
-                        <div class="nav-dropdown">
-                            <a href="#"><?php _e('Dienstleistungen', 'matmuja-tiefbau'); ?></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><?php _e('Smart Planning & Validation', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Precision Engineering', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Advanced Cable Deployment', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Fusion Splicing Excellence', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Smart Home Connection', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('Network Activation', 'matmuja-tiefbau'); ?></a></li>
-                                <li><a href="#"><?php _e('24/7 Support & Maintenance', 'matmuja-tiefbau'); ?></a></li>
-                            </ul>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/ueber-uns')); ?>"><?php _e('Über Uns', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/karriere')); ?>"><?php _e('Karriere', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/aktuelles')); ?>"><?php _e('Aktuelles', 'matmuja-tiefbau'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="btn btn-gold"><?php _e('Kontakt', 'matmuja-tiefbau'); ?></a>
-                        <?php
-                    },
-                ]);
+                    'depth'          => 1,
+                    'fallback_cb'    => false,
+                ] );
+            } else {
                 ?>
-            </div>
-
-            <?php // ─── MOBILE TOGGLE ─────────── ?>
-            <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle Menu', 'matmuja-tiefbau'); ?>">
-                <span></span><span></span><span></span>
-            </button>
-
+                <a href="#phases">Prozess</a>
+                <a href="#team">Über uns</a>
+                <a href="#faq">FAQ</a>
+                <?php
+            }
+            ?>
+            <a class="nav-cta" href="#cta">Kontakt aufnehmen</a>
         </nav>
     </div>
 </header>
+
+<main class="site-main">

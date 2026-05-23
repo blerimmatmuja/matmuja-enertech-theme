@@ -1,6 +1,6 @@
 <?php
 /**
- * Matmuja Tiefbau - Theme Functions
+ * M&M EnerTech v5 - Theme Functions
  *
  * @package matmuja-tiefbau
  */
@@ -41,8 +41,19 @@ add_action( 'after_setup_theme', 'matmuja_setup' );
 function matmuja_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_style( 'matmuja-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap', [], null );
-    wp_enqueue_style( 'matmuja-style', get_stylesheet_uri(), [ 'matmuja-google-fonts' ], $theme_version );
+    wp_enqueue_style(
+        'matmuja-fonts',
+        get_template_directory_uri() . '/assets/css/fonts.css',
+        [],
+        $theme_version
+    );
+
+    wp_enqueue_style(
+        'matmuja-style',
+        get_stylesheet_uri(),
+        [ 'matmuja-fonts' ],
+        $theme_version
+    );
 
     $script_path = file_exists( get_template_directory() . '/assets/js/main.min.js' )
         ? '/assets/js/main.min.js'
@@ -57,6 +68,17 @@ function matmuja_scripts() {
 
     if ( is_singular() && comments_open() ) {
         wp_enqueue_script( 'comment-reply' );
+    }
+
+    // v5: scroll-linked SVG fiber diagram — front page only
+    if ( is_front_page() ) {
+        wp_enqueue_script(
+            'matmuja-fiber-diagram',
+            get_template_directory_uri() . '/assets/js/fiber-diagram.js',
+            [],
+            $theme_version,
+            true
+        );
     }
 }
 add_action( 'wp_enqueue_scripts', 'matmuja_scripts' );
@@ -145,18 +167,6 @@ function matmuja_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ] ) );
 
-    // Intro Image
-    $wp_customize->add_setting( 'matmuja_intro_image', [
-        'default'           => '',
-        'sanitize_callback' => 'absint',
-        'transport'         => 'postMessage'
-    ] );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'matmuja_intro_image', [
-        'label'     => __( 'Intro Image', 'matmuja-tiefbau' ),
-        'section'   => 'matmuja_intro',
-        'mime_type' => 'image',
-    ] ) );
-
     // Services Section Images
     $wp_customize->add_section( 'matmuja_services', [
         'title'    => __( 'Service Phase Images', 'matmuja-tiefbau' ),
@@ -187,6 +197,19 @@ function matmuja_customize_register( $wp_customize ) {
         'title'    => __( 'Intro Section', 'matmuja-tiefbau' ),
         'priority' => 32,
     ] );
+
+    // Intro Image (must be after the section it belongs to)
+    $wp_customize->add_setting( 'matmuja_intro_image', [
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage'
+    ] );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'matmuja_intro_image', [
+        'label'     => __( 'Intro Image', 'matmuja-tiefbau' ),
+        'section'   => 'matmuja_intro',
+        'mime_type' => 'image',
+    ] ) );
+
     $intro_fields = [
         'matmuja_intro_title'    => [ 'label' => 'Intro Title',    'default' => 'Über Matmuja Tiefbau', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'sanitize' => 'wp_kses_post' ],
@@ -298,3 +321,6 @@ function matmuja_schema_markup() {
     }
 }
 add_action( 'wp_head', 'matmuja_schema_markup' );
+
+// v2.0 customizer fields
+require_once get_template_directory() . '/inc/customizer.php';

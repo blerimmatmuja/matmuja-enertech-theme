@@ -31,3 +31,9 @@ npm-debug.log*
 # Environment
 .env
 .env.local
+
+# Brainstorming session files
+.superpowers/
+
+# Drift comparison files
+.drift/

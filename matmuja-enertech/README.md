@@ -1,137 +1,62 @@
-# M&M EnerTech WordPress Theme
+# M&M EnerTech — v5 "Lichtleiter"
 
-A modern, futuristic WordPress theme for M&M EnerTech – Innovating next-generation digital infrastructure and energy technology solutions.
+Engineering-minimal WordPress theme for the M&M EnerTech FTTH/Tiefbau business.
+Light paper aesthetic, single Geist family, and a scroll-linked SVG fiber
+diagram that traces all 5 process phases as one continuous strand.
 
-## Features
-
-- **Modern Design**: Clean, professional design with dark blue and gold color scheme
-- **Responsive**: Mobile-first approach, optimized for all devices
-- **Performance**: Optimized CSS/JS, lazy loading, and efficient code
-- **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
-- **SEO Ready**: Schema markup, clean HTML, and semantic structure
-- **Customizable**: Extensive WordPress Customizer options
-- **Block Editor Support**: Full theme.json configuration for Gutenberg
-- **Multilingual**: Translation ready with .pot file
+**Version:** 5.0.0 · **WordPress:** 6.0+ · **PHP:** 8.0+
+**Live deploy dir on server:** `wp-content/themes/matmuja-enertech-v5`
+**Predecessor (rollback):** `matmuja-enertech-v4` (dark cinematic + 5 canvases)
 
 ## Design
-- **Primary Color**: Dark Blue (#19197a)
-- **Accent Color**: Gold/Orange (#f5a623)
-- **Font**: Inter (Google Fonts)
-- **Layout**: Full-width, responsive, mobile-first
 
-## Sections (Front Page)
-1. Hero – Full-screen dark blue hero with headline and CTA
-2. Intro – Gold background with company description
-3. Services Timeline – Three service blocks with decorative timeline
-4. Komplette Lösungen Banner – Bold blue section
-5. News/Blog – 3-column grid of latest posts
-6. Why Us – Split layout with feature checklist
-7. FAQ – Collapsible accordion
-8. CTA – Contact call-to-action box
-9. Footer – Dark blue with address, links, social icons
+- **Palette:** Paper `#f7f8fa` · Card `#ffffff` · Ink `#0a0e1a` · Body `#5b6373` · Brand blue `#0040ff` · Signal orange `#ff6b1a` (sparing).
+- **Typography:** Geist + Geist Mono only — self-hosted under `assets/fonts/`.
+- **Motion:** Tight budget. Reveal fade-up on section entry; one big scroll-linked SVG diagram in §3. Everything collapses to static under `prefers-reduced-motion: reduce`.
 
-## Installation
+## Homepage sections (`front-page.php`)
 
-1. Upload the `matmuja-enertech` folder to `/wp-content/themes/`
-   OR upload the ZIP via **Appearance → Themes → Add New → Upload Theme**
-2. Activate the theme in **Appearance → Themes**
-3. Go to **Appearance → Customize** to configure theme options
+1. Hero — eyebrow + ink h1 + two CTAs, line-art fiber cross-section right
+2. Mission strip — slim, big quote in ink, mono attribution
+3. FTTH phase diagram — single SVG fiber path, blue pulse rides along on scroll, 5 stations light up in sequence
+4. Über uns / Team — 2 engineer cards with mono-initial portraits and skill chips
+5. Proof — 4 stat tiles with signal-orange underlines + greyscale client strip
+6. FAQ — `<details>` accordion, hairline dividers, mono +/− toggle
+7. CTA strip — paper bg, ink h2, primary blue button, mono contact line
 
-## Development
+The 5 FTTH phases are: **Planung → Tiefbau → Kabelverlegung → Spleißen & Messung → Hausanschluss**.
 
-### Prerequisites
-- Node.js and npm
-- WordPress 6.0+
-- PHP 8.0+
+## Fiber diagram (`assets/js/fiber-diagram.js`)
 
-### Build Commands
+~95 lines. Enqueued only on `is_front_page()`. Reads the SVG `<path>`'s
+`getTotalLength()`, listens to scroll via `requestAnimationFrame`, and
+(a) reduces `stroke-dashoffset` to draw the path, (b) places a glowing
+blue circle along the path via `getPointAtLength()`, and (c) toggles
+`.active`/`.passed` on the 5 station markers. Reduced-motion users skip
+the loop entirely; CSS shows all 5 stations lit by default.
+
+## Customizer
+
+All copy is editable under **Appearance → Customize → M&M EnerTech (v4.0)**, grouped into panels: Hero, Mission, FTTH-Prozess, Proof, FAQ, CTA.
+
+Stats default to placeholders (`12+ Jahre Tiefbau`, `1200 km Faser verlegt`, `150 Projekte`, `DIN zertifiziert`) — replace with real numbers before publish.
+
+## Build
+
 ```bash
-npm install          # Install dependencies
-npm run build        # Build minified assets
-npm run dev          # Watch for changes during development
+npm install
+npm run build   # builds style.min.css and main.min.js
 ```
 
-### File Structure
-```
-matmuja-enertech/
-├── style.css              # Main stylesheet
-├── functions.php          # Theme functions and setup
-├── front-page.php         # Homepage template
-├── index.php              # Blog/archive listing
-├── single.php             # Single post
-├── page.php               # Static page
-├── archive.php            # Category/tag archives
-├── 404.php                # 404 error page
-├── search.php             # Search results
-├── header.php             # Site header & navbar
-├── footer.php             # Site footer
-├── sidebar.php            # Sidebar template
-├── comments.php           # Comments template
-├── assets/
-│   └── js/
-│       └── main.js        # Main JavaScript
-├── inc/
-│   └── template-tags.php  # Helper functions
-├── languages/
-│   └── matmuja-enertech.pot # Translation template
-├── theme.json             # Block editor configuration
-└── package.json           # Build dependencies
-```
+## Install
 
-## Customization
+Upload the theme directory (or a zip of it) via **Appearance → Themes → Add New → Upload Theme**, then activate. Existing v1 / v2 / v3 theme directories remain available as rollback options.
 
-### Customizer Options
-- **Company Information**: Contact details, social media links
-- **Hero Section**: Title, subtitle, button text, background image
-- **Intro Section**: Company description, call-to-action
+## Version history
 
-### Custom Post Types
-- **Services**: Manage service offerings
-- **References**: Showcase project references
-
-### Menus
-- **Primary Menu**: Main navigation
-- **Footer Menu**: Footer links
-- **Services Dropdown**: Services submenu
-
-## Browser Support
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Changelog
-
-### 1.0.0
-- Initial release
-- Modern CSS with custom properties
-- Responsive design
-- Accessibility improvements
-- Performance optimizations
-- Schema markup for SEO
-
-## License
-GPL-2.0-or-later
-
-## Credits
-- Font: [Inter](https://fonts.google.com/specimen/Inter) by Google Fonts
-- Icons: Custom SVG illustrations
-3. Go to **Appearance → Menus** to set up navigation
-4. Go to **Appearance → Customize** to configure:
-   - Company phone, email, and address
-   - Hero section text and image
-   - Instagram / LinkedIn URLs
-5. Set your front page: **Settings → Reading → A static page → Front page**
-
-## Custom Post Types
-- **Services** (`/dienstleistungen`) – individual service pages
-- **References** (`/referenzen`) – client reference cards
-
-## Customizer Options
-All configurable under **Appearance → Customize**:
-- Company Information (phone, email, address, social links)
-- Hero Section (eyebrow, title, button text/URL, background image)
-
-## Requirements
-- WordPress 6.0+
-- PHP 8.0+
+- **4.0.0** — Dark cinematic with animated phase canvases (see `docs/superpowers/specs/2026-05-20-matmuja-fiber-v4-design.md`)
+- 3.0.0 — FTTH redesign with lime + indigo palette and 5-phase timeline. Felt too cold/2D — superseded by 4.0.
+- 2.0.0 — Hybrid palette refactor (navy + gold). Wrong content (energy tech) — superseded by 3.0.
+- 1.2.0 — Media support for service phase images
+- 1.1.0 — Modernized terminology
+- 1.0.0 — Initial fiber-optic-focused release
