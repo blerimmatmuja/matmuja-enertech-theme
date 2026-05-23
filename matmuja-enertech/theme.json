@@ -4,30 +4,26 @@
   "settings": {
     "color": {
       "palette": [
-        { "slug": "brand-cyan",   "color": "#00b4ff", "name": "Brand Cyan" },
-        { "slug": "brand-mint",   "color": "#00ffcc", "name": "Brand Mint" },
-        { "slug": "phase-cyan",   "color": "#00b4ff", "name": "Phase 1 (Planung)" },
-        { "slug": "phase-orange", "color": "#ff8c00", "name": "Phase 2 (Tiefbau)" },
-        { "slug": "phase-mint",   "color": "#00ffcc", "name": "Phase 3 (Verlegung)" },
-        { "slug": "phase-purple", "color": "#bf00ff", "name": "Phase 4 (Spleißen)" },
-        { "slug": "phase-green",  "color": "#00ff88", "name": "Phase 5 (Hausanschluss)" },
-        { "slug": "bg",           "color": "#0e1730", "name": "Background" },
-        { "slug": "bg-card",      "color": "#080d1c", "name": "Background Card" },
-        { "slug": "text",         "color": "#e0e8ff", "name": "Text" },
-        { "slug": "text-muted",   "color": "#506080", "name": "Text Muted" }
+        { "slug": "paper",   "color": "#f7f8fa", "name": "Paper" },
+        { "slug": "card",    "color": "#ffffff", "name": "Card" },
+        { "slug": "ink",     "color": "#0a0e1a", "name": "Ink" },
+        { "slug": "body",    "color": "#5b6373", "name": "Body" },
+        { "slug": "caption", "color": "#9aa1b0", "name": "Caption" },
+        { "slug": "brand",   "color": "#0040ff", "name": "Brand Blue" },
+        { "slug": "signal",  "color": "#ff6b1a", "name": "Signal Orange" }
       ]
     },
     "typography": {
       "fontFamilies": [
-        { "fontFamily": "'Inter', 'Segoe UI', system-ui, sans-serif", "slug": "body", "name": "Inter" },
-        { "fontFamily": "'Space Grotesk', 'Inter', system-ui, sans-serif", "slug": "display", "name": "Space Grotesk" }
+        { "fontFamily": "Geist, system-ui, sans-serif", "slug": "geist", "name": "Geist" },
+        { "fontFamily": "'Geist Mono', ui-monospace, monospace", "slug": "geist-mono", "name": "Geist Mono" }
       ]
     },
     "spacing": { "units": ["px", "em", "rem", "%", "vh", "vw"] },
-    "layout":  { "contentSize": "800px", "wideSize": "1380px" }
+    "layout":  { "contentSize": "800px", "wideSize": "1280px" }
   },
   "styles": {
-    "color":      { "background": "#0e1730", "text": "#e0e8ff" },
-    "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "lineHeight": "1.7" }
+    "color":      { "background": "#f7f8fa", "text": "#5b6373" },
+    "typography": { "fontFamily": "var(--wp--preset--font-family--geist)", "lineHeight": "1.6" }
   }
 }

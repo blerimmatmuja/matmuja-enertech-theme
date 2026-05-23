@@ -1,6 +1,6 @@
 <?php
 /**
- * Matmuja Tiefbau - Theme Functions
+ * M&M EnerTech v5 - Theme Functions
  *
  * @package matmuja-tiefbau
  */
@@ -70,11 +70,11 @@ function matmuja_scripts() {
         wp_enqueue_script( 'comment-reply' );
     }
 
-    // v4: animated phase canvases — front page only
+    // v5: scroll-linked SVG fiber diagram — front page only
     if ( is_front_page() ) {
         wp_enqueue_script(
-            'matmuja-phase-canvases',
-            get_template_directory_uri() . '/assets/js/phase-canvases.js',
+            'matmuja-fiber-diagram',
+            get_template_directory_uri() . '/assets/js/fiber-diagram.js',
             [],
             $theme_version,
             true
