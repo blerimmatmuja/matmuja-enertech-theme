@@ -1,109 +1,36 @@
 /**
- * Matmuja Tiefbau - Main JavaScript
- * @package matmuja-tiefbau
+ * M&M EnerTech v5 — main script.
+ *
+ * Two responsibilities:
+ *   1. Mobile nav toggle.
+ *   2. .reveal IntersectionObserver to fade in elements when they enter view.
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    // ─── Sticky Header ───────────────────────────────────
-    const header = document.getElementById('site-header');
-    if (header) {
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', function () {
-            header.classList.toggle('scrolled', window.scrollY > 20);
-            lastScrollY = window.scrollY;
-        }, { passive: true });
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     }
 
-    // ─── Mobile Nav Toggle ───────────────────────────────
-    const toggle = document.getElementById('nav-toggle');
-    const menu   = document.getElementById('nav-menu');
-    if (toggle && menu) {
-        toggle.addEventListener('click', function () {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        // Close on outside click
-        document.addEventListener('click', function (e) {
-            if (!header.contains(e.target)) {
-                menu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-        // Close on escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      return;
     }
-
-    // ─── FAQ Accordion ───────────────────────────────────
-    document.querySelectorAll('.faq-question').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            const item = btn.closest('.faq-item');
-            const isOpen = item.classList.contains('open');
-            // Close all
-            document.querySelectorAll('.faq-item.open').forEach(function (el) {
-                el.classList.remove('open');
-            });
-            // Toggle current
-            if (!isOpen) item.classList.add('open');
-        });
-    });
-
-    // ─── Smooth Scroll for anchor links ──────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // ─── Lazy Loading for Images ─────────────────────────
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        }, { rootMargin: '50px 0px' });
-
-        document.querySelectorAll('img[data-src]').forEach(function (img) {
-            imageObserver.observe(img);
-        });
-    }
-
-    // ─── Scroll Reveal Animation ─────────────────────────
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.news-card, .timeline-content, .why-feature, .faq-item').forEach(function (el) {
-        el.style.opacity    = '0';
-        el.style.transform  = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
-    });
-
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  });
 })();

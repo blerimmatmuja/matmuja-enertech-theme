@@ -1,28 +1,39 @@
-# M&M EnerTech WordPress Theme
+# M&M EnerTech — v5 "Lichtleiter"
 
-A WordPress theme for M&M EnerTech — end-to-end FTTH (Fiber to the Home) infrastructure. Dark cinematic aesthetic with animated phase canvases and per-phase neon accents.
+Engineering-minimal WordPress theme for the M&M EnerTech FTTH/Tiefbau business.
+Light paper aesthetic, single Geist family, and a scroll-linked SVG fiber
+diagram that traces all 5 process phases as one continuous strand.
+
+**Version:** 5.0.0 · **WordPress:** 6.0+ · **PHP:** 8.0+
+**Live deploy dir on server:** `wp-content/themes/matmuja-enertech-v5`
+**Predecessor (rollback):** `matmuja-enertech-v4` (dark cinematic + 5 canvases)
 
 ## Design
 
-- **Palette:** Background `#060610` · Card `#020408` · Cyan `#00b4ff` · Mint `#00ffcc` (brand gradient). Per-phase: cyan (Planung), orange (Tiefbau), mint (Verlegung), purple (Spleißen), green (Hausanschluss/Ziellinie).
-- **Typography:** Inter (body) + Space Grotesk (display), self-hosted under `assets/fonts/`
-- **Effects:** Cyan-mint gradient on all hero/headline text. Per-phase neon glow around each phase canvas. Pulsing dot badge in eyebrows. Scroll-reveal fade for phase rows.
+- **Palette:** Paper `#f7f8fa` · Card `#ffffff` · Ink `#0a0e1a` · Body `#5b6373` · Brand blue `#0040ff` · Signal orange `#ff6b1a` (sparing).
+- **Typography:** Geist + Geist Mono only — self-hosted under `assets/fonts/`.
+- **Motion:** Tight budget. Reveal fade-up on section entry; one big scroll-linked SVG diagram in §3. Everything collapses to static under `prefers-reduced-motion: reduce`.
 
 ## Homepage sections (`front-page.php`)
 
-1. Hero (radial-gradient dark, centered gradient h1, two pill CTAs)
-2. Mission strip (dark band, gradient text)
-3. FTTH 5-phase timeline — each phase is an alternating row with an animated `<canvas>` (cyan/orange/mint/purple/green)
-4. Proof (darker, 4 gradient stat tiles + client logos)
-5. FAQ (dark cards, cyan plus icon)
-6. CTA strip (dark radial)
-7. Footer (deepest, brand wordmark in gradient)
+1. Hero — eyebrow + ink h1 + two CTAs, line-art fiber cross-section right
+2. Mission strip — slim, big quote in ink, mono attribution
+3. FTTH phase diagram — single SVG fiber path, blue pulse rides along on scroll, 5 stations light up in sequence
+4. Über uns / Team — 2 engineer cards with mono-initial portraits and skill chips
+5. Proof — 4 stat tiles with signal-orange underlines + greyscale client strip
+6. FAQ — `<details>` accordion, hairline dividers, mono +/− toggle
+7. CTA strip — paper bg, ink h2, primary blue button, mono contact line
 
-The 5 FTTH phases are: **Smart Planning → Precision Tiefbau → Kabelverlegung → Spleißen & Messung → Hausanschluss / FTTH**. Each has 4 bullet points of detail visible in the timeline.
+The 5 FTTH phases are: **Planung → Tiefbau → Kabelverlegung → Spleißen & Messung → Hausanschluss**.
 
-## Phase canvases
+## Fiber diagram (`assets/js/fiber-diagram.js`)
 
-`assets/js/phase-canvases.js` (~650 lines) is enqueued only on `is_front_page()` and runs 5 `requestAnimationFrame` loops — one per phase — each drawing a phase-specific animated visualization. The script also wires up an `IntersectionObserver` that adds a `.show` class for the scroll-reveal fade-in.
+~95 lines. Enqueued only on `is_front_page()`. Reads the SVG `<path>`'s
+`getTotalLength()`, listens to scroll via `requestAnimationFrame`, and
+(a) reduces `stroke-dashoffset` to draw the path, (b) places a glowing
+blue circle along the path via `getPointAtLength()`, and (c) toggles
+`.active`/`.passed` on the 5 station markers. Reduced-motion users skip
+the loop entirely; CSS shows all 5 stations lit by default.
 
 ## Customizer
 
