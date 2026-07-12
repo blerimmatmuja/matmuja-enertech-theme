@@ -1,94 +1,67 @@
 /**
- * M&M EnerTech v5 — scroll-linked SVG fiber diagram.
+ * M&M Enfaser v6 — fiber process signature (front page only).
  *
- * Single SVG path traced left-to-right. As the user scrolls past the section,
- * (a) the path is drawn (stroke-dashoffset), (b) a blue pulse dot rides along
- * the path via getPointAtLength(), and (c) the active station gets highlighted
- * and the matching caption fades in.
+ * Places 5 stations exactly on the SVG path (getPointAtLength), wires the
+ * traveling light pulse to the same path via CSS offset-path, lights the path
+ * when it scrolls into view, and links each caption to its station on hover.
  *
- * Reduced-motion users: skip all of the above; CSS handles the static fallback.
+ * Stations are placed regardless of motion preference; CSS gates the draw and
+ * pulse animations under prefers-reduced-motion (see style.css).
  */
 (function () {
   'use strict';
 
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    return;
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    const stage = document.querySelector('[data-fiber-stage]');
-    if (!stage) return;
-    const drawPath = stage.querySelector('[data-fiber-draw]');
-    const pulse = stage.querySelector('[data-fiber-pulse]');
-    const stations = Array.from(stage.querySelectorAll('.fiber-station'));
-    const captions = Array.from(stage.querySelectorAll('.fiber-caption'));
-    if (!drawPath || !pulse || stations.length === 0) return;
+    var path  = document.getElementById('fpath');
+    var draw  = document.getElementById('fdraw');
+    var frame = document.getElementById('fiber');
+    var group = document.getElementById('stations');
+    if (!path || !draw || !frame || !group) return;
 
-    const totalLen = drawPath.getTotalLength();
-    drawPath.style.setProperty('--path-len', totalLen);
-    drawPath.style.strokeDasharray = totalLen;
-    drawPath.style.strokeDashoffset = totalLen;
+    var NS = 'http://www.w3.org/2000/svg';
+    var stationT = [0.05, 0.27, 0.5, 0.73, 0.95];
 
-    stations.forEach(function (g) {
-      const t = parseFloat(g.dataset.stationT || '0');
-      const p = drawPath.getPointAtLength(totalLen * t);
-      g.setAttribute('transform', 'translate(' + p.x + ',' + p.y + ')');
-    });
-
-    let ticking = false;
-    function update() {
-      ticking = false;
-      const rect = stage.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = rect.height + vh;
-      let progress = (vh - rect.top) / total;
-      progress = Math.max(0, Math.min(1, progress));
-
-      const t = Math.max(0, Math.min(1, (progress - 0.2) / 0.6));
-
-      drawPath.style.strokeDashoffset = totalLen * (1 - t);
-
-      const point = drawPath.getPointAtLength(totalLen * t);
-      pulse.setAttribute('cx', point.x);
-      pulse.setAttribute('cy', point.y);
-      pulse.style.opacity = t > 0.001 && t < 0.999 ? 1 : 0;
-
-      let activeIdx = 0;
-      stations.forEach(function (g, i) {
-        const st = parseFloat(g.dataset.stationT || '0');
-        g.classList.remove('active', 'passed');
-        if (t >= st - 0.04 && t <= st + 0.08) {
-          g.classList.add('active');
-          activeIdx = i;
-        } else if (t > st) {
-          g.classList.add('passed');
-        }
-      });
-      if (t >= 0.95) activeIdx = stations.length - 1;
-      captions.forEach(function (c, i) {
-        c.classList.toggle('active', i === activeIdx);
+    function placeStations() {
+      var len = path.getTotalLength();
+      draw.style.setProperty('--len', len);
+      frame.style.setProperty('--ppath', 'path("' + path.getAttribute('d') + '")');
+      group.textContent = '';
+      stationT.forEach(function (t, i) {
+        var p = path.getPointAtLength(t * len);
+        var g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'station');
+        g.setAttribute('data-i', i + 1);
+        var c = document.createElementNS(NS, 'circle');
+        c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', '11');
+        var tx = document.createElementNS(NS, 'text');
+        tx.setAttribute('x', p.x); tx.setAttribute('y', p.y - 26); tx.setAttribute('text-anchor', 'middle');
+        tx.textContent = '0' + (i + 1);
+        g.appendChild(c); g.appendChild(tx); group.appendChild(g);
       });
     }
 
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    }
+    placeStations();
+    window.addEventListener('resize', placeStations, { passive: true });
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function () {
-      const len = drawPath.getTotalLength();
-      drawPath.style.strokeDasharray = len;
-      stations.forEach(function (g) {
-        const t = parseFloat(g.dataset.stationT || '0');
-        const p = drawPath.getPointAtLength(len * t);
-        g.setAttribute('transform', 'translate(' + p.x + ',' + p.y + ')');
+    // Light the path when it enters the viewport.
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { frame.classList.add('lit'); io.disconnect(); }
       });
-      update();
-    });
+    }, { threshold: 0.3 });
+    io.observe(frame);
 
-    update();
+    // Link captions <-> stations on hover/focus.
+    function hot(i, on) {
+      var cap = document.querySelector('.cap[data-i="' + i + '"]');
+      var stn = group.querySelector('.station[data-i="' + i + '"]');
+      if (cap) cap.classList.toggle('hot', on);
+      if (stn) stn.classList.toggle('hot', on);
+    }
+    document.querySelectorAll('.cap').forEach(function (cap) {
+      var i = cap.getAttribute('data-i');
+      cap.addEventListener('mouseenter', function () { hot(i, true); });
+      cap.addEventListener('mouseleave', function () { hot(i, false); });
+    });
   });
 })();

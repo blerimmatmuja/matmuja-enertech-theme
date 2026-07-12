@@ -1,6 +1,6 @@
 <?php
 /**
- * M&M EnerTech v5 - Theme Functions
+ * M&M Enfaser v6 - Theme Functions
  *
  * @package matmuja-tiefbau
  */
@@ -295,10 +295,10 @@ function matmuja_schema_markup() {
         $schema = [
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
-            'name' => 'Matmuja Tiefbau',
-            'description' => 'Professionelles Tiefbauunternehmen mit Spezialisierung auf Glasfaserinfrastruktur',
+            'name' => 'M&M Enfaser',
+            'description' => 'Deutscher FTTH-Tiefbaubetrieb — Glasfaser end-to-end, vom Spaten bis zur Buchse.',
             'url' => home_url('/'),
-            'logo' => get_template_directory_uri() . '/assets/images/logo.png',
+            'logo' => get_template_directory_uri() . '/assets/images/mark.svg',
             'contactPoint' => [
                 '@type' => 'ContactPoint',
                 'telephone' => matmuja_get_option('matmuja_phone', '+49 173 1829 446'),
