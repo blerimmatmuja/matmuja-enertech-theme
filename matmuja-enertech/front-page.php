@@ -26,7 +26,7 @@ $mm = [
     'team_eyebrow' => get_theme_mod( 'mm_team_eyebrow', 'ÜBER UNS' ),
     'team_h2'      => get_theme_mod( 'mm_team_h2',      'Zwei Ingenieure. Eine durchgehende Kette.' ),
     'team_lede'    => get_theme_mod( 'mm_team_lede',    'Ein Bauleiter für den Untergrund, ein Aktivierer für das Signal. Beide Ing. — beide vor Ort.' ),
-    'proof_h2'     => get_theme_mod( 'mm_proof_h2',     'Was wir gebaut haben.' ),
+    'proof_h2'     => get_theme_mod( 'mm_proof_h2',     'Warum M&M Enfaser.' ),
     'faq_h2'       => get_theme_mod( 'mm_faq_h2',       'Häufige Fragen.' ),
     'cta_h2'       => get_theme_mod( 'mm_cta_h2',       'Bereit für den nächsten FTTH-Abschnitt?' ),
     'cta_btn'      => get_theme_mod( 'mm_cta_btn',      'Projekt anfragen' ),
@@ -40,11 +40,12 @@ $phases = [
     5 => [ 'title' => get_theme_mod( 'mm_phase_5_title', 'Hausanschluss' ),      'desc' => get_theme_mod( 'mm_phase_5_desc', 'FTTH-Anschluss bis zur aktiven Buchse. Übergabe an den Endkunden, Abnahmeprotokoll, fertig.' ) ],
 ];
 
+// Pre-launch firm: honest capability/guarantee tiles — no fabricated track record.
 $stats = [
-    [ 'num' => get_theme_mod( 'mm_stat_1_num',   '12+' ),  'unit' => get_theme_mod( 'mm_stat_1_unit', 'JAHRE' ),       'label' => get_theme_mod( 'mm_stat_1_label', 'Tiefbau-Erfahrung' ) ],
-    [ 'num' => get_theme_mod( 'mm_stat_2_num',   '1200' ), 'unit' => get_theme_mod( 'mm_stat_2_unit', 'KM' ),          'label' => get_theme_mod( 'mm_stat_2_label', 'Faser verlegt' ) ],
-    [ 'num' => get_theme_mod( 'mm_stat_3_num',   '150' ),  'unit' => get_theme_mod( 'mm_stat_3_unit', 'PROJEKTE' ),    'label' => get_theme_mod( 'mm_stat_3_label', 'Abgeschlossen' ) ],
-    [ 'num' => get_theme_mod( 'mm_stat_4_num',   'DIN' ),  'unit' => get_theme_mod( 'mm_stat_4_unit', 'ZERTIFIZIERT' ),'label' => get_theme_mod( 'mm_stat_4_label', 'Qualitätsstandard' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_1_num',   '2' ),   'unit' => get_theme_mod( 'mm_stat_1_unit', 'INGENIEURE' ),  'label' => get_theme_mod( 'mm_stat_1_label', 'Beide vor Ort' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_2_num',   '5' ),   'unit' => get_theme_mod( 'mm_stat_2_unit', 'PHASEN' ),      'label' => get_theme_mod( 'mm_stat_2_label', 'Aus einer Hand' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_3_num',   'DIN' ), 'unit' => get_theme_mod( 'mm_stat_3_unit', 'KONFORM' ),     'label' => get_theme_mod( 'mm_stat_3_label', 'Normgerechte Ausführung' ) ],
+    [ 'num' => get_theme_mod( 'mm_stat_4_num',   '0 €' ), 'unit' => get_theme_mod( 'mm_stat_4_unit', 'ERSTBERATUNG' ),'label' => get_theme_mod( 'mm_stat_4_label', 'Vor-Ort-Begehung' ) ],
 ];
 
 $faqs = [
@@ -178,7 +179,7 @@ $faqs = [
 <section class="proof" id="proof">
     <div class="shell">
         <header class="sec-head reveal">
-            <span class="eyebrow">ZAHLEN</span>
+            <span class="eyebrow">UNSER ANSPRUCH</span>
             <h2 class="h2"><?php echo esc_html( $mm['proof_h2'] ); ?></h2>
         </header>
         <div class="stats">
