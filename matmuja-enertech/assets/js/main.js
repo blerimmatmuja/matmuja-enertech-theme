@@ -1,5 +1,5 @@
 /**
- * M&M EnerTech v5 — main script.
+ * M&M Enfaser v6 — main script.
  *
  * Two responsibilities:
  *   1. Mobile nav toggle.
@@ -16,6 +16,21 @@
         const open = nav.classList.toggle('open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+      // Close the mobile menu after tapping a link.
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Sticky-header hairline once the page is scrolled.
+    const header = document.querySelector('.site-header');
+    if (header) {
+      const onScroll = function () { header.classList.toggle('stuck', window.scrollY > 8); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
 
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

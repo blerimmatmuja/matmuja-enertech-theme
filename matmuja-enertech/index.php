@@ -9,7 +9,7 @@ get_header();
 <div class="archive-header">
     <div class="container">
         <h1><?php _e('Aktuelles', 'matmuja-tiefbau'); ?></h1>
-        <p><?php _e('Neuigkeiten und Beiträge von M&M EnerTech', 'matmuja-tiefbau'); ?></p>
+        <p><?php _e('Neuigkeiten und Beiträge von M&M Enfaser', 'matmuja-tiefbau'); ?></p>
     </div>
 </div>
 
