@@ -13,16 +13,16 @@
 get_header();
 
 $mm = [
-    'hero_eyebrow' => get_theme_mod( 'mm_hero_eyebrow', 'FTTH · TIEFBAU BIS BUCHSE' ),
-    'hero_h1'      => get_theme_mod( 'mm_hero_h1',      'Glasfaser bauen wir bis zur letzten Hauswand.' ),
-    'hero_lede'    => get_theme_mod( 'mm_hero_lede',    'M&M Enfaser ist ein deutscher FTTH-Tiefbaubetrieb mit zwei Ingenieuren an der Spitze. Vom Spaten bis zur Buchse — alle fünf Phasen aus einer Hand.' ),
+    'hero_eyebrow' => get_theme_mod( 'mm_hero_eyebrow', 'FTTH · PLANUNG BIS BUCHSE' ),
+    'hero_h1'      => get_theme_mod( 'mm_hero_h1',      'Glasfaser bringen wir bis zur letzten Hauswand.' ),
+    'hero_lede'    => get_theme_mod( 'mm_hero_lede',    'M&M Enfaser ist ein deutscher Dienstleister für Glasfaser- und Telekommunikationsinfrastruktur. Von der Planung bis zur aktiven Buchse — Verlegung, Montage, Spleißen, Messung und Inbetriebnahme aus einer Hand.' ),
     'hero_cta1'    => get_theme_mod( 'mm_hero_cta1_text', 'Projekt anfragen' ),
     'hero_cta1_url'=> get_theme_mod( 'mm_hero_cta1_url',  '#cta' ),
     'hero_cta2'    => get_theme_mod( 'mm_hero_cta2_text', 'Unser Prozess' ),
-    'mission'      => get_theme_mod( 'mm_mission',      'Wir bauen Glasfaser so, dass sie hält — vom ersten Spatenstich bis zum aktiven Anschluss in der Wohnung.' ),
+    'mission'      => get_theme_mod( 'mm_mission',      'Wir bringen Glasfaser sauber ans Ziel — von der Planung bis zum aktiven Anschluss in der Wohnung.' ),
     'phases_eyebrow' => get_theme_mod( 'mm_phases_eyebrow', 'DER PROZESS' ),
-    'phases_h2'    => get_theme_mod( 'mm_phases_h2',    'Vom Spaten bis zur Buchse.' ),
-    'phases_lede'  => get_theme_mod( 'mm_phases_lede',  'Fünf Phasen, eine Verantwortung. Wir übernehmen die gesamte Wertschöpfungskette — und am Ende leuchtet bei Ihnen das Licht.' ),
+    'phases_h2'    => get_theme_mod( 'mm_phases_h2',    'Von der Planung bis zur Buchse.' ),
+    'phases_lede'  => get_theme_mod( 'mm_phases_lede',  'Fünf Phasen, eine Verantwortung — von der Planung bis zum aktiven Anschluss. Und am Ende leuchtet bei Ihnen das Licht.' ),
     'team_eyebrow' => get_theme_mod( 'mm_team_eyebrow', 'ÜBER UNS' ),
     'team_h2'      => get_theme_mod( 'mm_team_h2',      'Zwei Ingenieure. Eine durchgehende Kette.' ),
     'team_lede'    => get_theme_mod( 'mm_team_lede',    'Ein Bauleiter für den Untergrund, ein Aktivierer für das Signal. Beide Ing. — beide vor Ort.' ),
@@ -33,11 +33,11 @@ $mm = [
 ];
 
 $phases = [
-    1 => [ 'title' => get_theme_mod( 'mm_phase_1_title', 'Planung' ),            'desc' => get_theme_mod( 'mm_phase_1_desc', 'GIS-gestützte Trassenplanung mit Netzbetreibern und Stadtwerken — vom Übergabepunkt bis zur Hauswand.' ) ],
-    2 => [ 'title' => get_theme_mod( 'mm_phase_2_title', 'Tiefbau' ),            'desc' => get_theme_mod( 'mm_phase_2_desc', 'Präziser Tiefbau mit minimaler Eingriffstiefe. Microtrenching, klassischer Tiefbau und Pflugverlegung — je nach Untergrund.' ) ],
-    3 => [ 'title' => get_theme_mod( 'mm_phase_3_title', 'Kabelverlegung' ),     'desc' => get_theme_mod( 'mm_phase_3_desc', 'Verlegung der Leerrohre und Einblasen der Faser. Saubere Übergabepunkte, dokumentierte Trassen.' ) ],
+    1 => [ 'title' => get_theme_mod( 'mm_phase_1_title', 'Planung & Koordination' ), 'desc' => get_theme_mod( 'mm_phase_1_desc', 'GIS-gestützte Trassenplanung in Abstimmung mit Netzbetreibern und Partnern — vom Übergabepunkt bis zur Hauswand.' ) ],
+    2 => [ 'title' => get_theme_mod( 'mm_phase_2_title', 'Verlegung' ),           'desc' => get_theme_mod( 'mm_phase_2_desc', 'Leerrohre verlegen und Glasfaser einblasen. Saubere Übergabepunkte, dokumentierte Trassen.' ) ],
+    3 => [ 'title' => get_theme_mod( 'mm_phase_3_title', 'Montage' ),             'desc' => get_theme_mod( 'mm_phase_3_desc', 'Verteiler, Muffen und Hausübergabepunkte fachgerecht montiert — normkonform ausgeführt.' ) ],
     4 => [ 'title' => get_theme_mod( 'mm_phase_4_title', 'Spleißen & Messung' ), 'desc' => get_theme_mod( 'mm_phase_4_desc', 'Spleißarbeiten an Muffe und Hausverteiler. OTDR-Messung dokumentiert jede einzelne Faser.' ) ],
-    5 => [ 'title' => get_theme_mod( 'mm_phase_5_title', 'Hausanschluss' ),      'desc' => get_theme_mod( 'mm_phase_5_desc', 'FTTH-Anschluss bis zur aktiven Buchse. Übergabe an den Endkunden, Abnahmeprotokoll, fertig.' ) ],
+    5 => [ 'title' => get_theme_mod( 'mm_phase_5_title', 'Hausanschluss (APL)' ), 'desc' => get_theme_mod( 'mm_phase_5_desc', 'Installation und Inbetriebnahme bis zur aktiven Buchse. Messung, Abnahmeprotokoll, Dokumentation.' ) ],
 ];
 
 // Pre-launch firm: honest capability/guarantee tiles — no fabricated track record.
@@ -50,7 +50,7 @@ $stats = [
 
 $faqs = [
     [ 'q' => get_theme_mod( 'mm_faq_1_q', 'Übernehmen Sie auch nur einzelne Phasen?' ),
-      'a' => get_theme_mod( 'mm_faq_1_a', 'Ja. Häufig kommen wir für Tiefbau oder Spleißarbeiten dazu — können aber jederzeit den gesamten Anschluss übernehmen, wenn gewünscht.' ) ],
+      'a' => get_theme_mod( 'mm_faq_1_a', 'Ja. Häufig kommen wir für Verlegung, Montage oder Spleißarbeiten dazu — können aber jederzeit den gesamten Glasfaser-Abschnitt übernehmen, wenn gewünscht.' ) ],
     [ 'q' => get_theme_mod( 'mm_faq_2_q', 'In welcher Region arbeiten Sie?' ),
       'a' => get_theme_mod( 'mm_faq_2_a', 'Schwerpunkt Süddeutschland, Projekte auch bundesweit nach Abstimmung.' ) ],
     [ 'q' => get_theme_mod( 'mm_faq_3_q', 'Wer sind Ihre üblichen Auftraggeber?' ),
@@ -72,7 +72,7 @@ $faqs = [
                 <a class="btn btn-ghost" href="#process"><?php echo esc_html( $mm['hero_cta2'] ); ?> <span class="arw" aria-hidden="true">→</span></a>
             </div>
             <div class="hero-meta">
-                <div>Vom<b>Spaten</b></div>
+                <div>Von der<b>Planung</b></div>
                 <div>bis zur<b>Buchse</b></div>
                 <div>Phasen<b>5 / aus einer Hand</b></div>
             </div>
@@ -98,7 +98,7 @@ $faqs = [
                 <circle class="dot-end-core" cx="82" cy="-56" r="3.2"/>
                 <circle class="pulse" r="2.8"/>
             </svg>
-            <figcaption>01 Spaten → 05 Buchse</figcaption>
+            <figcaption>01 Planung → 05 Buchse</figcaption>
         </figure>
     </div>
 </section>
@@ -167,9 +167,9 @@ $faqs = [
             <article class="tcard reveal">
                 <div class="portrait">IM</div>
                 <h3>Ing. Indrit Matmuja</h3>
-                <div class="role">ING. · TIEFBAU / SPLEISSEN</div>
-                <p class="bio">Maschinenbau und Elektrotechnik. Bauleitung, Tiefbau, Spleißarbeiten — der erste Spatenstich ist sein Tisch.</p>
-                <div class="chips"><span>Tiefbau</span><span>Spleißen</span><span>Maschinenbau</span><span>Elektrotechnik</span><span>Bauleitung</span></div>
+                <div class="role">ING. · MONTAGE / SPLEISSEN</div>
+                <p class="bio">Maschinenbau und Elektrotechnik. Montage, Verlegung, Spleißarbeiten — die Ausführung vor Ort ist sein Tisch.</p>
+                <div class="chips"><span>Montage</span><span>Spleißen</span><span>Verlegung</span><span>Elektrotechnik</span><span>Messtechnik</span></div>
             </article>
         </div>
     </div>

@@ -140,7 +140,7 @@ function matmuja_customize_register( $wp_customize ) {
     ] );
     $hero_fields = [
         'matmuja_hero_eyebrow'   => [ 'label' => 'Eyebrow Text',       'default' => 'Die Komplettlösung für Glasfaser', 'sanitize' => 'sanitize_text_field' ],
-        'matmuja_hero_title'     => [ 'label' => 'Hero Title',         'default' => 'Das Tiefbauunternehmen für ihr Glasfaserprojekt', 'sanitize' => 'sanitize_text_field' ],
+        'matmuja_hero_title'     => [ 'label' => 'Hero Title',         'default' => 'Ihr Partner für Ihr Glasfaserprojekt', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_hero_btn_text'  => [ 'label' => 'Button Text',        'default' => 'Kontaktieren Sie uns', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_hero_btn_url'   => [ 'label' => 'Button URL',         'default' => '/kontakt', 'sanitize' => 'esc_url_raw' ],
     ];
@@ -211,8 +211,8 @@ function matmuja_customize_register( $wp_customize ) {
     ] ) );
 
     $intro_fields = [
-        'matmuja_intro_title'    => [ 'label' => 'Intro Title',    'default' => 'Über Matmuja Tiefbau', 'sanitize' => 'sanitize_text_field' ],
-        'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als innovatives Energie- und Tiefbauunternehmen mit Fokus auf zukunftsfähige Glasfaserlösungen unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'sanitize' => 'wp_kses_post' ],
+        'matmuja_intro_title'    => [ 'label' => 'Intro Title',    'default' => 'Über M&M Enfaser', 'sanitize' => 'sanitize_text_field' ],
+        'matmuja_intro_text'     => [ 'label' => 'Intro Text',     'default' => 'Als Dienstleister für Glasfaser- und Telekommunikationsinfrastruktur unterstützen wir Netzbetreiber, Energieversorger und Stadtwerke deutschlandweit bei der Realisierung leistungsstarker Breitbandnetze. Unser Expertenteam kombiniert modernste Technologien mit bewährten Methoden für eine effiziente und zuverlässige Projektumsetzung — von der strategischen Planung bis zur vollständigen Netzwerkaktivierung.', 'sanitize' => 'wp_kses_post' ],
         'matmuja_intro_btn_text' => [ 'label' => 'Button Text',    'default' => 'Kostenlose Beratung', 'sanitize' => 'sanitize_text_field' ],
         'matmuja_intro_btn_url'  => [ 'label' => 'Button URL',     'default' => '/kontakt', 'sanitize' => 'esc_url_raw' ],
     ];
@@ -296,7 +296,7 @@ function matmuja_schema_markup() {
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
             'name' => 'M&M Enfaser',
-            'description' => 'Deutscher FTTH-Tiefbaubetrieb — Glasfaser end-to-end, vom Spaten bis zur Buchse.',
+            'description' => 'Deutscher Dienstleister für Glasfaser- und Telekommunikationsinfrastruktur — von der Planung bis zur aktiven Buchse.',
             'url' => home_url('/'),
             'logo' => get_template_directory_uri() . '/assets/images/mark.svg',
             'contactPoint' => [

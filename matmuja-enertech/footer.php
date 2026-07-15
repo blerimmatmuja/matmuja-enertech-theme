@@ -25,7 +25,7 @@ $linkedin  = get_theme_mod( 'matmuja_linkedin', '' );
                 </svg>
                 <span>M<span class="amp">&amp;</span>M&nbsp;Enfaser</span>
             </div>
-            <p class="tagline">FTTH end-to-end. Vom Spaten bis zur Buchse.</p>
+            <p class="tagline">FTTH end-to-end. Von der Planung bis zur Buchse.</p>
         </div>
         <div class="footer-contact">
             <h4>Kontakt</h4>
@@ -49,7 +49,7 @@ $linkedin  = get_theme_mod( 'matmuja_linkedin', '' );
         </div>
     </div>
     <div class="footer-bottom">
-        <div>© <?php echo esc_html( date( 'Y' ) ); ?> M&amp;M Enfaser · Deutscher FTTH-Tiefbaubetrieb</div>
+        <div>© <?php echo esc_html( date( 'Y' ) ); ?> M&amp;M Enfaser · Glasfaser- &amp; TK-Dienstleister</div>
         <div class="footer-social">
             <?php if ( $instagram && '#' !== $instagram ) : ?>
                 <a href="<?php echo esc_url( $instagram ); ?>" aria-label="Instagram" target="_blank" rel="noopener">

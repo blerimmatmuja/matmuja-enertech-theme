@@ -45,7 +45,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 
     // Hero
     $text( 'mm_hero_headline', 'mm_hero', __( 'Headline', 'matmuja-tiefbau' ), 'Vom Spaten bis zur Buchse.' );
-    $textarea( 'mm_hero_sub', 'mm_hero', __( 'Sub-headline', 'matmuja-tiefbau' ), 'Glasfaserinfrastruktur von A bis Z — Tiefbau, Verlegung, Spleißen, Hausanschluss.' );
+    $textarea( 'mm_hero_sub', 'mm_hero', __( 'Sub-headline', 'matmuja-tiefbau' ), 'Glasfaserinfrastruktur von A bis Z — Planung, Verlegung, Montage, Spleißen, Hausanschluss.' );
     $text( 'mm_hero_cta_primary',     'mm_hero', __( 'Primary CTA label', 'matmuja-tiefbau' ), 'FTTH anfragen' );
     $url(  'mm_hero_cta_primary_url', 'mm_hero', __( 'Primary CTA URL', 'matmuja-tiefbau' ), '#kontakt' );
     $text( 'mm_hero_cta_secondary',     'mm_hero', __( 'Secondary CTA label', 'matmuja-tiefbau' ), '5 Phasen ansehen' );
@@ -53,13 +53,13 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 
     // Mission
     $textarea( 'mm_mission_text', 'mm_mission', __( 'Mission sentence', 'matmuja-tiefbau' ),
-        'Glasfaser komplett aus einer Hand — wir übernehmen jede Phase vom ersten Spatenstich bis zur aktiven Buchse.' );
+        'Glasfaser komplett aus einer Hand — wir übernehmen jede Phase von der Planung bis zur aktiven Buchse.' );
 
     // FTTH phases (5)
     $text( 'mm_ftth_heading', 'mm_ftth', __( 'Section heading', 'matmuja-tiefbau' ), 'In 5 Phasen zum Hausanschluss' );
     $phase_defaults = [
         1 => [ 'Smart Planning & Design',  'GIS-gestützte Trassenplanung mit KI-Optimierung — von der Adressvalidierung bis zur 3D-Visualisierung.',  'Projektplanung starten',  '/stufe-1-projektplanung' ],
-        2 => [ 'Precision Tiefbau',         'GPS-gesteuerte minimalinvasive Verfahren, die Bestandsnetze schonen und Trassen präzise vorbereiten.',     'Tiefbau-Details',         '/stufe-2-tiefbauarbeiten' ],
+        2 => [ 'Verlegung & Montage',       'Leerrohre und Glasfaser fachgerecht verlegt und eingeblasen — Bestandsnetze geschont, Trassen dokumentiert.',  'Verlegung-Details',       '/stufe-2-verlegung' ],
         3 => [ 'Kabelverlegung',            'Mikrorohr-Systeme und Glasfaser-Einblasen mit Schutz für bestehende Infrastruktur.',                       'Verlegung verstehen',     '/stufe-3-kabelverlegung' ],
         4 => [ 'Spleißen & Messung',        'Präzise Faser-zu-Faser-Verbindung, OTDR-Abnahmemessung, dokumentierte Qualitätssicherung.',                'Spleiß-Standards',        '/stufe-4-spleissen' ],
         5 => [ 'Hausanschluss / FTTH',      'Die aktive Buchse beim Endkunden — bereit für Gigabit. Das Ziel der ganzen Reise.',                       'Hausanschluss anfragen',  '/stufe-5-hausanschluss' ],
