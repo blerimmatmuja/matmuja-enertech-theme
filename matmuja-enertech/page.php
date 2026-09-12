@@ -8,7 +8,7 @@ while ( have_posts() ) : the_post();
 ?>
 
 <div class="page-hero">
-    <div class="container">
+    <div class="shell">
         <h1><?php the_title(); ?></h1>
         <?php if ( has_excerpt() ) : ?>
         <p><?php the_excerpt(); ?></p>
@@ -16,7 +16,7 @@ while ( have_posts() ) : the_post();
     </div>
 </div>
 
-<div class="container">
+<div class="shell">
     <div class="page-content">
         <?php if ( has_post_thumbnail() ) : ?>
         <?php the_post_thumbnail('matmuja-hero', ['style' => 'border-radius:16px;margin-bottom:2rem;width:100%;']); ?>
