@@ -37,3 +37,6 @@ npm-debug.log*
 
 # Drift comparison files
 .drift/
+
+# gstack local state
+.gstack/

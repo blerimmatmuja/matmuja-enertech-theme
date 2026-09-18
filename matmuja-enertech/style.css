@@ -3,7 +3,7 @@ Theme Name: M&M Enfaser
 Theme URI: https://www.matmuja.de/
 Author: M&M Enfaser
 Description: Dark, distinctive WordPress theme for M&M Enfaser — a German FTTH civil-engineering firm. Deep-indigo identity with a lavender→violet→gold "light-through-fiber" signature: an animated strand in the hero and a 5-station process path that a light pulse travels from spade to socket. Self-hosted Geist. GDPR-safe.
-Version: 6.0.0
+Version: 6.0.1
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 8.0
@@ -300,6 +300,24 @@ img{max-width:100%;height:auto}
 .footer-social a{color:var(--muted);transition:color .2s}
 .footer-social a:hover{color:var(--gold)}
 @media(max-width:760px){.site-footer .shell{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+
+/* ============ PLAIN PAGES (page.php — Impressum, Datenschutz) ============ */
+.page-hero{padding-block:clamp(3rem,7vw,5rem) clamp(1.5rem,3vw,2.2rem);border-bottom:1px solid var(--line)}
+.page-hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.page-hero p{margin-top:.8rem;color:var(--muted)}
+.page-content{max-width:72ch;padding-block:clamp(2rem,5vw,3.5rem) var(--sec);color:var(--paper)}
+.page-content h2{font-size:clamp(1.3rem,2.4vw,1.6rem);margin:2.8rem 0 .9rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.page-content h2:first-child{margin-top:0;padding-top:0;border-top:0}
+.page-content h3{font-size:1.08rem;margin:1.8rem 0 .6rem;color:var(--lav)}
+.page-content p,.page-content ul,.page-content ol{margin:0 0 1rem;color:#CFCAE6}
+.page-content ul,.page-content ol{padding-left:1.25rem}
+.page-content li{margin-bottom:.35rem}
+.page-content li::marker{color:var(--violet)}
+.page-content strong{color:var(--paper);font-weight:600}
+.page-content a{color:var(--lav);text-decoration:underline;text-decoration-color:rgba(179,166,247,.4);text-underline-offset:3px;overflow-wrap:anywhere}
+.page-content a:hover{color:var(--gold);text-decoration-color:currentColor}
+.page-content address{font-style:normal}
+.page-content .legal-meta{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--faint);margin-top:2.5rem}
 
 /* ============ REVEAL ON SCROLL (main.js toggles .in) ============ */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}

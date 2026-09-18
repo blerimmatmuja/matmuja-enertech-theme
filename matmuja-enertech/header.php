@@ -16,6 +16,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<?php $mm_anchor = is_front_page() ? '#' : home_url( '/#' ); // section anchors live on the front page ?>
 <header class="site-header" role="banner">
     <div class="shell">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="wordmark" rel="home" aria-label="M&amp;M Enfaser — Startseite">
@@ -52,13 +53,13 @@
                 ] );
             } else {
                 ?>
-                <a href="#process">Prozess</a>
-                <a href="#team">Über uns</a>
-                <a href="#faq">FAQ</a>
+                <a href="<?php echo esc_attr( $mm_anchor ); ?>process">Prozess</a>
+                <a href="<?php echo esc_attr( $mm_anchor ); ?>team">Über uns</a>
+                <a href="<?php echo esc_attr( $mm_anchor ); ?>faq">FAQ</a>
                 <?php
             }
             ?>
-            <a class="nav-cta" href="#cta">Kontakt&nbsp;→</a>
+            <a class="nav-cta" href="<?php echo esc_attr( $mm_anchor ); ?>cta">Kontakt&nbsp;→</a>
         </nav>
     </div>
 </header>

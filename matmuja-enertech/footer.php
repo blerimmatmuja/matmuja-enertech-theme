@@ -44,7 +44,7 @@ $linkedin  = get_theme_mod( 'matmuja_linkedin', '' );
             <ul>
                 <li><a href="<?php echo esc_url( home_url( '/impressum' ) ); ?>">Impressum</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/datenschutz' ) ); ?>">Datenschutz</a></li>
-                <li><a href="#cta">Kontakt</a></li>
+                <li><a href="<?php echo esc_attr( is_front_page() ? '#cta' : home_url( '/#cta' ) ); ?>">Kontakt</a></li>
             </ul>
         </div>
     </div>
